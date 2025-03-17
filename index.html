@@ -5,9 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz4Teens - Login Page</title>
     
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.icons8.com/icons8.css">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee+Inline&family=Bungee+Shade&family=Luckiest+Guy&family=Pacifico&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="CSS/styles.css">
 
@@ -23,13 +26,21 @@
         <h2>To Quiz4Teens</h2>
 
         <div class="form-login">
+            <h3>Sign in to Start</h3>
             <form id="quiz-login" action="">
-                <label for="username"> Hiya, what's your Name:</label>
-                <input type="text" id="username" name="username" required>
+                <div class="input-group">
+                    <label for="username"> Hiya, what's your Name:</label>
+                    <span> <i class="bi bi-person-bounding-box"></i> </span>
+                    <input type="text" id="username" name="username" placeholder="Isabela" required>
+                </div>    
 
-                <label for="email">What's your Email:</label>
-                <input type="email" id="useremail" name="email" required>
-
+                <div class="input-group">
+                    <label for="email">What's your Email:</label>
+                    <span>
+                        <img src="IMAGES/email.svg" alt="">
+                        </span>
+                    <input type="email" id="useremail" name="email" placeholder="isabela@gmail.com" required>
+                </div>
                 <button type="submit">Let's Start</button>
             </form>
         </div>

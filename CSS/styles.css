@@ -53,17 +53,75 @@ h2{
 }
 
 .form-login{
-    background: rgba(214, 246, 255, 0.3);
+    background: rgba(214, 246, 255, 0.6);
     justify-content: center;
     align-items: center;
     text-align: center;
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-radius: 10px;
+    width: 100%;
+}
+
+.form-login h3{
+    background-color: transparent;
+    font-size: 1.2rem;
 }
 
 form{
     display: flex;
     flex-direction: column;
-    width: 95%;
+    width: 100%;
     justify-content: center;
     /* align-items: center; */
     background-color: transparent;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding-bottom: 1rem;
+    /* background: rgba(214, 246, 255, 0.6); */
+}
+
+.input-group{
+   position: relative;
+   margin-bottom: 1rem;
+   text-align: left;
+   background-color: transparent;
+}
+
+.input-group label{
+    display: block;
+    margin-bottom: 0.3rem;
+    background: transparent;
+}
+
+.input-group input{
+    width: calc(100%-30px);
+    padding: 0.7rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding-left: 1.5rem;
+}
+
+.input-group img{
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    background-color: transparent;
+}
+
+.input-group span{
+    background-color: transparent;
+
+}
+
+button{
+    background-color: #FF6F00;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 2rem;
+    cursor: pointer;
+    font-family: 'bungee inline', cursive;
+    width: 60%;
 }
