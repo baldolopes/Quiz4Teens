@@ -2,6 +2,7 @@
     font-family: Arial, Helvetica, sans-serif;
     background-color: #f4f4f4;
     margin: 0;
+    box-sizing: border-box;
 }
 
 body{
@@ -9,7 +10,7 @@ body{
     justify-content: center;
     align-items: center;
     background: linear-gradient(135deg, #00FF6A, #007FFF, #FFFF00);
-    height: 100vh;
+    min-height: 100vh;
     margin: 0;
 }
 
@@ -24,15 +25,33 @@ body{
 }
 
 .date-time{
+    text-align: center;
     margin-bottom: 1rem;
-    font-size: 1.2rem;
-    font-weight: bold;
     margin-bottom: 0.7rem;
+    color: #333;
+    background-color: transparent;
+    border-radius: 10pxpx;
+    margin-bottom: 2rem;
 }
 
-.time, .date{
+.date-time p{
+    margin: 0.2rem 0;
+    font-weight: bold;
+    background-color: transparent;
+    padding: 0.2rem;
+}
 
-}  
+#current-time{
+    background-color: transparent;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+#current-date{
+    background-color: transparent;
+    text-align: center;
+    font-size: 1rem;
+}
 
 h1{
     font-size: 3rem;
@@ -54,7 +73,6 @@ h2{
 
 .form-login{
     background: rgba(214, 246, 255, 0.6);
-    justify-content: center;
     align-items: center;
     text-align: center;
     margin-top: 2rem;
@@ -73,13 +91,12 @@ form{
     flex-direction: column;
     width: 100%;
     justify-content: center;
-    /* align-items: center; */
+    align-items: center;
     background-color: transparent;
     align-items: center;
     justify-content: center;
     text-align: center;
     padding-bottom: 1rem;
-    /* background: rgba(214, 246, 255, 0.6); */
 }
 
 .input-group{
@@ -87,41 +104,53 @@ form{
    margin-bottom: 1rem;
    text-align: left;
    background-color: transparent;
+   width: 90%;
 }
 
 .input-group label{
     display: block;
     margin-bottom: 0.3rem;
+    margin-left: 3rem;
+    margin-top: 1rem;
     background: transparent;
 }
 
 .input-group input{
-    width: calc(100%-30px);
+    width: calc(100%-10px);
     padding: 0.7rem;
     border: 1px solid #ddd;
     border-radius: 5px;
-    padding-left: 1.5rem;
+    font-size: 1rem;
+    color: #333;
 }
 
-.input-group img{
+.input-group .material-icons,
+.input-group .material-symbols-outlined {
     align-items: center;
     justify-content: center;
-    width: 2rem;
-    background-color: transparent;
+    margin-right: 5px;
+    color: #292929;
+    vertical-align: middle;
+    font-size: 2rem;
 }
 
 .input-group span{
-    background-color: transparent;
+    background: transparent;
+}
 
+input::placeholder{
+    color: #999;
+    font-style: italic;
+    font-size: 0.9rem;
 }
 
 button{
     background-color: #FF6F00;
-    color: white;
     border: none;
     border-radius: 5px;
     font-size: 2rem;
     cursor: pointer;
     font-family: 'bungee inline', cursive;
     width: 60%;
+    margin-top: 1rem;
 }
