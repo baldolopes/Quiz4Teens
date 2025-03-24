@@ -17,11 +17,9 @@
         return "";
     }
 
-    // Get username and email from cookies
+    // Get username from cookies
     const username = getCookie('username');
-    const useremail = getCookie('useremail');
 
-    // Display username and email in the HTML
+    // Display username in the HTML
     document.getElementById('usernameDisplay').textContent = username;
-    document.getElementById('useremailDisplay').textContent = useremail;
 })();
