@@ -1,5 +1,6 @@
+// Self-invoking anonymous function to avoid variable scope collisions.
 (function() {
-    // Función para obtener una cookie por nombre
+    // Function to get cookie by name
     function getCookie(name) {
         const cookieName = name + "=";
         const decodedCookie = decodeURIComponent(document.cookie);
@@ -17,15 +18,14 @@
         return "";
     }
 
-    // Obtener el nombre de usuario de las cookies
+    // Get username from cookies
     const username = getCookie('username');
 
-    // Mostrar el nombre de usuario en el HTML
+    // Display username in the HTML
     document.getElementById('usernameDisplay').textContent = username;
 
-    // Datos del Quiz (preguntas y respuestas)
-    const quizData = [
-        {
+    // Quiz Data (Questions and Answers)
+    const quizData = [{
             question: "What is the result of 5 multiplied by 7?",
             options: ["a) 30", "b) 35", "c) 42", "d) 45"],
             correctAnswer: "b) 35"
@@ -50,29 +50,31 @@
             options: ["a) 10", "b) 15", "c) 20", "d) 25"],
             correctAnswer: "d) 25"
         }
-        // Agrega más preguntas aquí
+        // Add more questions here
     ];
 
     let currentQuestion = 0;
     let correctAnswers = 0;
     let incorrectAnswers = 0;
 
-    // Función para mostrar la pregunta actual
+    // Show Current Question
     function showQuestion() {
         const questionData = quizData[currentQuestion];
         const questionContainer = document.getElementById('question-container');
 
-        // Limpiar el contenido anterior
+        // clear previous content
         questionContainer.innerHTML = '';
 
-        // Crear el elemento de la pregunta
+        // show the actual question on HTML
         const questionElement = document.createElement('h2');
         questionElement.textContent = `Question ${currentQuestion + 1}: ${questionData.question}`;
+        questionElement.classList.add('question-text'); // Add the class for styling
         questionContainer.appendChild(questionElement);
 
-        // Crear las opciones como botones de radio
+        // Create the options as radio buttons
         questionData.options.forEach(option => {
             const optionElement = document.createElement('div');
+            optionElement.classList.add('option'); // Add the class for styling
             optionElement.innerHTML = `
                 <label>
                     <input type="radio" name="answer" value="${option}">
@@ -80,16 +82,19 @@
                 </label>
             `;
             questionContainer.appendChild(optionElement);
+
+            
         });
 
-        // Crear el botón para enviar la respuesta
+        // Create the submit button
         const submitButton = document.createElement('button');
         submitButton.textContent = 'Submit Answer';
+        submitButton.classList.add('submit-button'); // Add the class for styling
         submitButton.addEventListener('click', checkAnswer);
         questionContainer.appendChild(submitButton);
     }
 
-    // Función para verificar la respuesta seleccionada
+    // Verify the answer
     function checkAnswer() {
         const selectedOption = document.querySelector('input[name="answer"]:checked');
 
@@ -111,43 +116,69 @@
             incorrectAnswers++;
         }
 
-        // Actualizar los marcadores
+        // Update the score
         updateScore();
 
-        // Actualizar la barra de progreso
-        updateProgress();
 
-        // Pasar a la siguiente pregunta o finalizar el quiz
+        // Move to the next question or finish the quiz
         currentQuestion++;
         if (currentQuestion < quizData.length) {
+
+            // Update the progress bar
+            updateProgress();
+
             showQuestion();
         } else {
+            // Update the progress bar
+            updateProgress();
             showResults();
         }
     }
 
-    // Función para actualizar los marcadores (correctas e incorrectas)
+    // Update the data for right/wrong answers
     function updateScore() {
         document.getElementById('correctAnswers').textContent = correctAnswers;
         document.getElementById('incorrectAnswers').textContent = incorrectAnswers;
     }
 
-    // Función para actualizar la barra de progreso
+    // Add functionality to the progress bar
     function updateProgress() {
-        const progress = ((currentQuestion + 1) / quizData.length) * 100;
+        const progress = ((currentQuestion) / quizData.length) * 100;
         document.querySelector('.progress-value').style.width = `${progress}%`;
         document.querySelector('.progress-value').textContent = `${progress}% completed`;
     }
 
-    // Función para mostrar los resultados finales
+    // Create the feedback to be provided by the page when the users are done
     function showResults() {
         const questionContainer = document.getElementById('question-container');
         const feedbackContainer = document.getElementById('feedback-container');
+        let message;
+        let messageClass = '';// Creating a class for results
 
-        questionContainer.innerHTML = `<h2>Quiz Completed!</h2><p>You got ${correctAnswers} correct and ${incorrectAnswers} incorrect.</p>`;
-        feedbackContainer.textContent = '';
+        if (correctAnswers >= 3) {
+            message = "Congratulations! You passed the quiz!";
+            messageClass = 'pass-message';
+        } else {
+            message = "Sorry, you failed the quiz.";
+            messageClass = 'fail-message';
+        }
+
+        feedbackContainer.textContent = ''; // clean feedback
+
+        // Create a container for the button
+        let backToQuizzesButton = `<div class="results-button"><button onclick="window.location.href='quizzes.html'">Back to Quizzes</button></div>`;
+        let displayResults = `<p class="quiz-completion-tag ${messageClass}">${message}</p>`; // adding styles
+
+        questionContainer.innerHTML = `<h2>Quiz Completed!</h2><p>You got ${correctAnswers} correct and ${incorrectAnswers} incorrect.</p>${displayResults}${backToQuizzesButton}`;
+        feedbackContainer.style.backgroundColor = 'transparent';// background = transparent
+        feedbackContainer.style.border = '0px';
+        feedbackContainer.style.padding = '0px';// paddings = 0
+        
+        const quizContainer = document.querySelector('.quiz-container'); // Select the main quiz container
+        quizContainer.appendChild(feedbackContainer);
+
     }
-
-    // Inicializar el quiz al cargar la página
+    // Start with a 0% completed
+    updateProgress();
     window.onload = showQuestion;
 })();

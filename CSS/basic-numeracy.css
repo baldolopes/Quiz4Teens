@@ -26,6 +26,7 @@ body {
     padding: 20px;
     border-radius: 10px;
     margin-bottom: 20px;
+    text-align: center; // Added to center the section
 }
 
 h1 {
@@ -58,7 +59,7 @@ h1 {
 
 .progress-value {
     display: block;
-    width: 20%; /* Valor inicial, se actualizará con JavaScript */
+    width: 0%; /* Inicializando el valor de la barra en 0% */
     height: 100%;
     background-color: #e67e22;
     color: white;
@@ -66,20 +67,109 @@ h1 {
     line-height: 20px;
 }
 
+/* Style added for question-container in a specific way */
 #question-container {
     margin-bottom: 20px;
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 10px;
-    text-align: left;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+// Style removed for the h2
+#question-container h2 {
+    border: none
 }
 
 #feedback-container {
     margin-top: 20px;
     padding: 10px;
-    border: 1px solid #ccc;
+    /* border: 1px solid #ccc; */
     border-radius: 5px;
     text-align: center;
 }
 
-/* Estilos para las preguntas y opciones (se agregarán con JavaScript) */
+/* Styles for the questions and options */
+
+.question-text {
+    font-size: 1.5em;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.option {
+    font-size: 1.2em;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.option label {
+    cursor: pointer;
+    display: block;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.option label:hover {
+    background-color: #f0f0f0;
+}
+
+.option input[type="radio"] {
+    margin-right: 10px;
+}
+
+.submit-button {
+    background-color: #3498db;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 1.2em;
+}
+
+.submit-button:hover {
+    background-color: #2980b9;
+}
+
+/* Styles for the results button */
+.results-button{
+    display: flex;
+    justify-content: center;
+}
+
+.results-button button {
+    background-color: #64B5F6; /* Light blue */
+    color: #fff;
+    padding: 12px 24px; /* Slightly larger padding */
+    border: none;
+    border-radius: 8px; /* Softer edges */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition */
+    font-size: 1.3em; /* A bit larger */
+    text-align: center;
+    margin-top: 20px; /* Add some space between the text and the button */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Slight shadow for depth */
+}
+
+.results-button button:hover {
+    background-color: #42A5F5; /* Slightly darker blue */
+    transform: translateY(-2px); /* Lift the button a bit on hover */
+}
+
+/* Styles for feedback message */
+#question-container p{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#question-container p.quiz-completion-tag{
+        font-size: 2rem;
+    color: cadetblue; // Styles for the message
+}
