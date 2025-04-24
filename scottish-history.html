@@ -3,9 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Scottish History Quiz (Dynamic)</title> <!-- Changed title slightly -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee+Inline&family=Bungee+Shade&family=Luckiest+Guy&family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="CSS/scottish-history.css">
 </head>
 <body>
-    
+
+    <div class="quiz-container">
+        <div class="top-section">
+            <h1><span id="usernameDisplay">Guest</span>, Scottish History Quiz</h1>
+            <div class="score-container">
+                <!-- Score will be shown in results -->
+            </div>
+            <div class="progress-container">
+                Your Progress: <div class="progress-bar"><span class="progress-value">0% completed</span></div>
+            </div>
+        </div>
+
+        <!-- Container for dynamic quiz content -->
+        <div id="quiz-content">
+             <div id="instructions">
+                 <p>Below the questions, you will find a list of words or phrases related to the answers. Drag each word or phrase from the word bank to the box next to the question it answers. Fill all boxes, then click "Submit" to see your results.</p>
+             </div>
+
+             <div id="question-container">
+                 <!-- Questions will be generated here by JS -->
+                 <ol id="question-list"></ol> <!-- EMPTIED LIST WITH ID -->
+             </div>
+
+             <div id="word-bank-container">
+                 <p>Word Bank (Drag these to the boxes above):</p>
+                 <!-- Draggable items will be generated here by JS -->
+                 <div id="word-bank"></div> <!-- EMPTIED DIV -->
+             </div>
+
+             <div class="submission-area">
+                  <button id="submit-button">Submit Answers</button>
+                  <div id="validation-message" class="validation-error"></div>
+             </div>
+        </div> <!-- End of quiz-content -->
+
+         <!-- Container for results -->
+         <div id="results-container" style="display: none;">
+              <!-- Results will be populated here by JS -->
+         </div>
+
+    </div> <!-- End of quiz-container -->
+
+    <script src="JS/scottish-history.js"></script>
 </body>
 </html>

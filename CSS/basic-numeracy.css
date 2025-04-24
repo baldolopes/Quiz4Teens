@@ -1,3 +1,51 @@
+/* --- Style for the validation warning message --- */
+.validation-error {
+    color: #d9534f; /* Bootstrap's danger color (a nice red) */
+    font-weight: bold;
+    margin-top: 10px;    /* Space above the submit button */
+    margin-bottom: 10px; /* Space below the message */
+    min-height: 1.2em;   /* Prevent layout shift when message appears/disappears */
+    text-align: center;
+}
+
+/* --- Optional: Add spacing around options --- */
+.options-container {
+    margin-bottom: 15px; /* Space between options and validation/button */
+    display: flex;       /* Optional: Use flexbox for option layout */
+    flex-direction: column;
+    align-items: stretch; /* Make labels stretch */
+}
+
+/* --- Ensure feedback container has consistent spacing --- */
+#feedback-container {
+    margin-top: 15px;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+    min-height: 1.5em; /* Prevent layout jump */
+    /* border: 1px solid transparent; /* Keep space even when empty - Re-added in JS now */
+}
+
+/* --- Style for disabled submit button --- */
+.submit-button:disabled {
+    background-color: #ccc; /* Grey out */
+    cursor: not-allowed;   /* Indicate it's not clickable */
+    opacity: 0.7;         /* Slightly faded */
+}
+
+/* --- Styles for Pass/Fail messages on results screen (using classes from JS) --- */
+.pass-message {
+    color: #28a745; /* Green for success */
+    font-weight: bold;
+}
+
+.fail-message {
+    color: #dc3545; /* Red for failure */
+    font-weight: bold;
+}
+
+/* --- Basic existing styles (ensure they are present) --- */
 body {
     font-family: sans-serif;
     background-color: #f0f0f0;
@@ -8,6 +56,7 @@ body {
     min-height: 100vh;
     margin: 0;
     padding: 20px;
+    box-sizing: border-box; /* Include padding in element's total width/height */
 }
 
 .quiz-container {
@@ -26,150 +75,156 @@ body {
     padding: 20px;
     border-radius: 10px;
     margin-bottom: 20px;
-    text-align: center; // Added to center the section
+    text-align: center;
 }
 
 h1 {
     font-size: 2em;
     color: #333;
-    margin-bottom: 10px;
+    margin-top: 0; /* Remove default top margin */
+    margin-bottom: 15px; /* Increased bottom margin */
     font-family: 'Pacifico', cursive;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .score-container {
-    font-size: 1.2em;
-    color: #555;
+    font-size: 1.1em; /* Slightly smaller */
+    color: #444; /* Darker gray */
     margin-bottom: 10px;
 }
 
 .progress-container {
-    font-size: 1.2em;
-    color: #555;
-    margin-bottom: 20px;
+    font-size: 1.1em; /* Slightly smaller */
+    color: #444;
+    margin-bottom: 15px; /* Reduced margin */
 }
 
 .progress-bar {
     width: 100%;
     height: 20px;
-    background-color: #ddd;
+    background-color: #e9ecef; /* Lighter gray */
     border-radius: 10px;
     overflow: hidden;
+    margin-top: 5px; /* Add space above bar */
 }
 
 .progress-value {
     display: block;
-    width: 0%; /* Inicializando el valor de la barra en 0% */
+    width: 0%; /* Initial value */
     height: 100%;
-    background-color: #e67e22;
+    background-color: #e67e22; /* Orange */
     color: white;
     text-align: center;
-    line-height: 20px;
+    line-height: 20px; /* Vertically center text */
+    font-size: 0.9em; /* Smaller text inside bar */
+    transition: width 0.5s ease-in-out; /* Smooth progress animation */
 }
 
-/* Style added for question-container in a specific way */
 #question-container {
     margin-bottom: 20px;
     padding: 20px;
-    border: 1px solid #ccc;
+    border: 1px solid #ced4da; /* Lighter border */
     border-radius: 10px;
-    text-align: center;
+    text-align: left; /* Align question text left */
     display: flex;
     flex-direction: column;
 }
 
-// Style removed for the h2
-#question-container h2 {
-    border: none
-}
-
-#feedback-container {
-    margin-top: 20px;
-    padding: 10px;
-    /* border: 1px solid #ccc; */
-    border-radius: 5px;
-    text-align: center;
-}
-
-/* Styles for the questions and options */
-
-.question-text {
-    font-size: 1.5em;
+.question-text { /* Target class instead of h2 directly */
+    font-size: 1.4em; /* Slightly smaller */
     color: #333;
-    margin-bottom: 15px;
+    margin-bottom: 20px; /* More space below question */
+    text-align: center; /* Center question text */
 }
 
 .option {
-    font-size: 1.2em;
+    font-size: 1.1em; /* Slightly smaller */
     color: #555;
-    margin-bottom: 10px;
+    margin-bottom: 8px; /* Smaller gap between options */
 }
 
 .option label {
     cursor: pointer;
-    display: block;
-    padding: 10px;
+    display: block; /* Full width clickable */
+    padding: 12px 15px; /* More padding */
     border: 1px solid #ddd;
     border-radius: 5px;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.2s ease, border-color 0.2s ease; /* Smoother hover */
+    background-color: #f8f9fa; /* Very light grey background */
 }
 
 .option label:hover {
-    background-color: #f0f0f0;
+    background-color: #e9ecef; /* Slightly darker hover */
+    border-color: #bbb;
 }
 
 .option input[type="radio"] {
-    margin-right: 10px;
+    margin-right: 12px; /* More space after radio */
+    vertical-align: middle; /* Align radio with text */
 }
 
 .submit-button {
-    background-color: #3498db;
+    background-color: #3498db; /* Blue */
     color: #fff;
-    padding: 10px 20px;
+    padding: 12px 25px; /* Bigger button */
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.1s ease;
     font-size: 1.2em;
+    margin-top: 15px; /* Space above button */
+    align-self: center; /* Center button within flex container */
 }
 
-.submit-button:hover {
-    background-color: #2980b9;
+.submit-button:hover:not(:disabled) { /* Only apply hover if not disabled */
+    background-color: #2980b9; /* Darker blue */
+    transform: scale(1.02); /* Slight scale effect */
 }
 
-/* Styles for the results button */
-.results-button{
+.results-button {
     display: flex;
     justify-content: center;
+    margin-top: 25px; /* More space above results button */
 }
 
 .results-button button {
     background-color: #64B5F6; /* Light blue */
     color: #fff;
-    padding: 12px 24px; /* Slightly larger padding */
+    padding: 12px 24px;
     border: none;
-    border-radius: 8px; /* Softer edges */
+    border-radius: 8px;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition */
-    font-size: 1.3em; /* A bit larger */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-size: 1.2em; /* Adjusted size */
     text-align: center;
-    margin-top: 20px; /* Add some space between the text and the button */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Slight shadow for depth */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 .results-button button:hover {
     background-color: #42A5F5; /* Slightly darker blue */
-    transform: translateY(-2px); /* Lift the button a bit on hover */
+    transform: translateY(-2px);
 }
 
-/* Styles for feedback message */
-#question-container p{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+#question-container h2 { /* Style results heading */
+    text-align: center;
+    margin-bottom: 15px;
 }
 
-#question-container p.quiz-completion-tag{
-        font-size: 2rem;
-    color: cadetblue; // Styles for the message
+#question-container p { /* Style results text */
+    text-align: center;
+    font-size: 1.1em;
+    margin-bottom: 10px;
+}
+
+#question-container p.quiz-completion-tag { /* Style pass/fail message */
+    font-size: 1.5em; /* Larger pass/fail message */
+    margin-top: 15px;
+    margin-bottom: 20px;
+    /* color is set by pass-message/fail-message classes */
+}
+
+/* --- Add Styles for User Name Display --- */
+#usernameDisplay {
+    font-weight: bold; /* Make username stand out */
+    color: #e67e22;    /* Match progress bar color maybe? */
 }

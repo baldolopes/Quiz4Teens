@@ -21,8 +21,13 @@
     // Get username from cookies
     const username = getCookie('username');
 
-    // Display username in the HTML
-    document.getElementById('usernameDisplay').textContent = username;
+    // Display username in the HTML, handle if element doesn't exist or username is empty
+    const usernameDisplayElement = document.getElementById('usernameDisplay');
+    if (usernameDisplayElement) {
+        usernameDisplayElement.textContent = username || 'Guest'; // Show 'Guest' if no username
+    } else {
+        console.warn("Element with ID 'usernameDisplay' not found.");
+    }
 
     // Quiz Data (Questions and Answers)
     const quizData = [{
@@ -61,30 +66,54 @@
     function showQuestion() {
         const questionData = quizData[currentQuestion];
         const questionContainer = document.getElementById('question-container');
+        const feedbackContainer = document.getElementById('feedback-container'); // Get feedback container
 
-        // clear previous content
+        // Check if containers exist
+        if (!questionContainer) {
+            console.error("Element with ID 'question-container' not found. Cannot display question.");
+            return;
+        }
+        if (feedbackContainer) { // Clear previous feedback if container exists
+             feedbackContainer.textContent = '';
+             feedbackContainer.style.backgroundColor = 'transparent';
+             feedbackContainer.style.border = '0px';
+             feedbackContainer.style.padding = '0px';
+        }
+
+
+        // Clear previous content
         questionContainer.innerHTML = '';
 
-        // show the actual question on HTML
+        // Show the actual question in HTML
         const questionElement = document.createElement('h2');
         questionElement.textContent = `Question ${currentQuestion + 1}: ${questionData.question}`;
         questionElement.classList.add('question-text'); // Add the class for styling
         questionContainer.appendChild(questionElement);
 
+        // Create a container for the options
+        const optionsContainer = document.createElement('div');
+        optionsContainer.classList.add('options-container'); // Add class for styling options block
+
         // Create the options as radio buttons
         questionData.options.forEach(option => {
             const optionElement = document.createElement('div');
-            optionElement.classList.add('option'); // Add the class for styling
+            optionElement.classList.add('option'); // Add the class for styling each option
             optionElement.innerHTML = `
                 <label>
                     <input type="radio" name="answer" value="${option}">
                     ${option}
                 </label>
             `;
-            questionContainer.appendChild(optionElement);
-
-            
+            optionsContainer.appendChild(optionElement);
         });
+        questionContainer.appendChild(optionsContainer); // Add options container to question container
+
+        // --- START: Add element for validation message ---
+        const validationMessageElement = document.createElement('div');
+        validationMessageElement.id = 'validation-message'; // Give it an ID
+        validationMessageElement.classList.add('validation-error'); // Add a class for styling
+        questionContainer.appendChild(validationMessageElement);
+        // --- END: Add element for validation message ---
 
         // Create the submit button
         const submitButton = document.createElement('button');
@@ -97,88 +126,173 @@
     // Verify the answer
     function checkAnswer() {
         const selectedOption = document.querySelector('input[name="answer"]:checked');
-
-        if (!selectedOption) {
-            alert('Please select an answer');
-            return;
-        }
-
-        const answer = selectedOption.value;
         const feedbackContainer = document.getElementById('feedback-container');
+        const validationMsgElement = document.getElementById('validation-message'); // Get validation message element
 
-        if (answer === quizData[currentQuestion].correctAnswer) {
-            feedbackContainer.textContent = 'You\'re a genius! That\'s Right.';
-            feedbackContainer.style.backgroundColor = '#00FF6A';
-            correctAnswers++;
-        } else {
-            feedbackContainer.textContent = 'Not quite! Try Again!';
-            feedbackContainer.style.backgroundColor = '#FF6F00';
-            incorrectAnswers++;
+        // --- START: Clear previous messages and check selection ---
+        // Clear previous validation message
+        if (validationMsgElement) {
+             validationMsgElement.textContent = '';
+        }
+        // Clear previous feedback message
+        if (feedbackContainer) {
+             feedbackContainer.textContent = '';
+             feedbackContainer.style.backgroundColor = 'transparent';
+             feedbackContainer.style.border = '0px';
+             feedbackContainer.style.padding = '0px';
         }
 
-        // Update the score
+        // Check if an option was selected
+        if (!selectedOption) {
+            // Display message in the dedicated element instead of alert
+            if (validationMsgElement) {
+                validationMsgElement.textContent = 'Please select an answer before submitting.';
+            } else {
+                 // Fallback if the validation element wasn't found
+                 console.error("Element with ID 'validation-message' not found.");
+                 alert('Please select an answer before submitting.'); // Keep alert as fallback
+            }
+            return; // Stop execution if no answer is selected
+        }
+        // --- END: Clear previous messages and check selection ---
+
+        // If an option was selected, proceed
+        const answer = selectedOption.value;
+
+        // Display feedback
+        if (feedbackContainer) {
+            if (answer === quizData[currentQuestion].correctAnswer) {
+                feedbackContainer.textContent = "Correct! Well done."; // Adjusted feedback
+                feedbackContainer.style.backgroundColor = '#00FF6A'; // Green for correct
+                correctAnswers++;
+            } else {
+                // Show the correct answer in feedback for incorrect ones
+                feedbackContainer.textContent = `Incorrect. The correct answer was: ${quizData[currentQuestion].correctAnswer}`;
+                feedbackContainer.style.backgroundColor = '#FF6F00'; // Orange/Red for incorrect
+                incorrectAnswers++;
+            }
+            // Apply consistent styling for feedback visibility
+            feedbackContainer.style.border = '1px solid #ccc';
+            feedbackContainer.style.padding = '10px';
+        } else {
+            // Handle case where feedback container doesn't exist, maybe just log score changes
+            console.warn("Element with ID 'feedback-container' not found. Feedback not displayed.");
+             if (answer === quizData[currentQuestion].correctAnswer) {
+                correctAnswers++;
+            } else {
+                incorrectAnswers++;
+            }
+        }
+
+        // Update the score display
         updateScore();
 
+        // Disable options and button after submitting to prevent changes/resubmits
+        document.querySelectorAll('input[name="answer"]').forEach(input => input.disabled = true);
+        const submitBtn = document.querySelector('.submit-button');
+        if (submitBtn) {
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Answer Submitted';
+            submitBtn.style.cursor = 'not-allowed';
+            submitBtn.style.backgroundColor = '#aaa'; // Grey out disabled button
+        }
 
-        // Move to the next question or finish the quiz
-        currentQuestion++;
-        if (currentQuestion < quizData.length) {
 
-            // Update the progress bar
-            updateProgress();
+        // Short delay before moving to the next question or finishing the quiz
+        setTimeout(() => {
+            currentQuestion++;
+            if (currentQuestion < quizData.length) {
+                updateProgress();
+                showQuestion(); // Show the next question (this also clears feedback/validation)
+            } else {
+                updateProgress();
+                showResults(); // Show final results
+            }
+        }, 1500); // 1.5 second delay
+    }
 
-            showQuestion();
+    // Update the score display in the header
+    function updateScore() {
+        const correctEl = document.getElementById('correctAnswers');
+        const incorrectEl = document.getElementById('incorrectAnswers');
+        if (correctEl) correctEl.textContent = correctAnswers;
+        if (incorrectEl) incorrectEl.textContent = incorrectAnswers;
+    }
+
+    // Update the progress bar percentage and text
+    function updateProgress() {
+        // Calculate progress ensuring division by zero is avoided if quizData is empty
+        const totalQuestions = quizData.length || 1; // Avoid division by zero
+        // Progress should reflect completed questions *before* showing the next one,
+        // or 100% when showing results (currentQuestion == quizData.length)
+        const questionsCompleted = currentQuestion;
+        const progress = (questionsCompleted / totalQuestions) * 100;
+
+        const progressValueEl = document.querySelector('.progress-value');
+        if (progressValueEl) {
+            progressValueEl.style.width = `${progress}%`;
+            // Use Math.round for a cleaner percentage display
+            progressValueEl.textContent = `${Math.round(progress)}% completed`;
         } else {
-            // Update the progress bar
-            updateProgress();
-            showResults();
+             console.warn("Element with class '.progress-value' not found.");
         }
     }
 
-    // Update the data for right/wrong answers
-    function updateScore() {
-        document.getElementById('correctAnswers').textContent = correctAnswers;
-        document.getElementById('incorrectAnswers').textContent = incorrectAnswers;
-    }
-
-    // Add functionality to the progress bar
-    function updateProgress() {
-        const progress = ((currentQuestion) / quizData.length) * 100;
-        document.querySelector('.progress-value').style.width = `${progress}%`;
-        document.querySelector('.progress-value').textContent = `${progress}% completed`;
-    }
-
-    // Create the feedback to be provided by the page when the users are done
+    // Display the final results after the quiz ends
     function showResults() {
         const questionContainer = document.getElementById('question-container');
         const feedbackContainer = document.getElementById('feedback-container');
         let message;
-        let messageClass = '';// Creating a class for results
+        let messageClass = ''; // CSS class for pass/fail message styling
 
-        if (correctAnswers >= 3) {
-            message = "Congratulations! You passed the quiz!";
-            messageClass = 'pass-message';
-        } else {
-            message = "Sorry, you failed the quiz.";
-            messageClass = 'fail-message';
+        // Check if containers exist before manipulating
+        if (!questionContainer) {
+             console.error("Element with ID 'question-container' not found. Cannot display results.");
+            return;
         }
 
-        feedbackContainer.textContent = ''; // clean feedback
+        // Determine pass/fail message based on a threshold (e.g., >= 3 correct)
+        const passingScore = 3;
+        if (correctAnswers >= passingScore) {
+            message = "Congratulations! You passed the quiz!";
+            messageClass = 'pass-message'; // CSS class for passing style
+        } else {
+            message = "Sorry, you did not pass the quiz this time.";
+            messageClass = 'fail-message'; // CSS class for failing style
+        }
 
-        // Create a container for the button
-        let backToQuizzesButton = `<div class="results-button"><button onclick="window.location.href='quizzes.html'">Back to Quizzes</button></div>`;
-        let displayResults = `<p class="quiz-completion-tag ${messageClass}">${message}</p>`; // adding styles
+        // Clear the feedback container used during questions
+        if (feedbackContainer) {
+            feedbackContainer.textContent = '';
+            feedbackContainer.style.backgroundColor = 'transparent';
+            feedbackContainer.style.border = '0px';
+            feedbackContainer.style.padding = '0px';
+        }
 
-        questionContainer.innerHTML = `<h2>Quiz Completed!</h2><p>You got ${correctAnswers} correct and ${incorrectAnswers} incorrect.</p>${displayResults}${backToQuizzesButton}`;
-        feedbackContainer.style.backgroundColor = 'transparent';// background = transparent
-        feedbackContainer.style.border = '0px';
-        feedbackContainer.style.padding = '0px';// paddings = 0
-        
-        const quizContainer = document.querySelector('.quiz-container'); // Select the main quiz container
-        quizContainer.appendChild(feedbackContainer);
+        // Prepare the HTML for the results screen
+        const backToQuizzesButtonHTML = `<div class="results-button"><button onclick="window.location.href='quizzes.html'">Back to Quizzes</button></div>`;
+        const displayResultsHTML = `<p class="quiz-completion-tag ${messageClass}">${message}</p>`; // Apply pass/fail class
 
+        // Update the question container with the final results summary
+        questionContainer.innerHTML = `
+            <h2>Quiz Completed!</h2>
+            <p>Your Final Score: ${correctAnswers} correct and ${incorrectAnswers} incorrect.</p>
+            ${displayResultsHTML}
+            ${backToQuizzesButtonHTML}
+        `;
+
+        // No need to append feedbackContainer again - it's likely already placed in the HTML.
+        // If it wasn't, this would be the place to append it to the main quiz container.
+        // const quizContainer = document.querySelector('.quiz-container');
+        // if (quizContainer && feedbackContainer) {
+        //     quizContainer.appendChild(feedbackContainer);
+        // }
     }
-    // Start with a 0% completed
-    updateProgress();
-    window.onload = showQuestion;
-})();
+
+    // Initial setup when the script runs
+    updateProgress(); // Set initial progress (0%)
+
+    // Use DOMContentLoaded to ensure the HTML is parsed before trying to show the first question
+    document.addEventListener('DOMContentLoaded', showQuestion);
+
+})(); // End of self-invoking function
