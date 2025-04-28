@@ -3,102 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz4Teens - Quizzes</title>
+    <title>Quiz4Teens - Select Quiz</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bungee+Inline&family=Bungee+Shade&family=Luckiest+Guy&family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Pacifico&family=Bungee+Inline&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="CSS/quizzes.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
-    <div class="quiz-container">
+    <!-- === ENVOLTORIO PRINCIPAL AÑADIDO === -->
+    <div class="page-container">
+
         <div class="top-section">
-            <h1 class="welcome-text">Hiya <span id="usernameDisplay"></span>, Welcome to Quiz4Teens!</h1>
+            <div class="date-time-header">
+                <span id="current-time-quiz"></span>
+                <span id="current-date-quiz"></span>
+            </div>
+            <h1 class="welcome-title">
+                Hiya <span id="usernameDisplay">[Username]</span>, <br>
+                <span class="welcome-highlight">WELCOME</span>
+                to Quiz4Teens!
+                <!-- <img src="images/thinking-face.png" alt="?" class="thinking-face-icon"> -->
+            </h1>
         </div>
 
-        <div class="quiz-option quiz-basic-numeracy">
-            <div class="quiz-info">
-              <div class="quiz-title">
-                <div class="quiz-icon-container">
-                    <span class="quiz-icon">➕</span>
-                </div>
-                <h2 class="quiz-name">Basic Numeracy</h2>
-              </div>
-                <h3>Test your math skills with fun and challenging questions.</h3>
+        <div class="quiz-options-grid">
+            <!-- Contenido de las opciones de quiz -->
+            <div class="quiz-option quiz-basic-numeracy">
+                 <div class="quiz-icon-bg"><i class="fas fa-calculator quiz-icon"></i></div>
+                 <div class="quiz-info">
+                     <h2 class="quiz-name">BASIC NUMERACY</h2>
+                     <p class="quiz-description">Test your math skills with fun and challenging questions!</p>
+                 </div>
+                 <a href="basic-numeracy.html" class="quiz-button">START QUIZ</a>
             </div>
-
-            <div class="quiz-button-container">
-                <a href="basic-numeracy.html" class="quiz-button" data-quiz-url="quiz1.html">Start Quiz</a>
+            <div class="quiz-option quiz-basic-literacy">
+                 <div class="quiz-icon-bg"><i class="fas fa-book-open quiz-icon"></i></div>
+                 <div class="quiz-info">
+                     <h2 class="quiz-name">BASIC LITERACY</h2>
+                     <p class="quiz-description">Read, understand, and answer questions about various texts.</p>
+                 </div>
+                 <a href="#" class="quiz-button">START QUIZ</a>
             </div>
-        </div>
-
-        <div class="quiz-option quiz-basic-literacy">
-            <div class="quiz-info">
-              <div class="quiz-title">
-                <div class="quiz-icon-container">
-                    <span class="quiz-icon">📚</span>
-                </div>
-                <h2 class="quiz-name">Basic Literacy</h2>
-              </div>
-                <h3>Read, understand, and answer questions about various texts.</h3>
+             <div class="quiz-option quiz-health-wellbeing">
+                 <div class="quiz-icon-bg"><i class="fas fa-heartbeat quiz-icon"></i></div>
+                 <div class="quiz-info">
+                     <h2 class="quiz-name">HEALTH AND WELLBEING</h2>
+                     <p class="quiz-description">Learn about your body and mind with our health and wellness quiz.</p>
+                 </div>
+                 <a href="#" class="quiz-button">START QUIZ</a>
+             </div>
+             <div class="quiz-option quiz-scottish-history">
+                 <div class="quiz-icon-bg"><i class="fas fa-landmark quiz-icon"></i></div>
+                 <div class="quiz-info">
+                     <h2 class="quiz-name">SCOTTISH HISTORY</h2>
+                     <p class="quiz-description">Discover fascinating facts about Scottish history and culture.</p>
+                 </div>
+                 <a href="scottish-history.html" class="quiz-button">START QUIZ</a>
+             </div>
+            <div class="quiz-option quiz-social-awareness">
+                 <div class="quiz-icon-bg"><i class="fas fa-users quiz-icon"></i></div>
+                 <div class="quiz-info">
+                     <h2 class="quiz-name">SOCIAL AWARENESS</h2>
+                     <p class="quiz-description">Test your knowledge of global issues and social justice.</p>
+                 </div>
+                 <a href="#" class="quiz-button">START QUIZ</a>
             </div>
-
-            <div class="quiz-button-container">
-                <a href="#" class="quiz-button" data-quiz-url="quiz1.html">Start Quiz</a>
-            </div>
-        </div>
-
-        <div class="quiz-option quiz-health-wellbeing">
-            <div class="quiz-info">
-              <div class="quiz-title">
-                <div class="quiz-icon-container">
-                    <span class="quiz-icon">❤️</span>
-                </div>
-                <h2 class="quiz-name">Health and Wellbeing</h2>
-              </div>
-                <h3>Lear about your body and mind with our healt and wellness quiz</h3>
-            </div>
-            <div class="quiz-button-container">
-                <a href="#" class="quiz-button" data-quiz-url="quiz1.html">Start Quiz</a>
-            </div>
-        </div>
-
-        <div class="quiz-option quiz-scottish-history">
-            <div class="quiz-info">
-              <div class="quiz-title">
-                <div class="quiz-icon-container">
-                    <span class="quiz-icon">🏴󠁧󠁢󠁳󠁣󠁴󠁿</span>
-                </div>
-                <h2 class="quiz-name">Scottish History</h2>
-              </div>
-                <h3>Discover fascinating facts about Scottish History and culture</h3>
-            </div>
-
-            <div class="quiz-button-container">
-                <a href="scottish-history.html" class="quiz-button" data-quiz-url="quiz1.html">Start Quiz</a>
-            </div>
-        </div>
-
-        <div class="quiz-option quiz-social-awareness">
-            <div class="quiz-info">
-              <div class="quiz-title">
-                <div class="quiz-icon-container">
-                    <span class="quiz-icon">🤝</span>
-                </div>
-                <h2 class="quiz-name">Social Awareness</h2>
-              </div>
-                <h3>Test your knowledge of global issues and social justice.</h3>
-            </div>
-
-            <div class="quiz-button-container">
-                <a href="#" class="quiz-button" data-quiz-url="quiz1.html">Start Quiz</a>
-            </div>
-        </div>
+            <!-- Fin de opciones de quiz -->
+        </div> <!-- End of quiz-options-grid -->
 
         <div class="about-quiz">
             Each quiz has 5 questions. The pass mark of each quiz is 3.
         </div>
-    </div>
+
+    </div> <!-- === FIN DEL ENVOLTORIO PRINCIPAL === -->
 
     <script src="JS/quizzes.js"></script>
 </body>
