@@ -11,38 +11,38 @@ html {
 
 body {
     display: flex;
-    justify-content: center; /* Centra page-container horizontalmente */
-    align-items: flex-start; /* Alinea page-container arriba */
+    justify-content: center; /* Center page-container horizontally */
+    align-items: flex-start; /* Align page-container to the top */
     min-height: 100vh;
-    background-color: #4fd1a9;
-    background: linear-gradient(135deg, #00FF6A, #007FFF, #FFFF00);
-    font-family: 'Roboto', sans-serif;
-    padding: 1rem; /* Espacio alrededor del contenedor principal */
-    color: #333;
+    background-color: #4fd1a9; /* Fallback */
+    background: linear-gradient(135deg, #00FF6A, #007FFF, #FFFF00); /* Body background gradient */
+    font-family: 'Roboto', sans-serif; /* Base font */
+    padding: 1rem; /* Space around the main container */
+    color: #333; /* Default text color */
 }
 
-/* --- ESTILOS PARA EL CONTENEDOR PRINCIPAL --- */
+/* --- STYLES FOR THE MAIN PAGE CONTAINER --- */
 .page-container {
-    width: 100%;              /* Ocupa el ancho disponible */
-    max-width: 500px;         /* Ancho máximo en móviles (ajusta según necesites) */
+    width: 100%;              /* Occupies available width */
+    max-width: 500px;         /* Max width on mobile (adjust as needed) */
     display: flex;
-    flex-direction: column;   /* Apila los elementos internos verticalmente */
-    align-items: center;      /* Centra elementos como .about-quiz horizontalmente */
-    background: rgba(255, 255, 255, 0.35);
-    
-    /* Opcional: añade un fondo/padding si es necesario */
+    flex-direction: column;   /* Stacks child elements vertically */
+    align-items: center;      /* Centers child elements like .about-quiz horizontally */
+    background: rgba(255, 255, 255, 0.35); /* Container background */
+    border-radius: 25px;      /* --- ADDED: Rounded corners for the main container --- */
+    padding-bottom: 2rem;     /* --- ADDED: Padding at the bottom --- */
+    /* Optional: Add background/padding if needed */
     /* background: rgba(255, 255, 255, 0.1); */
-    /* border-radius: 15px; */
     /* padding: 1rem; */
 }
 
 /* --- Header --- */
 .top-section {
-    width: 100%;             /* Ocupa el ancho del page-container */
-    /* max-width: 600px; */  /* --- ELIMINADO --- Controlado por page-container */
+    width: 100%;             /* Takes the width of page-container */
+    /* max-width: 600px; */  /* --- REMOVED --- Controlled by page-container */
     text-align: center;
     margin-bottom: 2rem;
-    color: #fff;
+    color: #fff;             /* Text color for header */
 }
 
 .date-time-header {
@@ -50,24 +50,29 @@ body {
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    padding: 0.5rem 1rem; /* Ajustado padding */
+    padding: 0.5rem 1rem; /* Adjusted padding */
     font-size: 0.9rem;
     font-weight: bold;
     color: rgba(255, 255, 255, 0.9);
     margin-bottom: 1rem;
 }
 
-#current-time-quiz { 
+/* --- ADJUSTED: Removing large fixed margins for date/time --- */
+#current-time-quiz {
     margin-top: 1rem;
-    margin-left: 10rem;
-    text-align: left; 
+    /* margin-left: 10rem; <-- Removed/Adjusted */
+    text-align: left;
+    flex-grow: 1;        /* Allows it to take up space */
+    padding-left: 1rem;  /* Add padding instead */
 }
 
-#current-date-quiz { 
+#current-date-quiz {
     margin-top: 1rem;
-    margin-right: 10rem;
-    text-align: right; 
+    /* margin-right: 10rem; <-- Removed/Adjusted */
+    text-align: right;
+    padding-right: 1rem; /* Add padding instead */
 }
+/* --- END ADJUSTMENT --- */
 
 .welcome-title {
     font-family: 'Pacifico', cursive;
@@ -77,7 +82,7 @@ body {
     margin-bottom: 0.5rem;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
     position: relative;
-    line-height: 1.2;
+    /* line-height: 1.2; */ /* Duplicate line-height removed */
     margin-bottom: 2rem;
 }
 
@@ -86,7 +91,7 @@ body {
 .welcome-highlight {
     font-family: 'Luckiest Guy', cursive;
     font-size: 2.8rem;
-    color: #ffc400;
+    color: #ffc400; /* Yellowish color for WELCOME */
     display: block;
     margin: 0.3rem 0;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
@@ -97,102 +102,118 @@ body {
     height: 40px;
     position: absolute;
     top: 45%;
-    /* Ajusta 'right' basado en el ancho del contenedor, puede necesitar % */
-    right: 5%; /* Ejemplo usando % */
+    right: 5%; /* Adjust based on container width, % might be better */
     transform: translateY(-50%);
 }
 
 
 /* --- Grid Container --- */
 .quiz-options-grid {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;             /* Ocupa el ancho del page-container */
-    gap: 1.5rem;
+    /* --- MOBILE LAYOUT 2x2+1 --- */
+    display: flex;           /* Enable Flexbox */
+    flex-direction: row;     /* Items try to fit in a row */
+    flex-wrap: wrap;         /* Allow items to wrap to the next line */
+    justify-content: center; /* Center items horizontally (important for the last row) */
+    /* --- END MOBILE LAYOUT 2x2+1 --- */
+    width: 100%;             /* Takes width of page-container */
+    padding: 0 0.5rem;       /* --- ADDED: Slight horizontal padding for grid items --- */
+    gap: 1.5rem;             /* Space between cards */
 }
 
 /* --- Individual Quiz Option Card --- */
 .quiz-option {
-    /* --- MODIFICADO --- Usa un ancho relativo al grid */
-    width: 95%; /* O el 100% si quieres que ocupen todo el ancho del grid */
-    max-width: 400px; /* Limita el ancho de cada tarjeta individualmente si es necesario */
-    background-color: rgba(0, 0, 0, 0.2); /* Fondo oscuro semi-transparente */
-    border-radius: 30px;
-    padding: 1rem 1.5rem 1.5rem 1.5rem;
+    /* --- MOBILE LAYOUT 2x2+1 --- */
+    width: calc(50% - 0.75rem); /* Width for 2 columns (50% - half the gap) */
+    /* --- END MOBILE LAYOUT 2x2+1 --- */
+
+    max-width: 220px;        /* Max width per card on mobile */
+    border-radius: 30px;     /* Card corner rounding */
+    padding: 0.5rem 0.5rem 1rem 0.5rem; /* Adjusted padding */
     text-align: center;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
     align-items: center;
     position: relative;
-    color: #fff; /* Asegura texto blanco por defecto */
+    color: #fff;             /* Default text color (white) */
 }
 
 /* --- Icon Background Circle --- */
 .quiz-icon-bg {
-    width: 60px;
+    width: 60px;             /* Icon circle size */
     height: 60px;
-    border-radius: 50%;
+    border-radius: 50%;      /* Makes it a circle */
     display: flex;
     justify-content: center;
     align-items: center;
     margin-bottom: 0.8rem;
     position: absolute;
-    top: -30px;
+    top: -30px;              /* Pulls icon halfway above the card */
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-50%); /* Centers the icon horizontally */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    /* Background-color is set by specific rules below */
 }
 
 .quiz-icon {
-    color: #fff;
-    font-size: 1.8rem;
+    color: #fff;             /* Icon color */
+    font-size: 1.8rem;       /* Icon size */
 }
 
 /* --- Info Section (Title & Description) --- */
 .quiz-info {
-    margin-top: 35px;
-    color: inherit; /* Hereda el color del padre (.quiz-option) */
+    margin-top: 35px;        /* Space for the icon positioned above */
+    color: inherit;          /* Inherits text color from .quiz-option */
 }
 
 h2.quiz-name {
     font-family: 'Luckiest Guy', cursive;
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     margin-bottom: 0.5rem;
     text-transform: uppercase;
-    color: inherit; /* Hereda color */
+    color: inherit;
 }
 
 p.quiz-description {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     line-height: 1.4;
     margin-bottom: 1.2rem;
     opacity: 0.9;
-    color: inherit; /* Hereda color */
+    color: inherit;
+    min-height: 40px; /* Optional: helps align buttons if descriptions vary greatly */
 }
 
 /* --- Start Button --- */
 .quiz-button {
     display: inline-block;
     font-family: 'Bungee Inline', cursive;
-    background: linear-gradient(180deg, #fdd835, #f57f17);
-    color: #423d03; /* Color de texto más oscuro para contraste con amarillo */
-    font-size: 1.3rem;
-    padding: 0.8rem 2rem;
-    border-radius: 25px;
+    background: linear-gradient(180deg, #fdd835, #f57f17); /* Button background gradient */
+    color: #423d03;                                      /* Button text color */
+    font-size: 1rem;
+    padding: 0.5rem 1.5rem;
+    border-radius: 25px;   /* Button corner rounding */
     text-decoration: none;
     border: none;
     cursor: pointer;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
     transition: all 0.3s ease;
-    font-weight: bold; /* Hacer texto del botón más grueso */
+    font-weight: bold;
 }
 
-/* ... (hover/active styles para el botón permanecen igual) ... */
+.quiz-button:hover {
+    transform: translateY(-2px); /* Hover lift effect */
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+    filter: brightness(1.1);
+}
+
+.quiz-button:active {
+     transform: translateY(0px); /* Active press effect */
+     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
 
 
-/* --- Specific Quiz Colors (Aplicados al .quiz-option) --- */
+/* --- Specific Quiz Colors (Applied to .quiz-option and .quiz-icon-bg) --- */
+/* --- THESE COLORS ARE UNCHANGED --- */
 .quiz-basic-numeracy { background-color: #1A237E; }
 .quiz-basic-numeracy .quiz-icon-bg { background-color: #303F9F; }
 
@@ -211,15 +232,15 @@ p.quiz-description {
 
 /* --- Footer Note --- */
 .about-quiz {
-    background-color: #d32f2f;
+    background-color: #d32f2f; /* Footer background color */
     color: #fff;
     padding: 0.8rem 1.5rem;
     border-radius: 20px;
     text-align: center;
     font-size: 0.9em;
     margin-top: 2.5rem;
-    width: 90%;             /* Ancho relativo al page-container */
-    max-width: 450px;       /* Máximo propio */
+    width: 90%;             /* Width relative to page-container */
+    max-width: 450px;       /* Max width for the footer itself */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
@@ -227,70 +248,60 @@ p.quiz-description {
 /* --- Tablet Styles --- */
 @media only screen and (min-width: 768px) {
     .page-container {
-        max-width: 900px; /* Ajusta el ancho del contenedor principal */
+        max-width: 900px; /* Adjust main container width for tablets */
     }
 
-    
-    .welcome-title { font-size: 2.2rem; }
-    .welcome-highlight { font-size: 3.5rem; }
-    .thinking-face-icon { width: 50px; height: 50px; right: 10%; } /* Ajustar posición */
-
+    /* The grid layout changes to 3 columns here */
     .quiz-options-grid {
-        flex-direction: row;     /* Cambia a dirección fila */
-        flex-wrap: wrap;         /* Permite que los elementos bajen */
-        justify-content: center; /* Centra las filas */
-        align-items: stretch;    /* Opcional: iguala alturas */
-        gap: 1.5rem;             /* Espacio entre tarjetas (ajusta si es necesario) */
+        gap: 1.5rem; /* Adjust gap if needed */
+        padding: 0 1rem; /* Adjust horizontal padding for grid */
     }
 
     .quiz-option {
-        width: calc(33.33% - 1.2rem); /* Ajusta el cálculo del ancho si el gap cambia */
-        max-width: 280px;
-        min-width: 220px;
+        /* Width for 3 columns */
+        width: calc(33.333% - 1rem); /* Adjust '-1rem' based on half the gap */
+        /* width: 31%; */          /* Alternative safe percentage */
+        max-width: 280px;           /* Max width per card on tablets */
+        min-width: 220px;           /* Optional min width */
     }
 
-    h2.quiz-name { font-size: 1.3rem; } /* Ejemplo: Reducir tamaño de título */
-    p.quiz-description { font-size: 0.85rem; } /* Ejemplo: Reducir descripción */
-    .quiz-button { font-size: 1.2rem; padding: 0.7rem 1.8rem; } /* Ejemplo: Botón más pequeño */
-    .quiz-icon-bg { width: 55px; height: 55px; top: -27px; } /* Icono ligeramente más pequeño */
+    /* Adjust internal sizes for tablet card size */
+    h2.quiz-name { font-size: 1.3rem; }
+    p.quiz-description { font-size: 0.85rem; min-height: auto; /* Remove min-height */}
+    .quiz-button { font-size: 1.2rem; padding: 0.7rem 1.8rem; }
+    .quiz-icon-bg { width: 55px; height: 55px; top: -27px; }
     .quiz-icon { font-size: 1.6rem; }
     .quiz-info { margin-top: 30px; }
 
-    /* ... (otros ajustes de tablet: header, about-quiz) ... */
-    .about-quiz {
-        max-width: 550px;
-        font-size: 1em;
-    }
+    /* Other tablet adjustments */
+    .about-quiz { max-width: 550px; font-size: 1em; }
     .welcome-title { font-size: 2.2rem; }
     .welcome-highlight { font-size: 3.5rem; }
     .thinking-face-icon { width: 50px; height: 50px; right: 15%; }
+    #current-time-quiz { padding-left: 1.5rem; }
+    #current-date-quiz { padding-right: 1.5rem; }
 }
 
 /* --- Desktop Styles --- */
-@media only screen and (min-width: 997px) {
+@media only screen and (min-width: 1024px) {
     .page-container {
-        max-width: 1200px; /* Ajusta el ancho del contenedor principal */
-        border-radius: 250px;
+        max-width: 1100px; /* Adjust main container width for desktops */
+        border-radius: 35px;
     }
 
-     /* El max-width del top-section ya no es necesario */
-    /* .top-section { max-width: 1100px; margin-bottom: 3rem; } */
-
-    .welcome-title { font-size: 2.5rem; }
-    .welcome-highlight { font-size: 4rem; }
-    .thinking-face-icon { width: 60px; height: 60px; right: 15%; } /* Ajustar posición */
-    .date-time-header { font-size: 1rem; padding: 0.5rem 2rem; }
-
     .quiz-options-grid {
-        gap: 2rem;
+        gap: 2rem; /* Increase gap for desktops */
+        padding: 0 1.5rem; /* Adjust horizontal padding */
     }
 
     .quiz-option {
-        width: calc(33.33% - 1.2rem); /* Ajusta el cálculo del ancho si el gap cambia */
-        max-width: 320px;
-        
+        /* Keep 3 columns, adjust width based on new gap */
+        width: calc(33.333% - 1.33rem); /* Adjusted for 2rem gap */
+        /* width: 31%; */
+        max-width: 320px; /* Allow cards to be slightly wider */
     }
 
+    /* Adjust internal sizes for desktop card size */
     h2.quiz-name { font-size: 1.4rem; }
     p.quiz-description { font-size: 0.9rem; }
     .quiz-button { font-size: 1.3rem; padding: 0.8rem 2rem; }
@@ -298,14 +309,12 @@ p.quiz-description {
     .quiz-icon { font-size: 1.8rem; }
     .quiz-info { margin-top: 35px; }
 
-
-     /* ... (otros ajustes de desktop: header, about-quiz) ... */
-     .about-quiz {
-        max-width: 600px;
-        padding: 1rem 2rem;
-    }
+    /* Other desktop adjustments */
+     .about-quiz { max-width: 600px; padding: 1rem 2rem; }
     .welcome-title { font-size: 2.5rem; }
     .welcome-highlight { font-size: 4rem; }
     .thinking-face-icon { width: 60px; height: 60px; right: 20%; }
-    .date-time-header { font-size: 1rem; padding: 0.5rem 2rem; }
+    #current-time-quiz { padding-left: 2rem; }
+    #current-date-quiz { padding-right: 2rem; }
+    .date-time-header { font-size: 1rem; }
 }
