@@ -24,12 +24,12 @@
         if (dateElement) {
             // Format date (e.g., Wednesday, July 24, 2024) - adjust options as needed
             const dateOptions = {
-                weekday: 'long', // e.g., Wednesday
+                
                 year: 'numeric', // e.g., 2024
                 month: 'long', // e.g., July
                 day: 'numeric' // e.g., 24
             };
-            dateElement.textContent = now.toLocaleDateString('en-US', dateOptions);
+            dateElement.textContent = now.toLocaleDateString('en-UK', dateOptions);
         }
     }
 
