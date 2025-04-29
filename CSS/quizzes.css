@@ -31,15 +31,11 @@ body {
     background: rgba(255, 255, 255, 0.35); /* Container background */
     border-radius: 25px;      /* --- ADDED: Rounded corners for the main container --- */
     padding-bottom: 2rem;     /* --- ADDED: Padding at the bottom --- */
-    /* Optional: Add background/padding if needed */
-    /* background: rgba(255, 255, 255, 0.1); */
-    /* padding: 1rem; */
 }
 
 /* --- Header --- */
 .top-section {
     width: 100%;             /* Takes the width of page-container */
-    /* max-width: 600px; */  /* --- REMOVED --- Controlled by page-container */
     text-align: center;
     margin-bottom: 2rem;
     color: #fff;             /* Text color for header */
@@ -53,14 +49,13 @@ body {
     padding: 0.5rem 1rem; /* Adjusted padding */
     font-size: 0.9rem;
     font-weight: bold;
-    color: rgba(255, 255, 255, 0.9);
+    color: rgba(105, 105, 105, 0.9);
     margin-bottom: 1rem;
 }
 
 /* --- ADJUSTED: Removing large fixed margins for date/time --- */
 #current-time-quiz {
     margin-top: 1rem;
-    /* margin-left: 10rem; <-- Removed/Adjusted */
     text-align: left;
     flex-grow: 1;        /* Allows it to take up space */
     padding-left: 1rem;  /* Add padding instead */
@@ -68,7 +63,6 @@ body {
 
 #current-date-quiz {
     margin-top: 1rem;
-    /* margin-right: 10rem; <-- Removed/Adjusted */
     text-align: right;
     padding-right: 1rem; /* Add padding instead */
 }
@@ -78,11 +72,10 @@ body {
     font-family: 'Pacifico', cursive;
     font-size: 1.8rem;
     color: #fff;
-    line-height: 1.4;
+    line-height: 1;
     margin-bottom: 0.5rem;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
     position: relative;
-    /* line-height: 1.2; */ /* Duplicate line-height removed */
     margin-bottom: 2rem;
 }
 
@@ -98,12 +91,48 @@ body {
 }
 
 .thinking-face-icon {
-    width: 40px;
-    height: 40px;
+    width: 60px;
+    height: 60px;
     position: absolute;
     top: 45%;
-    right: 5%; /* Adjust based on container width, % might be better */
+    right: 7%;
     transform: translateY(-50%);
+}
+
+
+.thinking-face-icon {
+    animation: 
+        crazyBounce 4s ease infinite,
+        glow 4s linear infinite;
+}
+
+
+.thinking-face-icon:hover {
+    animation: 
+        glitch 1s linear infinite,
+        glow 4s linear infinite; 
+}
+
+/* Keyframes */
+@keyframes crazyBounce {
+    0%, 100% { transform: translateY(-50%) translateX(0); }
+    25% { transform: translateY(-50%) translateX(-20px) rotate(-10deg); }
+    50% { transform: translateY(-50%) translateX(10px) rotate(5deg); }
+    75% { transform: translateY(-50%) translateX(15px) rotate(10deg); }
+}
+
+@keyframes glow {
+    0%, 100% { filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0)); }
+    50% { filter: drop-shadow(0 0 15px #FFD700) brightness(1.2); }
+}
+
+@keyframes glitch {
+    0% { transform: translateY(-50%) translate(0); }
+    20% { transform: translateY(-50%) translate(-5px, 5px) scale(1.1); }
+    40% { transform: translateY(-50%) translate(5px, -5px) scale(0.9); }
+    60% { transform: translateY(-50%) translate(-3px, 3px) skew(10deg); }
+    80% { transform: translateY(-50%) translate(3px, -3px) skew(-10deg); }
+    100% { transform: translateY(-50%) translate(0); }
 }
 
 
@@ -114,10 +143,12 @@ body {
     flex-direction: row;     /* Items try to fit in a row */
     flex-wrap: wrap;         /* Allow items to wrap to the next line */
     justify-content: center; /* Center items horizontally (important for the last row) */
+    
     /* --- END MOBILE LAYOUT 2x2+1 --- */
     width: 100%;             /* Takes width of page-container */
     padding: 0 0.5rem;       /* --- ADDED: Slight horizontal padding for grid items --- */
     gap: 1.5rem;             /* Space between cards */
+    
 }
 
 /* --- Individual Quiz Option Card --- */
@@ -136,6 +167,7 @@ body {
     align-items: center;
     position: relative;
     color: #fff;             /* Default text color (white) */
+    margin-bottom: 1rem;
 }
 
 /* --- Icon Background Circle --- */
