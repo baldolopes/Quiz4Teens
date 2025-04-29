@@ -12,9 +12,8 @@ html {
 body {
     display: flex;
     justify-content: center; /* Center page-container horizontally */
-    align-items: flex-start; /* Align page-container to the top */
-    min-height: 100vh;
-    background-color: #4fd1a9; /* Fallback */
+    align-items: center; /* Align page-container to the top */
+    height: 100vh;
     background: linear-gradient(135deg, #00FF6A, #007FFF, #FFFF00); /* Body background gradient */
     font-family: 'Roboto', sans-serif; /* Base font */
     padding: 1rem; /* Space around the main container */
@@ -89,6 +88,8 @@ body {
     margin: 0.3rem 0;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
+
+
 
 .thinking-face-icon {
     width: 60px;
@@ -199,10 +200,10 @@ body {
 }
 
 h2.quiz-name {
-    font-family: 'Luckiest Guy', cursive;
+    font-family: 'Luckiest Guy';
     font-size: 1.3rem;
     margin-bottom: 0.5rem;
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
     color: inherit;
 }
 

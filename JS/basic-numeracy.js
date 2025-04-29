@@ -85,10 +85,12 @@
         questionContainer.innerHTML = '';
 
         // Show the actual question in HTML
-        const questionElement = document.createElement('h2');
-        questionElement.textContent = `Question ${currentQuestion + 1}: ${questionData.question}`;
-        questionElement.classList.add('question-text'); // Add the class for styling
-        questionContainer.appendChild(questionElement);
+        const questionElement = document.createElement('div');
+    questionElement.innerHTML = `
+        <h2 class="question-number">Question ${currentQuestion + 1}</h2>
+        <p class="question-text">${questionData.question}</p>
+    `;
+    questionContainer.appendChild(questionElement);
 
         // Create a container for the options
         const optionsContainer = document.createElement('div');

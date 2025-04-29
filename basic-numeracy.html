@@ -12,16 +12,20 @@
 <body>
     <div class="quiz-container">
         <div class="top-section">
-            <h1><span id="usernameDisplay"></span>, Basic Numeracy Quiz</h1>
+            <h1>Hiya <span id="usernameDisplay"></span>, <br> Basic Numeracy Quiz</h1>
             <div class="score-container">
-                Your Score: <span id="correctAnswers">0</span> Correct, <span id="incorrectAnswers">0</span> Incorrect out of 5.
+                <div class="score-label">Your Score:</div>
+                <div class="score-results">
+                    <span id="correctAnswers">0</span> Correct, 
+                    <span id="incorrectAnswers">0</span> Incorrect out of 5.
+                </div>
             </div>
             <div class="progress-container">
                 Your Progress: <div class="progress-bar"><span class="progress-value">0% completed</span></div>
             </div>
         </div>
 
-        <div id="question-container">
+        <div class="questions-container" id="question-container">
             <!-- Aquí se insertarán las preguntas -->
         </div>
 
