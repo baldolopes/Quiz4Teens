@@ -7,30 +7,52 @@
         const cookieArray = decodedCookie.split(';');
 
         for (let i = 0; i < cookieArray.length; i++) {
-            let cookie = cookieArray[i];
-            while (cookie.charAt(0) === ' ') {
-                cookie = cookie.substring(1);
-            }
-            if (cookie.indexOf(cookieName) === 0) {
-                return cookie.substring(cookieName.length, cookie.length);
+            let cookie = cookieArray[i].trim(); // Use trim
+            if (cookie.startsWith(cookieName)) { // Use startsWith
+                // Decode value in case it was encoded
+                return decodeURIComponent(cookie.substring(cookieName.length));
             }
         }
         return "";
     }
 
+    // --- START: Date and Time Functionality ---
+    // Function definition (already provided by you)
+    function updateQuizDateTime() {
+        const now = new Date();
+        const timeElement = document.getElementById('current-time-quiz');
+        const dateElement = document.getElementById('current-date-quiz');
+
+        // Update Time
+        if (timeElement) {
+            const timeOptions = { hour: 'numeric', minute: '2-digit', hour12: true };
+            timeElement.textContent = now.toLocaleTimeString('en-US', timeOptions); // Adjust locale/options as needed
+        }
+
+        // Update Date
+        if (dateElement) {
+            const dateOptions = { day: 'numeric', month: 'long', year: 'numeric' };
+            dateElement.textContent = now.toLocaleDateString('en-GB', dateOptions); // Example: 14 February 2025
+        }
+    }
+    // --- END: Date and Time Functionality ---
+
+
     // Get username from cookies
     const username = getCookie('username');
 
-    // Display username in the HTML, handle if element doesn't exist or username is empty
+    // Display username in the HTML
     const usernameDisplayElement = document.getElementById('usernameDisplay');
     if (usernameDisplayElement) {
-        usernameDisplayElement.textContent = username || 'Guest'; // Show 'Guest' if no username
+        usernameDisplayElement.textContent = username || 'Guest';
     } else {
         console.warn("Element with ID 'usernameDisplay' not found.");
     }
 
     // Quiz Data (Questions and Answers)
-    const quizData = [{
+    const quizData = [
+        // ... (your quiz questions remain here) ...
+         {
             question: "What is the result of 5 multiplied by 7?",
             options: ["a) 30", "b) 35", "c) 42", "d) 45"],
             correctAnswer: "b) 35"
@@ -55,14 +77,16 @@
             options: ["a) 10", "b) 15", "c) 20", "d) 25"],
             correctAnswer: "d) 25"
         }
-        // Add more questions here
     ];
 
+    // Quiz state variables
     let currentQuestion = 0;
     let correctAnswers = 0;
     let incorrectAnswers = 0;
 
-    // Show Current Question
+    // --- Quiz Functions (showQuestion, checkAnswer, updateScore, updateProgress, showResults) ---
+    // ... (Keep all your existing quiz functions exactly as they were) ...
+     // Show Current Question
     function showQuestion() {
         const questionData = quizData[currentQuestion];
         const questionContainer = document.getElementById('question-container');
@@ -85,12 +109,10 @@
         questionContainer.innerHTML = '';
 
         // Show the actual question in HTML
-        const questionElement = document.createElement('div');
-    questionElement.innerHTML = `
-        <h2 class="question-number">Question ${currentQuestion + 1}</h2>
-        <p class="question-text">${questionData.question}</p>
-    `;
-    questionContainer.appendChild(questionElement);
+        const questionElement = document.createElement('h2');
+        questionElement.textContent = `Question ${currentQuestion + 1}: ${questionData.question}`;
+        questionElement.classList.add('question-text'); // Add the class for styling
+        questionContainer.appendChild(questionElement);
 
         // Create a container for the options
         const optionsContainer = document.createElement('div');
@@ -223,17 +245,13 @@
 
     // Update the progress bar percentage and text
     function updateProgress() {
-        // Calculate progress ensuring division by zero is avoided if quizData is empty
-        const totalQuestions = quizData.length || 1; // Avoid division by zero
-        // Progress should reflect completed questions *before* showing the next one,
-        // or 100% when showing results (currentQuestion == quizData.length)
+        const totalQuestions = quizData.length || 1;
         const questionsCompleted = currentQuestion;
         const progress = (questionsCompleted / totalQuestions) * 100;
-
         const progressValueEl = document.querySelector('.progress-value');
+
         if (progressValueEl) {
             progressValueEl.style.width = `${progress}%`;
-            // Use Math.round for a cleaner percentage display
             progressValueEl.textContent = `${Math.round(progress)}% completed`;
         } else {
              console.warn("Element with class '.progress-value' not found.");
@@ -245,25 +263,22 @@
         const questionContainer = document.getElementById('question-container');
         const feedbackContainer = document.getElementById('feedback-container');
         let message;
-        let messageClass = ''; // CSS class for pass/fail message styling
+        let messageClass = '';
 
-        // Check if containers exist before manipulating
         if (!questionContainer) {
              console.error("Element with ID 'question-container' not found. Cannot display results.");
             return;
         }
 
-        // Determine pass/fail message based on a threshold (e.g., >= 3 correct)
         const passingScore = 3;
         if (correctAnswers >= passingScore) {
             message = "Congratulations! You passed the quiz!";
-            messageClass = 'pass-message'; // CSS class for passing style
+            messageClass = 'pass-message';
         } else {
             message = "Sorry, you did not pass the quiz this time.";
-            messageClass = 'fail-message'; // CSS class for failing style
+            messageClass = 'fail-message';
         }
 
-        // Clear the feedback container used during questions
         if (feedbackContainer) {
             feedbackContainer.textContent = '';
             feedbackContainer.style.backgroundColor = 'transparent';
@@ -271,30 +286,37 @@
             feedbackContainer.style.padding = '0px';
         }
 
-        // Prepare the HTML for the results screen
         const backToQuizzesButtonHTML = `<div class="results-button"><button onclick="window.location.href='quizzes.html'">Back to Quizzes</button></div>`;
-        const displayResultsHTML = `<p class="quiz-completion-tag ${messageClass}">${message}</p>`; // Apply pass/fail class
+        const displayResultsHTML = `<p class="quiz-completion-tag ${messageClass}">${message}</p>`;
 
-        // Update the question container with the final results summary
         questionContainer.innerHTML = `
             <h2>Quiz Completed!</h2>
             <p>Your Final Score: ${correctAnswers} correct and ${incorrectAnswers} incorrect.</p>
             ${displayResultsHTML}
             ${backToQuizzesButtonHTML}
         `;
-
-        // No need to append feedbackContainer again - it's likely already placed in the HTML.
-        // If it wasn't, this would be the place to append it to the main quiz container.
-        // const quizContainer = document.querySelector('.quiz-container');
-        // if (quizContainer && feedbackContainer) {
-        //     quizContainer.appendChild(feedbackContainer);
-        // }
     }
+    // --- END Quiz Functions ---
 
-    // Initial setup when the script runs
+
+    // --- Initial Setup ---
     updateProgress(); // Set initial progress (0%)
 
-    // Use DOMContentLoaded to ensure the HTML is parsed before trying to show the first question
-    document.addEventListener('DOMContentLoaded', showQuestion);
+    // Use DOMContentLoaded to ensure the HTML is parsed before starting
+    // --- MODIFIED EVENT LISTENER ---
+    document.addEventListener('DOMContentLoaded', function() { // Changed to function block
+        // --- ADDED ---
+        // Call the date/time function immediately on load
+        updateQuizDateTime();
+        // Set interval to update time every second (1000ms)
+        // Change 1000 to 60000 if you only need minute updates
+        setInterval(updateQuizDateTime, 1000);
+        // --- END ADDED ---
+
+        // Call the original function to show the first question
+        showQuestion();
+    });
+    // --- END MODIFIED EVENT LISTENER ---
+
 
 })(); // End of self-invoking function

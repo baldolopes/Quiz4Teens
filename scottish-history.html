@@ -13,7 +13,11 @@
 
     <div class="quiz-container">
         <div class="top-section">
-            <h1><span id="usernameDisplay">Guest</span>, Scottish History Quiz</h1>
+            <div class="date-time-header">
+                <span id="current-time-quiz"></span>
+                <span id="current-date-quiz"></span>
+            </div>
+            <h1><span class="username-display">Guest</span>, <br> Scottish History Quiz</h1>
             <div class="score-container">
                 <!-- Score will be shown in results -->
             </div>
@@ -25,7 +29,7 @@
         <!-- Container for dynamic quiz content -->
         <div id="quiz-content">
              <div id="instructions">
-                 <p>Below the questions, you will find a list of words or phrases related to the answers. Drag each word or phrase from the word bank to the box next to the question it answers. Fill all boxes, then click "Submit" to see your results.</p>
+                 <p>Drag each word or phrase to the box next to the question it answers. <br> Fill all boxes, then click "Submit" to check your answers.</p>
              </div>
 
              <div id="question-container">
@@ -40,7 +44,7 @@
              </div>
 
              <div class="submission-area">
-                  <button id="submit-button">Submit Answers</button>
+                  <button id="submit-button">SUBMIT</button>
                   <div id="validation-message" class="validation-error"></div>
              </div>
         </div> <!-- End of quiz-content -->

@@ -1,122 +1,225 @@
+/* --- Base Styles (Mobile First) --- */
+* {
+    font-family: Arial, Helvetica, sans-serif; /* Consider using Roboto or another chosen font */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+}
+
 body {
-    font-family: sans-serif;
-    background-color: #f0f0f0;
+    font-family: sans-serif; /* Fallback font */
+    background: linear-gradient(135deg, #00FF6A, #007FFF, #FFFF00); /* Body background gradient */
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: flex-start; /* Keep content near the top */
     min-height: 100vh;
     margin: 0;
-    padding: 20px;
+    padding: 1rem; /* --- REDUCED SPACING: Maybe reduce to 0.5rem or 1rem top/bottom --- */
+    /* padding: 1rem 0.5rem; */ /* Example: 1rem top/bottom, 0.5rem sides */
 }
 
 .quiz-container {
-    width: 90%;
-    max-width: 600px;
-    background-color: #fff;
-    padding: 20px;
+    width: 95%; /* Keep it flexible */
+    max-width: 600px; /* Adjust as needed */
+    background: rgba(255, 255, 255, 0.4); /* Container background */
+    padding: 1rem; /* --- REDUCED SPACING: Reduced from 20px --- */
     border-radius: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
+    /* margin-bottom: 20px; */ /* --- REDUCED SPACING: Removed or reduce */
+    margin-bottom: 1rem; /* Example: Reduced */
     text-align: center;
 }
 
+.date-time-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0.2rem 0.5rem; /* --- REDUCED SPACING: Reduced vertical padding */
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: rgba(105, 105, 105, 0.9);
+    margin-bottom: 0.5rem; /* --- REDUCED SPACING: Reduced from 1rem */
+}
+
+#current-time-quiz {
+    /* margin-bottom: 1rem; */ /* --- REDUCED SPACING: Remove margin */
+    text-align: left;
+    flex-grow: 1;
+    padding-left: 1rem;
+}
+
+#current-date-quiz {
+    /* margin-bottom: 1rem; */ /* --- REDUCED SPACING: Remove margin */
+    text-align: right;
+    padding-right: 1rem;
+}
+
 .top-section {
-    background: linear-gradient(135deg, #70e1f5, #ffd194);
-    padding: 20px;
-    border-radius: 10px;
-    margin-bottom: 20px;
+    background: none; /* No background color */
+    padding: 0.5rem 0; /* --- REDUCED SPACING: Reduced padding */
+    border-radius: 10px; /* Keep rounding if desired */
+    margin-bottom: 1rem; /* --- REDUCED SPACING: Reduced from 20px */
 }
 
 h1 {
-    font-size: 2em;
+    font-size: 1.8em; /* --- REDUCED SPACING: Slightly smaller */
     color: #333;
-    margin-bottom: 10px;
+    margin-bottom: 0.5rem; /* --- REDUCED SPACING: Reduced from 10px */
     font-family: 'Pacifico', cursive;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    line-height: 1.2; /* --- REDUCED SPACING: Adjust if needed */
+}
+
+.username-display {
+    /* font-family: 'Pacifico', cursive; <-- No es necesario, hereda de h1 */
+    font-weight: bold;        /* Hacerlo negrita */
+    color: #e67e22;           /* Color naranja */
+    /* Puedes añadir otros estilos si quieres, como un ligero text-shadow diferente */
+    /* text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4); */ /* Ejemplo */
 }
 
 .score-container {
-    font-size: 1.2em;
+    font-size: 1.1em; /* --- REDUCED SPACING: Slightly smaller */
     color: #555;
-    margin-bottom: 10px;
+    margin-bottom: 0.5rem; /* --- REDUCED SPACING: Reduced from 10px */
 }
 
 .progress-container {
-    font-size: 1.2em;
+    font-size: 1.1em; /* --- REDUCED SPACING: Slightly smaller */
     color: #555;
-    margin-bottom: 20px;
+    margin-bottom: 1rem; /* --- REDUCED SPACING: Reduced from 20px */
 }
 
 .progress-bar {
     width: 100%;
-    height: 20px;
+    height: 18px; /* --- REDUCED SPACING: Slightly shorter bar */
     background-color: #ddd;
     border-radius: 10px;
     overflow: hidden;
+    /* padding-bottom: 0rem; */ /* Not needed */
+    /* margin-bottom: 0rem; */ /* Controlled by .progress-container */
 }
 
 .progress-value {
     display: block;
-    width: 0%; /* Inicializando el valor de la barra en 0% */
+    width: 0%;
     height: 100%;
     background-color: #e67e22;
     color: white;
     text-align: center;
-    line-height: 20px;
+    line-height: 18px; /* Match height */
+    font-size: 0.8em; /* Adjust text size if needed */
+    /* padding-bottom: 0rem; */ /* Not needed */
+    /* margin-bottom: 0rem; */ /* Not needed */
 }
 
-/* Specific styles for the drag-and-drop quiz */
+#instructions {
+    /* padding-top: 0rem ; */
+    /* margin-top: 0rem; */
+    margin-bottom: 1rem; /* --- REDUCED SPACING: Add some space below instructions */
+    padding: 0.5rem; /* Optional: Add some internal padding */
+    background-color: rgba(255, 255, 255, 0.2); /* Optional: Slight background */
+    border-radius: 5px;
+    font-size: 0.9em;
+}
+#instructions p {
+     margin: 0; /* Remove default paragraph margins */
+     line-height: 1.3;
+}
 
 #question-container {
-    background-color: #2980b9;
-    color: white;
-    padding: 20px;
+    background-color: #00008B; /* Dark Blue */
+    color: #ecffa5; /* Light yellow/green text */
+    padding: 1rem; /* --- REDUCED SPACING: Reduced from 20px */
     border-radius: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 1rem; /* --- REDUCED SPACING: Reduced from 20px */
     text-align: left;
 }
 
 #question-container ol {
-    padding-left: 20px;
+    padding-left: 1.2rem; /* --- REDUCED SPACING: Reduced indent */
+    margin: 0; /* Remove default list margin */
 }
 
 #question-container li {
-    margin-bottom: 15px;
+    margin-bottom: 0.8rem; /* --- REDUCED SPACING: Reduced from 15px */
+    line-height: 1.4;
 }
 
 #question-container .answer-box {
-    width: 200px;
-    height: 25px;
-    border: 1px dashed white; 
+    width: 180px; /* --- REDUCED SPACING: Consider reducing width slightly */
+    height: 22px; /* --- REDUCED SPACING: Reduce height */
+    border: 1px dashed white;
     display: inline-block;
-    margin-left: 10px;
+    margin-left: 8px; /* --- REDUCED SPACING: Reduced from 10px */
+    vertical-align: middle; /* Align with text */
+}
+
+/* Container for word bank */
+#word-bank-container {
+     margin-bottom: 1rem; /* --- REDUCED SPACING: Add consistent spacing */
+}
+#word-bank-container p {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 0.5rem; /* Space below label */
 }
 
 #word-bank {
-    background-color: #f39c12;
-    color: white;
-    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.7); /* Word bank background */
+    /* color: white; <-- Text color comes from .draggable now */
+    padding: 0.5rem; /* --- REDUCED SPACING: Reduced from 10px */
     border-radius: 5px;
-    margin-bottom: 20px;
+    /* margin-bottom: 20px; */ /* --- REDUCED SPACING: Controlled by container now */
     text-align: center;
+    min-height: 30px; /* Adjust if needed */
 }
 
 #word-bank .draggable {
     display: inline-block;
-    padding: 5px 10px;
-    margin: 5px;
-    background-color: #3498db;
-    color: white;
+    padding: 4px 8px; /* --- REDUCED SPACING: Reduced padding */
+    margin: 3px; /* --- REDUCED SPACING: Reduced margin */
+    background-color: #ff9100; /* Draggable item background */
+    color: white; /* Draggable item text color */
     border-radius: 5px;
     cursor: grab;
+    font-size: 0.9em; /* Adjust if needed */
 }
 
+/* Container for submit area */
+.submission-area {
+     margin-top: 1rem; /* --- REDUCED SPACING: Consistent spacing */
+}
+
+
 #submit-button {
-    background-color: #2ecc71;
-    color: white;
-    padding: 10px 20px;
+    background-color: #00FF6A; /* Green */
+    color: black;
+    font-weight: bold;
+    padding: 8px 16px; /* --- REDUCED SPACING: Reduced padding */
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    font-size: 1em; /* Adjust as needed */
+}
+
+/* Validation message spacing */
+.validation-error {
+    margin-top: 0.5rem; /* --- REDUCED SPACING: Reduced space above message */
+    font-size: 0.9em;
+    /* Keep other validation styles */
+    color: #dc3545;
+    font-weight: bold;
+    min-height: 1em;
+}
+
+/* Results container spacing (if shown) */
+#results-container {
+     margin-top: 1rem; /* Space above results */
 }
