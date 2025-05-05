@@ -17,17 +17,17 @@ body {
     background-color: #007FFF;
     background: linear-gradient(135deg, #00FF6A, #007FFF, #FFFF00);
     max-height: 100vh;
-    padding: 1rem;
+    padding: 0;
 }
 
 .container {
     background: rgba(255, 255, 255, 0.35);
     padding: 1rem;
-    border-radius: 25px; /* Adjusted border-radius based on previous example */
+    border-radius: 40px; /* Adjusted border-radius based on previous example */
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     text-align: center;
-    width: 95%;
-    max-width: 450px; /* Container width */
+    width: 98%;
+    max-width: 500px; /* Container width */
     line-height: 1;
     margin-top: 5rem;
     margin-bottom: 5rem;
@@ -47,15 +47,17 @@ body {
     text-align: left;
     font-size: 1rem;
     color: #0056b3;
-    margin-bottom: 0;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
     flex-grow: 1;
 }
 
 #current-date {
     text-align: right;
     font-size: 1rem;
-    color: #555;
-    margin-bottom: 0;
+    color: #003a79;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
     white-space: nowrap;
     margin-left: 0.5rem;
 }
@@ -66,7 +68,7 @@ h1 {
     font-family: 'Luckiest Guy', cursive;
     margin-bottom: 1rem;
     color: #FF6F00;
-    line-height: 1.2;
+    line-height: 0.5;
 }
 
 h2 {
@@ -81,9 +83,8 @@ h2 {
 .form-login {
     background: rgba(230, 247, 255, 0.9);
     text-align: center;
-    /* margin-top: 2rem; */ /* Replaced by shorthand below */
     padding: 1.5rem 1rem;
-    border-radius: 10px;
+    border-radius: 25px;
     /* width: 100%; */      /* --- REMOVED --- */
 
     /* --- ADDED / MODIFIED --- */
@@ -92,8 +93,8 @@ h2 {
 }
 
 .form-login h3 {
-    font-size: 1.2rem;
-    margin-bottom: 1rem;
+    font-size: 1.4rem;
+    margin-bottom: 1.3rem;
     color: #333;
 }
 
@@ -119,17 +120,18 @@ form {
     display: block;
     margin-bottom: 0.4rem;
     font-weight: bold;
-    color: #444;
+    color: #636363;
 }
 
 .input-group input {
     width: 100%;
     padding: 0.8rem;
     padding-left: 2.5rem;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    border: 1px solid #a9d7e9;
+    border-radius: 10px;
     font-size: 1rem;
     color: #333;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
 }
 
 .input-group .material-icons,
@@ -144,9 +146,10 @@ form {
 }
 
 input::placeholder {
-    color: #999;
+    color: #b9b9b9;        /* <-- CAMBIADO A ROJO VIVO para probar si se aplica */
     font-style: italic;
-    font-size: 0.9rem;
+    font-size: 0.9rem;       /* <-- Aumentado tamaño para visibilidad */
+    opacity: 1;            /* Asegura que no sea transparente */
 }
 
 .error-message {
