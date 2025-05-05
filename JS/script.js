@@ -22,7 +22,7 @@
         }
 
         if (dateElement) {
-            // Format date (e.g., Wednesday, July 24, 2024) - adjust options as needed
+            // Format date (e.g.,  24 July 2025)
             const dateOptions = {
                 
                 year: 'numeric', // e.g., 2024

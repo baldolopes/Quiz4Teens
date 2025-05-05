@@ -33,7 +33,7 @@
 
         // Update Time
         if (timeElement) {
-            const timeOptions = { hour: 'numeric', minute: '2-digit', hour12: true };
+            const timeOptions = { hour: 'numeric', minute: '2-digit', second: '2-digit', hour12: true };
             timeElement.textContent = now.toLocaleTimeString('en-US', timeOptions); // Adjust locale/options as needed
         }
 
@@ -53,7 +53,7 @@
     document.addEventListener('DOMContentLoaded', function() {
         updateQuizDateTime(); // Initial call
         // No need to update every second unless you show seconds
-        setInterval(updateQuizDateTime, 60000); // Update every 60 seconds (1 minute)
+        setInterval(updateQuizDateTime, 1000); // Update every 60 seconds (1 minute)
     });
 
     // --- END: Event Listeners ---

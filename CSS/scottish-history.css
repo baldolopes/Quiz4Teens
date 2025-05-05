@@ -1,6 +1,6 @@
-/* --- Base Styles (Mobile First) --- */
+/* --- Base Styles (Mobile First for Scottish History Quiz) --- */
 * {
-    font-family: Arial, Helvetica, sans-serif; /* Consider using Roboto or another chosen font */
+    font-family: Arial, Helvetica, sans-serif; /* Base font */
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -11,27 +11,25 @@ html {
 }
 
 body {
-    font-family: sans-serif; /* Fallback font */
-    background: linear-gradient(135deg, #00FF6A, #007FFF, #FFFF00); /* Body background gradient */
+    font-family: sans-serif; /* Fallback */
+    background: linear-gradient(135deg, #00FF6A, #007FFF, #FFFF00); /* Body background */
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start; /* Keep content near the top */
+    justify-content: flex-start; /* Align content top */
     min-height: 100vh;
     margin: 0;
-    padding: 1rem; /* --- REDUCED SPACING: Maybe reduce to 0.5rem or 1rem top/bottom --- */
-    /* padding: 1rem 0.5rem; */ /* Example: 1rem top/bottom, 0.5rem sides */
+    padding: 0.5rem; /* --- REDUCED SPACING: Less padding around container --- */
 }
 
 .quiz-container {
-    width: 95%; /* Keep it flexible */
-    max-width: 600px; /* Adjust as needed */
-    background: rgba(255, 255, 255, 0.4); /* Container background */
-    padding: 1rem; /* --- REDUCED SPACING: Reduced from 20px --- */
+    width: 95%;
+    max-width: 550px; /* --- REDUCED SPACING: Smaller max-width for mobile --- */
+    background: rgba(255, 255, 255, 0.45); /* --- ADJUSTED: Slightly more opaque --- */
+    padding: 0.8rem; /* --- REDUCED SPACING: Less padding */
     border-radius: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    /* margin-bottom: 20px; */ /* --- REDUCED SPACING: Removed or reduce */
-    margin-bottom: 1rem; /* Example: Reduced */
+    margin-bottom: 0.8rem; /* --- REDUCED SPACING: Less space below --- */
     text-align: center;
 }
 
@@ -40,186 +38,208 @@ body {
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    padding: 0.2rem 0.5rem; /* --- REDUCED SPACING: Reduced vertical padding */
-    font-size: 0.9rem;
+    padding: 0.2rem 0.5rem; /* --- REDUCED SPACING --- */
+    font-size: 0.85rem;    /* --- REDUCED SPACING --- */
     font-weight: bold;
-    color: rgba(105, 105, 105, 0.9);
-    margin-bottom: 0.5rem; /* --- REDUCED SPACING: Reduced from 1rem */
+    color: rgba(80, 80, 80, 0.9); /* Darker grey */
+    padding-top: 0rem;
+    margin-top: 0rem;
+    margin-bottom: 0.2rem; /* --- REDUCED SPACING --- */
 }
 
-#current-time-quiz {
-    /* margin-bottom: 1rem; */ /* --- REDUCED SPACING: Remove margin */
-    text-align: left;
-    flex-grow: 1;
-    padding-left: 1rem;
-}
-
+#current-time-quiz,
 #current-date-quiz {
-    /* margin-bottom: 1rem; */ /* --- REDUCED SPACING: Remove margin */
-    text-align: right;
-    padding-right: 1rem;
+    /* margin-bottom removed */
 }
+#current-time-quiz { text-align: left; flex-grow: 1; padding-left: 0.5rem; }
+#current-date-quiz { text-align: right; padding-right: 0.5rem; }
 
 .top-section {
-    background: none; /* No background color */
-    padding: 0.5rem 0; /* --- REDUCED SPACING: Reduced padding */
-    border-radius: 10px; /* Keep rounding if desired */
-    margin-bottom: 1rem; /* --- REDUCED SPACING: Reduced from 20px */
+    background: none;
+    padding: 0.4rem 0; /* --- REDUCED SPACING --- */
+    border-radius: 10px;
+    margin-bottom: 0.8rem; /* --- REDUCED SPACING --- */
 }
 
-h1 {
-    font-size: 1.8em; /* --- REDUCED SPACING: Slightly smaller */
+h1 { /* Quiz title heading */
+    font-size: 1.5em; /* --- REDUCED SPACING --- */
     color: #333;
-    margin-bottom: 0.5rem; /* --- REDUCED SPACING: Reduced from 10px */
+    margin-bottom: 0.4rem; /* --- REDUCED SPACING --- */
     font-family: 'Pacifico', cursive;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-    line-height: 1.2; /* --- REDUCED SPACING: Adjust if needed */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15);
+    line-height: 1.2;
 }
 
-.username-display {
-    /* font-family: 'Pacifico', cursive; <-- No es necesario, hereda de h1 */
-    font-weight: bold;        /* Hacerlo negrita */
-    color: #e67e22;           /* Color naranja */
-    /* Puedes añadir otros estilos si quieres, como un ligero text-shadow diferente */
-    /* text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4); */ /* Ejemplo */
+.username-display { /* Username style */
+    font-weight: bold;
+    color: #e67e22; /* Orange */
+    /* Inherits Pacifico font */
 }
 
-.score-container {
-    font-size: 1.1em; /* --- REDUCED SPACING: Slightly smaller */
+.score-container { /* Score display area */
+    font-size: 1em; /* --- REDUCED SPACING --- */
     color: #555;
-    margin-bottom: 0.5rem; /* --- REDUCED SPACING: Reduced from 10px */
+    margin-top: 0; /* --- REDUCED SPACING --- */
+    margin-bottom: 0.4rem; /* --- REDUCED SPACING --- */
+    line-height: 1.2;
+    font-weight: bold;
 }
 
-.progress-container {
-    font-size: 1.1em; /* --- REDUCED SPACING: Slightly smaller */
-    color: #555;
-    margin-bottom: 1rem; /* --- REDUCED SPACING: Reduced from 20px */
+.progress-container { /* Progress bar area */
+    font-size: 1em; /* --- REDUCED SPACING --- */
+    color: #444; /* Darker */
+    margin-top: 1rem;
+    margin-bottom: 0rem; /* --- REDUCED SPACING --- */
+    font-weight: bold;
 }
 
 .progress-bar {
     width: 100%;
-    height: 18px; /* --- REDUCED SPACING: Slightly shorter bar */
+    height: 16px; /* --- REDUCED SPACING --- */
     background-color: #ddd;
-    border-radius: 10px;
+    border-radius: 8px; /* --- REDUCED SPACING --- */
     overflow: hidden;
-    /* padding-bottom: 0rem; */ /* Not needed */
-    /* margin-bottom: 0rem; */ /* Controlled by .progress-container */
+    margin-top: 4px; /* --- REDUCED SPACING --- */
 }
 
 .progress-value {
     display: block;
     width: 0%;
     height: 100%;
-    background-color: #e67e22;
+    background-color: #e67e22; /* Orange */
     color: white;
     text-align: center;
-    line-height: 18px; /* Match height */
-    font-size: 0.8em; /* Adjust text size if needed */
-    /* padding-bottom: 0rem; */ /* Not needed */
-    /* margin-bottom: 0rem; */ /* Not needed */
+    line-height: 1rem; /* Match height */
+    font-size: 0.8em;
+    transition: width 0.5s ease-in-out;
 }
 
+/* Instructions Area */
 #instructions {
-    /* padding-top: 0rem ; */
-    /* margin-top: 0rem; */
-    margin-bottom: 1rem; /* --- REDUCED SPACING: Add some space below instructions */
-    padding: 0.5rem; /* Optional: Add some internal padding */
-    background-color: rgba(255, 255, 255, 0.2); /* Optional: Slight background */
+    margin-top: 0.2rem;
+    margin-bottom: 0.5rem; /* --- REDUCED SPACING --- */
+    padding: 0.2rem; /* --- REDUCED SPACING --- */
+    background-color: rgba(255, 255, 255, 0.25);
     border-radius: 5px;
-    font-size: 0.9em;
+    font-size: 0.8em; /* --- REDUCED SPACING --- */
 }
 #instructions p {
-     margin: 0; /* Remove default paragraph margins */
-     line-height: 1.3;
+     margin: 0;
+     line-height: 1.3; /* --- REDUCED SPACING --- */
 }
 
+/* Question Area */
 #question-container {
     background-color: #00008B; /* Dark Blue */
-    color: #ecffa5; /* Light yellow/green text */
-    padding: 1rem; /* --- REDUCED SPACING: Reduced from 20px */
+    color: #ecffa5; /* Light text */
+    padding: 0.8rem; /* --- REDUCED SPACING --- */
     border-radius: 10px;
-    margin-bottom: 1rem; /* --- REDUCED SPACING: Reduced from 20px */
+    margin-bottom: 0.8rem; /* --- REDUCED SPACING --- */
     text-align: left;
 }
 
 #question-container ol {
-    padding-left: 1.2rem; /* --- REDUCED SPACING: Reduced indent */
-    margin: 0; /* Remove default list margin */
+    padding-left: 1rem; /* --- REDUCED SPACING --- */
+    margin: 0;
 }
 
 #question-container li {
-    margin-bottom: 0.8rem; /* --- REDUCED SPACING: Reduced from 15px */
-    line-height: 1.4;
+    margin-bottom: 0.6rem; /* --- REDUCED SPACING --- */
+    line-height: 1.3;     /* --- REDUCED SPACING --- */
+    font-size: 0.9em;    /* --- REDUCED SPACING --- */
 }
 
-#question-container .answer-box {
-    width: 180px; /* --- REDUCED SPACING: Consider reducing width slightly */
-    height: 22px; /* --- REDUCED SPACING: Reduce height */
-    border: 1px dashed white;
+#question-container .answer-box { /* Drop zones */
+    width: 160px; /* --- REDUCED SPACING --- */
+    height: 20px; /* --- REDUCED SPACING --- */
+    border: 1px dashed #ccc; /* --- ADJUSTED: Lighter dashed border --- */
     display: inline-block;
-    margin-left: 8px; /* --- REDUCED SPACING: Reduced from 10px */
-    vertical-align: middle; /* Align with text */
+    margin-left: 6px; /* --- REDUCED SPACING --- */
+    vertical-align: middle;
+    background-color: rgba(255, 255, 255, 0.1); /* --- ADDED: Slight background for drop zone --- */
+    border-radius: 3px; /* Optional rounding */
 }
 
-/* Container for word bank */
+/* Word Bank Area */
 #word-bank-container {
-     margin-bottom: 1rem; /* --- REDUCED SPACING: Add consistent spacing */
+     margin-bottom: 0.8rem; /* --- REDUCED SPACING --- */
 }
-#word-bank-container p {
+#word-bank-container p { /* "Word Bank" label */
     font-weight: bold;
     color: #333;
-    margin-bottom: 0.5rem; /* Space below label */
+    margin-bottom: 0.3rem; /* --- REDUCED SPACING --- */
+    font-size: 0.8rem;     /* --- REDUCED SPACING --- */
 }
 
-#word-bank {
-    background-color: rgba(255, 255, 255, 0.7); /* Word bank background */
-    /* color: white; <-- Text color comes from .draggable now */
-    padding: 0.5rem; /* --- REDUCED SPACING: Reduced from 10px */
+#word-bank { /* Container for draggable items */
+    background-color: rgba(255, 255, 255, 0.6); /* Lighter background */
+    padding: 0.4rem; /* --- REDUCED SPACING --- */
     border-radius: 5px;
-    /* margin-bottom: 20px; */ /* --- REDUCED SPACING: Controlled by container now */
     text-align: center;
-    min-height: 30px; /* Adjust if needed */
+    min-height: 28px; /* --- REDUCED SPACING --- */
 }
 
-#word-bank .draggable {
+#word-bank .draggable { /* Draggable items */
     display: inline-block;
-    padding: 4px 8px; /* --- REDUCED SPACING: Reduced padding */
-    margin: 3px; /* --- REDUCED SPACING: Reduced margin */
-    background-color: #ff9100; /* Draggable item background */
-    color: white; /* Draggable item text color */
-    border-radius: 5px;
+    padding: 3px 6px; /* --- REDUCED SPACING --- */
+    margin: 2px; /* --- REDUCED SPACING --- */
+    background-color: #ff9100; /* Orange */
+    color: white;
+    border-radius: 4px; /* --- REDUCED SPACING --- */
     cursor: grab;
-    font-size: 0.9em; /* Adjust if needed */
+    font-size: 0.85em; /* --- REDUCED SPACING --- */
 }
 
-/* Container for submit area */
+/* Submit Area */
 .submission-area {
-     margin-top: 1rem; /* --- REDUCED SPACING: Consistent spacing */
+     margin-top: 0.8rem; /* --- REDUCED SPACING --- */
+     text-align: center; /* Ensure button is centered */
 }
-
 
 #submit-button {
     background-color: #00FF6A; /* Green */
     color: black;
     font-weight: bold;
-    padding: 8px 16px; /* --- REDUCED SPACING: Reduced padding */
+    padding: 6px 14px; /* --- REDUCED SPACING --- */
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 1em; /* Adjust as needed */
+    font-size: 0.95em; /* --- REDUCED SPACING --- */
 }
 
-/* Validation message spacing */
+/* Validation Message */
 .validation-error {
-    margin-top: 0.5rem; /* --- REDUCED SPACING: Reduced space above message */
-    font-size: 0.9em;
-    /* Keep other validation styles */
-    color: #dc3545;
+    margin-top: 0.4rem; /* --- REDUCED SPACING --- */
+    font-size: 0.85em;  /* --- REDUCED SPACING --- */
+    color: #dc3545;     /* Red */
     font-weight: bold;
     min-height: 1em;
+    text-align: center;
 }
 
-/* Results container spacing (if shown) */
+/* Results container (if shown) */
 #results-container {
-     margin-top: 1rem; /* Space above results */
+     margin-top: 0.8rem; /* --- REDUCED SPACING --- */
+     /* Add padding/styles if needed when visible */
+}
+/* Styles for elements inside results container would also need reduction */
+#results-container h2 { font-size: 1.2rem; margin-bottom: 0.5rem; }
+#results-container p { font-size: 0.9rem; margin-bottom: 0.5rem; }
+#results-container p.quiz-completion-tag { font-size: 1.1em; margin: 0.8rem 0; }
+#results-container .results-button { margin-top: 0.8rem; }
+#results-container .results-button button { font-size: 1em; padding: 8px 16px; }
+
+/* --- Media Queries (Keep empty or adjust later if needed) --- */
+@media only screen and (min-width: 768px) {
+    /* Add overrides for tablet if base styles are too small */
+    .quiz-container { max-width: 700px; padding: 1.2rem; }
+    h1 { font-size: 2em; }
+    /* etc... */
+}
+
+@media only screen and (min-width: 1024px) {
+     /* Add overrides for desktop if base styles are too small */
+     .quiz-container { max-width: 800px; padding: 1.5rem; }
+     h1 { font-size: 2.2em; }
+     /* etc... */
 }

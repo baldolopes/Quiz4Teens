@@ -25,7 +25,7 @@
 
         // Update Time
         if (timeElement) {
-            const timeOptions = { hour: 'numeric', minute: '2-digit', hour12: true };
+            const timeOptions = { hour: 'numeric', minute: '2-digit', second: '2-digit', hour12: true };
             timeElement.textContent = now.toLocaleTimeString('en-US', timeOptions); // Adjust locale/options as needed
         }
 
