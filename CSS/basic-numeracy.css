@@ -11,27 +11,25 @@ html {
 
 body {
     font-family: sans-serif;
-    background: linear-gradient(135deg, #00FF6A, #007FFF, #FFFF00); /* Body background gradient */
+    background: linear-gradient(135deg, #00FF6A, #007FFF, #FFFF00);
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start; /* Align content to top */
-    min-height: 100vh;       /* Allow scrolling if content is still too tall */
-    /* height: 100vh; */     /* Avoid fixed height unless absolutely necessary */
-    /* overflow: auto; */     /* Ensure scroll is visible if needed */
+    justify-content: flex-start;
+    min-height: 100vh;
     margin: 0;
-    padding: 0.5rem; /* --- REDUCED: Less padding around the container --- */
+    padding: 0.5rem;
 }
 
 .quiz-container {
-    width: 95%; /* Flexible width */
-    max-width: 500px; /* --- REDUCED: Max width for mobile --- */
-    padding: 0.8rem; /* --- REDUCED: Less internal padding --- */
+    width: 95%;
+    max-width: 500px;
+    padding: 0.8rem;
     border-radius: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-bottom: 0.5rem; /* --- REDUCED: Less space below container --- */
+    margin-bottom: 0.5rem;
     text-align: center;
-    background: rgba(255, 255, 255, 0.5); /* --- ADJUSTED: Slightly more opaque background --- */
+    background: rgba(255, 255, 255, 0.5);
 }
 
 .date-time-header {
@@ -39,283 +37,229 @@ body {
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    padding: 0.2rem 0.5rem; /* --- REDUCED: Less vertical padding --- */
-    font-size: 0.85rem;    /* --- REDUCED: Smaller font --- */
+    padding: 0.2rem 0.5rem;
+    font-size: 0.85rem;
     font-weight: bold;
-    color: rgba(80, 80, 80, 0.9); /* --- ADJUSTED: Darker color for contrast --- */
-    margin-bottom: 0.5rem; /* --- REDUCED: Less space below --- */
+    color: rgba(80, 80, 80, 0.9);
+    margin-bottom: 0.5rem;
 }
 
 #current-time-quiz,
 #current-date-quiz {
-    /* Removed margin-bottom */
-    /* Padding adjusted in parent or kept if needed */
+    /* No margin-bottom needed */
 }
 #current-time-quiz { text-align: left; flex-grow: 1; padding-left: 0.5rem; }
 #current-date-quiz { text-align: right; padding-right: 0.5rem; }
 
-
 .top-section {
-    background: none; /* No background */
-    padding: 0.5rem 0; /* --- REDUCED: Less vertical padding --- */
+    background: none;
+    padding: 0.5rem 0;
     border-radius: 10px;
-    margin-bottom: 0.8rem; /* --- REDUCED: Less space below top section --- */
+    margin-bottom: 0.8rem;
     text-align: center;
 }
 
-h1 { /* Quiz Title Heading */
-    font-size: 1.3rem; /* --- REDUCED: Smaller title --- */
+h1 {
+    font-size: 1.3rem;
     color: #333;
     margin-top: 0.2rem;
-    margin-bottom: 0.5rem; /* --- REDUCED: Less space below title --- */
+    margin-bottom: 0.5rem;
     font-family: 'Pacifico', cursive;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15);
     line-height: 1.2;
 }
 
-#usernameDisplay { /* Style for the username within H1 */
+#usernameDisplay {
     font-weight: bold;
-    color: #e67e22; /* Orange color */
-    /* Inherits font-family from h1 */
+    color: #e67e22;
 }
 
 .score-container {
-    font-size: 0.9rem; /* --- REDUCED: Smaller score text --- */
+    font-size: 0.9rem;
     color: #444;
-    margin-top: 0rem; /* --- REDUCED: Less space above score --- */
-    margin-bottom: 0.3rem; /* --- REDUCED: Less space below score --- */
+    margin-top: 0rem;
+    margin-bottom: 0.3rem;
     text-align: center;
-    line-height: 1.2; /* --- REDUCED: Tighter line height --- */
-    font-weight: bold; /* Make score text bolder */
-}
-
-/* Styles for Score Label and Results (If used - currently commented out in HTML) */
-.score-label { /* Keep this if you add labels back */
-    font-weight: normal; /* Example */
-    font-size: 1em; /* Example */
-    color: #555; /* Example */
-    margin-bottom: 3px; /* Example */
-}
-.score-results { /* Keep this if you add the results span back */
-    color: #1a1a1a; /* Example text color */
-    background-color: rgba(220, 220, 220, 0.7); /* Example background */
-    padding: 0.3rem 0.6rem; /* Example padding */
-    border-radius: 5px; /* Example */
-    display: inline-block;
-    margin: 0 3px; /* Example */
-}
-
-
-.progress-container {
-    margin-top: 0.5rem; /* --- REDUCED: Less space above progress */
-    font-size: 0.9rem; /* --- REDUCED: Smaller progress text */
-    color: #2c2c2c;
-    margin-bottom: 0.8rem; /* --- REDUCED: Less space below progress --- */
+    line-height: 1.2;
     font-weight: bold;
 }
+.score-label { font-weight: normal; font-size: 1em; color: #555; margin-bottom: 3px; }
+.score-results { color: #1a1a1a; background-color: rgba(220, 220, 220, 0.7); padding: 0.3rem 0.6rem; border-radius: 5px; display: inline-block; margin: 0 3px; }
 
-.progress-bar {
-    width: 100%;
-    height: 16px; /* --- REDUCED: Shorter bar */
-    background-color: #e9ecef;
-    border-radius: 8px; /* --- REDUCED: Less rounding */
-    overflow: hidden;
-    margin-top: 4px;
-    /* line-height removed, not needed */
+.progress-container {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    color: #2c2c2c;
+    margin-bottom: 0.8rem;
+    font-weight: bold;
 }
+.progress-bar { width: 100%; height: 16px; background-color: #e9ecef; border-radius: 8px; overflow: hidden; margin-top: 4px; }
+.progress-value { display: block; width: 0%; height: 100%; background-color: #e67e22; color: white; text-align: center; line-height: 16px; font-size: 0.8em; transition: width 0.5s ease-in-out; }
 
-.progress-value {
-    display: block;
-    width: 0%;
-    height: 100%;
-    background-color: #e67e22;
-    color: white;
-    text-align: center;
-    line-height: 16px; /* Match bar height */
-    font-size: 0.8em;
-    transition: width 0.5s ease-in-out;
-}
-
-/* Question Area */
+/* --- Question Area --- */
 #question-container {
-    margin-bottom: 0.5rem; /* --- REDUCED: Less space below questions */
-    padding: 0.8rem;      /* --- REDUCED: Less internal padding */
+    margin-bottom: 0.5rem;
+    padding: 0.8rem;
     border: 1px solid #ced4da;
-    border-radius: 15px;     /* --- REDUCED: Less rounding */
+    border-radius: 15px;
     text-align: left;
     display: flex;
     flex-direction: column;
     background-color: #00008B; /* Dark blue background */
 }
 
-/* Combined styles for question text elements */
-.question-number, /* If you add number spans */
 .question-text {
-    text-align: center;
-    margin-bottom: 0.8rem; /* --- REDUCED: Less space below text */
-}
-
-.question-number { /* Specific style if you add question numbers */
-    font-size: 0.9rem;
-    color: #ffd500;
-    font-family: 'Luckiest Guy', cursive;
-    line-height: 1;
-    margin-bottom: 3px;
-}
-
-.question-text { /* Style for the question itself */
-    font-size: 1rem;  /* --- REDUCED: Smaller question text */
-    color: #ecffa5;    /* Light text color */
+    font-size: 1rem;
+    color: #ecffa5;
     margin-top: 0.3rem;
-    line-height: 1.3; /* --- REDUCED: Tighter line height */
+    line-height: 1.3;
+    text-align: center;
+    margin-bottom: 0.8rem;
 }
 
-
-/* Options Container */
+/* --- Options Container --- */
 .options-container {
-    margin-bottom: 0.8rem; /* --- REDUCED: Less space below options */
+    margin-bottom: 0.8rem;
     display: flex;
     flex-direction: column;
     align-items: stretch;
-    gap: 6px; /* --- REDUCED: Less space between option labels */
+    gap: 8px; /* Space between options */
 }
 
-.option { /* Container for each label/input pair */
-    font-size: 1em; /* --- REDUCED: Slightly smaller option text */
+.option { /* Wrapper for each label */
+    font-size: 1em;
     color: #494949;
-    /* margin-bottom removed, using gap in parent */
 }
 
 .option label {
     cursor: pointer;
-    display: block;
-    padding: 8px 12px; /* --- REDUCED: Less padding in labels */
-    border: 1px solid #ddd;
-    border-radius: 8px; /* --- REDUCED: Less rounding */
+    display: flex;            /* Use flex to align radio, text, and feedback message */
+    align-items: center;      /* Vertically align items within the label */
+    /* justify-content: space-between; <-- Only if feedback should be far right */
+    padding: 8px 10px;        /* Reduced padding */
+    border: 2px solid #ddd;   /* Border for the label */
+    border-radius: 8px;
     transition: background-color 0.2s ease, border-color 0.2s ease;
     background-color: #f8f9fa;
-    line-height: 1.3; /* Adjust as needed */
+    line-height: 1.3;
+    width: 100%;
 }
 
-.option label:hover {
+.option label.disabled-option {
+    cursor: default;
+    opacity: 0.6; /* Slightly more faded */
+    pointer-events: none; /* Prevent further clicks */
+}
+
+.option label:hover:not(.disabled-option) {
     background-color: #e9ecef;
     border-color: #bbb;
 }
 
-.option input[type="radio"] {
-    margin-right: 8px; /* --- REDUCED: Less space next to radio */
-    vertical-align: middle;
-    transform: scale(0.9); /* --- REDUCED: Make radio button smaller */
+.option label.correct {
+    background-color: #28a745;   /* VERDE MÁS VIVO para el fondo */
+    border-color: #1e7e34;     /* Borde verde más oscuro */
+    color: #ffffff;            /* --- AÑADIDO: Texto de la opción en BLANCO --- */
+    font-weight: bold;
 }
 
-/* Submit Button */
-.submit-button {
-    background-color: #3498db;
+.option label.incorrect {
+    background-color: #dc3545;   /* ROJO MÁS VIVO para el fondo */
+    border-color: #b02a37;     /* Borde rojo más oscuro */
+    color: #ffffff;            /* --- AÑADIDO: Texto de la opción en BLANCO --- */
+    font-weight: bold;
+}
+
+.option input[type="radio"] {
+    margin-right: 8px;
+    vertical-align: middle;
+    transform: scale(0.95); /* Slightly larger radio */
+    flex-shrink: 0; /* Prevent radio from shrinking */
+}
+
+/* --- STYLES FOR INLINE FEEDBACK MESSAGE (INSIDE LABEL) --- */
+.option-text-content { /* This span is created by JS to wrap the option's text */
+    flex-grow: 1; /* Allows it to take up available space before feedback */
+    text-align: left; /* Ensure option text is left-aligned */
+}
+
+.option-feedback-message {
+    font-size: 0.8em;
+    font-weight: bold;
+    margin-left: auto; /* Pushes it to the right if label is flex */
+    padding: 2px 5px;
+    border-radius: 3px;
+    white-space: nowrap; /* Prevent wrapping */
+    flex-shrink: 0; /* Prevent feedback message from shrinking */
+}
+
+.option-feedback-message.correct-text {
+    color: #198754; /* Green text */
+}
+
+.option-feedback-message.incorrect-text {
+    color: #dc3545; /* Red text */
+}
+/* --- END INLINE FEEDBACK STYLES --- */
+
+
+/* --- STYLES FOR "NEXT QUESTION" BUTTON --- */
+.quiz-action-button {
+    background-color: #007bff; /* Example: Blue for Next button */
     color: #fff;
-    padding: 8px 20px;  /* --- REDUCED: Less padding */
+    padding: 10px 22px;
     border: none;
-    border-radius: 8px; /* --- REDUCED: Less rounding */
+    border-radius: 8px;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.1s ease;
-    font-size: 1.1em;   /* --- REDUCED: Smaller button text */
-    margin-top: 0.8rem; /* --- REDUCED: Less space above button */
+    font-size: 1.1em;
+    margin-top: 1rem;
     align-self: center;
-    font-weight: bold; /* Make text bolder */
+    font-weight: bold;
+    display: none; /* Initially hidden by JS or this class */
 }
 
-.submit-button:hover:not(:disabled) {
-    background-color: #2980b9;
-    transform: scale(1.02);
+.quiz-action-button.visible {
+    display: inline-block; /* Class added by JS to show it */
 }
 
-.submit-button:disabled {
+.quiz-action-button:hover:not(:disabled) {
+    background-color: #0056b3;
+}
+
+.quiz-action-button:disabled {
     background-color: #ccc;
     cursor: not-allowed;
     opacity: 0.7;
 }
+/* --- END NEXT QUESTION BUTTON STYLES --- */
 
-/* Feedback Area */
-#feedback-container {
-    margin-top: 0.8rem; /* --- REDUCED: Less space above feedback */
-    padding: 8px;       /* --- REDUCED: Less padding */
-    border-radius: 5px;
-    text-align: center;
-    font-weight: bold;
-    min-height: 1.2em; /* --- REDUCED: Adjust min-height --- */
-    font-size: 0.9em;  /* --- REDUCED: Smaller feedback text --- */
-    /* Border and background set by JS */
-}
 
-/* Validation Message */
+/* --- Validation Message (No changes from previous version) --- */
 .validation-error {
     color: #d9534f;
     font-weight: bold;
-    margin-top: 0.5rem;    /* --- REDUCED: Less space above */
-    margin-bottom: 0.5rem; /* --- REDUCED: Less space below */
-    min-height: 1em;       /* --- REDUCED: Adjust min-height */
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    min-height: 1em;
     text-align: center;
-    font-size: 0.9em;      /* --- REDUCED: Smaller error text */
+    font-size: 0.9em;
 }
 
-
-/* --- Styles for final results screen (within #question-container) --- */
-/* Reduce spacing if results are shown */
-#question-container h2 { /* Results heading */
-    text-align: center;
-    margin-bottom: 0.8rem; /* --- REDUCED: Less space below heading --- */
-    font-size: 1.3rem;    /* --- REDUCED: Smaller heading --- */
-    color: #ecffa5;       /* Ensure correct color */
-}
-
-#question-container p { /* Results text paragraphs */
-    text-align: center;
-    font-size: 1em;       /* --- REDUCED: Smaller text --- */
-    margin-bottom: 0.6rem; /* --- REDUCED: Less space below paragraphs --- */
-    color: #ecffa5;       /* Ensure correct color */
-}
-
-#question-container p.quiz-completion-tag { /* Pass/Fail message */
-    font-size: 1.2em;     /* --- REDUCED: Smaller message --- */
-    margin-top: 1rem;     /* --- REDUCED: Less space above --- */
-    margin-bottom: 1rem;  /* --- REDUCED: Less space below --- */
-    font-weight: bold;
-    /* color set by pass/fail classes */
-}
-
-.results-button { /* Container for the Back button */
-    display: flex;
-    justify-content: center;
-    margin-top: 1rem; /* --- REDUCED: Less space above button --- */
-}
-
-.results-button button {
-    background-color: #64B5F6;
-    color: #fff;
-    padding: 10px 20px;   /* --- REDUCED: Less padding --- */
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    font-size: 1.1em;     /* --- REDUCED: Smaller button text --- */
-    text-align: center;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-}
-
-.results-button button:hover {
-    background-color: #42A5F5;
-    transform: translateY(-2px);
-}
-
-
-/* Pass/Fail message colors */
+/* --- Final Results Screen Styles (No changes from previous version) --- */
+#question-container h2 { text-align: center; margin-bottom: 0.8rem; font-size: 1.3rem; color: #ecffa5; }
+#question-container p { text-align: center; font-size: 1em; margin-bottom: 0.6rem; color: #ecffa5; }
+#question-container p.quiz-completion-tag { font-size: 1.2em; margin-top: 1rem; margin-bottom: 1rem; font-weight: bold; }
+.results-button { display: flex; justify-content: center; margin-top: 1rem; }
+.results-button button { background-color: #64B5F6; color: #fff; padding: 10px 20px; border: none; border-radius: 8px; cursor: pointer; transition: background-color 0.3s ease, transform 0.2s ease; font-size: 1.1em; text-align: center; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
+.results-button button:hover { background-color: #42A5F5; transform: translateY(-2px); }
 .pass-message { color: #28a745; }
 .fail-message { color: #dc3545; }
 
-/* --- Media Queries (Keep them empty or adjust if needed later) --- */
+/* --- Media Queries (No changes needed for this specific request) --- */
 @media only screen and (min-width: 768px) {
-    /* Add tablet overrides here if base styles become too small */
+    /* Tablet overrides would go here */
 }
-
 @media only screen and (min-width: 1024px) {
-     /* Add desktop overrides here if base styles become too small */
+     /* Desktop overrides would go here */
 }
