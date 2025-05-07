@@ -28,7 +28,7 @@
 
     // --- Get and Display Username ---
     const username = getCookie('username');
-    const usernameDisplayElement = document.getElementById('usernameDisplay');
+    const usernameDisplayElement = document.getElementById('usernameDisplay'); // Using ID as per last HTML
     if (usernameDisplayElement) {
         usernameDisplayElement.textContent = username || 'Guest';
     } else {
@@ -48,7 +48,7 @@
     let currentQuestion = 0;
     let correctAnswers = 0;
     let incorrectAnswers = 0;
-    let nextQuestionButton = null; // To store reference to the "Next Question" button
+    let nextQuestionButton = null;
 
     // --- Function to Show Current Question ---
     function showQuestion() {
@@ -58,21 +58,17 @@
 
         questionContainer.innerHTML = ''; // Clear previous
 
-        // Question Text
         const questionElement = document.createElement('h2');
         questionElement.textContent = `Question ${currentQuestion + 1}: ${questionData.question}`;
         questionElement.classList.add('question-text');
         questionContainer.appendChild(questionElement);
 
-        // Options Container
         const optionsContainer = document.createElement('div');
         optionsContainer.classList.add('options-container');
 
-        // Options
         questionData.options.forEach((optionText, index) => {
             const optionDiv = document.createElement('div');
             optionDiv.classList.add('option');
-
             const labelElement = document.createElement('label');
             const inputId = `q${currentQuestion}_option${index}`;
             const inputElement = document.createElement('input');
@@ -81,112 +77,122 @@
             inputElement.value = optionText;
             inputElement.id = inputId;
 
-            // --- ADDED: Event listener for instant feedback on click ---
-            labelElement.addEventListener('click', handleOptionSelection);
-
+            labelElement.addEventListener('click', handleOptionSelection); // Attach listener here
             labelElement.htmlFor = inputId;
             labelElement.appendChild(inputElement);
-            labelElement.appendChild(document.createTextNode(' ' + optionText)); // Option text
-            // Placeholder for feedback message (will be added on click)
-            const feedbackSpan = document.createElement('span');
-            feedbackSpan.classList.add('option-feedback-message'); // Add class for styling
-            labelElement.appendChild(feedbackSpan); // Add empty span to label
+            const optionTextSpan = document.createElement('span'); // Span for text
+            optionTextSpan.classList.add('option-text-content');
+            optionTextSpan.textContent = ' ' + optionText;
+            labelElement.appendChild(optionTextSpan);
+            const feedbackSpan = document.createElement('span'); // Span for feedback message
+            feedbackSpan.classList.add('option-feedback-message');
+            labelElement.appendChild(feedbackSpan);
 
             optionDiv.appendChild(labelElement);
             optionsContainer.appendChild(optionDiv);
         });
         questionContainer.appendChild(optionsContainer);
 
-        // "Next Question" Button (initially hidden)
+        // Create the action button (Next/Results) but keep it hidden
         nextQuestionButton = document.createElement('button');
-        nextQuestionButton.textContent = 'Next Question';
-        nextQuestionButton.classList.add('quiz-action-button'); // Use new class
-        nextQuestionButton.style.display = 'none'; // Hide it initially
+        // Default text will be set later in handleOptionSelection
+        nextQuestionButton.classList.add('quiz-action-button');
+        // nextQuestionButton.style.display = 'none'; // CSS handles initial display:none
         nextQuestionButton.addEventListener('click', loadNextQuestionOrResults);
         questionContainer.appendChild(nextQuestionButton);
     }
 
-    // --- NEW Function: Handle Option Selection and Give Instant Feedback ---
+    // --- Function: Handle Option Selection and Give Instant Feedback ---
     function handleOptionSelection(event) {
-        // Prevent default if clicking label that triggers input
-        // event.preventDefault(); // Might not be needed if input is visually hidden
-
-        const selectedLabel = event.currentTarget; // The label that was clicked
+        const selectedLabel = event.currentTarget;
         const selectedInput = selectedLabel.querySelector('input[type="radio"]');
         const allLabels = document.querySelectorAll('.options-container .option label');
         const allInputs = document.querySelectorAll('.options-container input[type="radio"]');
 
-        // 1. If already answered (e.g., button visible), do nothing
-        if (nextQuestionButton && nextQuestionButton.style.display !== 'none') {
+        // Prevent re-answering if already answered
+        if (nextQuestionButton && nextQuestionButton.classList.contains('visible')) {
             return;
         }
-        
-        // 2. Check the selected radio button programmatically
+
         if (selectedInput) {
             selectedInput.checked = true;
         }
 
-        // 3. Disable all options
-        allLabels.forEach(label => label.classList.add('disabled-option')); // Visually disable
-        allInputs.forEach(input => input.disabled = true); // Functionally disable
+        // Disable all options
+        allLabels.forEach(label => {
+            label.classList.add('disabled-option');
+            label.removeEventListener('click', handleOptionSelection); // Remove listener
+            const input = label.querySelector('input[type="radio"]');
+            if (input) input.disabled = true;
+        });
 
-        // 4. Get user answer and correct answer
         const userAnswer = selectedInput.value;
-        const correctAnswer = quizData[currentQuestion].correctAnswer;
+        const correctAnswerText = quizData[currentQuestion].correctAnswer;
 
-        // 5. Provide Feedback
-        const selectedFeedbackSpan = selectedLabel.querySelector('.option-feedback-message');
+        // Clear previous feedback messages
+        allLabels.forEach(label => {
+            const existingFeedback = label.querySelector('.option-feedback-message');
+            if (existingFeedback) existingFeedback.textContent = ''; // Clear text content
+        });
 
-        if (userAnswer === correctAnswer) {
+        // Helper to append feedback
+        function appendFeedback(label, text, isCorrectType) {
+            const feedbackSpan = label.querySelector('.option-feedback-message');
+            if (feedbackSpan) {
+                 feedbackSpan.classList.remove('correct-text', 'incorrect-text'); // Clear previous color classes
+                 feedbackSpan.textContent = `(${text})`;
+                 feedbackSpan.classList.add(isCorrectType ? 'correct-text' : 'incorrect-text');
+            }
+        }
+
+        // Provide feedback
+        if (userAnswer === correctAnswerText) {
             correctAnswers++;
             selectedLabel.classList.add('correct');
-            if (selectedFeedbackSpan) {
-                selectedFeedbackSpan.textContent = 'Correct Answer!';
-                selectedFeedbackSpan.classList.add('correct-text');
-            }
+            appendFeedback(selectedLabel, 'Correct Answer!', true);
         } else {
             incorrectAnswers++;
             selectedLabel.classList.add('incorrect');
-            if (selectedFeedbackSpan) {
-                selectedFeedbackSpan.textContent = 'Incorrect Answer';
-                selectedFeedbackSpan.classList.add('incorrect-text');
-            }
+            appendFeedback(selectedLabel, 'Incorrect Answer', false);
 
             // Highlight the correct answer
             allLabels.forEach(label => {
                 const input = label.querySelector('input[type="radio"]');
-                if (input && input.value === correctAnswer) {
+                if (input && input.value === correctAnswerText) {
                     label.classList.add('correct');
-                    const correctFeedbackSpan = label.querySelector('.option-feedback-message');
-                    if (correctFeedbackSpan) {
-                        correctFeedbackSpan.textContent = 'This is the correct answer';
-                        correctFeedbackSpan.classList.add('correct-text');
-                    }
+                    appendFeedback(label, 'This is the correct answer', true);
                 }
             });
         }
 
-        // 6. Update score and show "Next Question" button
         updateScore();
+
+        // --- MODIFICATION START: Change button text based on question index ---
         if (nextQuestionButton) {
-            nextQuestionButton.style.display = 'inline-block'; // Show the button
-            nextQuestionButton.classList.add('visible');
+            if (currentQuestion === quizData.length - 1) {
+                // This is the last question
+                nextQuestionButton.textContent = 'See Results';
+            } else {
+                // Not the last question
+                nextQuestionButton.textContent = 'Next Question';
+            }
+            // --- END MODIFICATION ---
+            nextQuestionButton.classList.add('visible'); // Make button visible
         }
     }
 
-    // --- NEW Function: Load Next Question or Show Results ---
+    // --- Function: Load Next Question or Show Results ---
     function loadNextQuestionOrResults() {
         currentQuestion++;
+        updateProgress(); // Update progress first
         if (currentQuestion < quizData.length) {
-            updateProgress();
-            showQuestion(); // Load next question
+            showQuestion();
         } else {
-            updateProgress();
-            showResults(); // Show final results
+            showResults();
         }
     }
 
-    // --- Functions: updateScore, updateProgress, showResults (Keep as is, but results no longer clears separate feedback) ---
+    // --- Functions: updateScore, updateProgress, showResults (as before) ---
     function updateScore() {
         const correctEl = document.getElementById('correctAnswers');
         const incorrectEl = document.getElementById('incorrectAnswers');
@@ -196,7 +202,7 @@
 
     function updateProgress() {
         const totalQuestions = quizData.length || 1;
-        const questionsCompleted = currentQuestion;
+        const questionsCompleted = currentQuestion; // Progress reflects questions *completed*
         const progress = totalQuestions > 0 ? (questionsCompleted / totalQuestions) * 100 : 0;
         const progressValueEl = document.querySelector('.progress-value');
         if (progressValueEl) {
@@ -212,10 +218,10 @@
         let message, messageClass = '';
         const passingScore = 3;
         if (correctAnswers >= passingScore) {
-            message = "Congratulations! You passed the quiz!";
+            message = `<span class="result-highlight-word">Congratulations!</span><span class="result-secondary-text">You passed the quiz!</span>`;
             messageClass = 'pass-message';
         } else {
-            message = "Sorry, you did not pass the quiz this time.";
+            message = `<span class="result-highlight-word">Sorry,</span>you did not pass the quiz this time.`;
             messageClass = 'fail-message';
         }
 
@@ -224,7 +230,7 @@
 
         questionContainer.innerHTML = `
             <h2>Quiz Completed!</h2>
-            <p>Your Final Score: ${correctAnswers} correct and ${incorrectAnswers} incorrect.</p>
+            <p>Your Final Score: <br> ${correctAnswers} correct and ${incorrectAnswers} incorrect out of ${quizData.length}.</p> <!-- Added total questions -->
             ${displayResultsHTML}
             ${backToQuizzesButtonHTML}
         `;

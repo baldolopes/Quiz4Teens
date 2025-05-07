@@ -27,6 +27,7 @@ body {
     padding: 0.8rem;
     border-radius: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.4);
     margin-bottom: 0.5rem;
     text-align: center;
 }
@@ -208,7 +209,7 @@ h1 {
 
 /* --- STYLES FOR "NEXT QUESTION" BUTTON --- */
 .quiz-action-button {
-    background-color: #007bff; /* Example: Blue for Next button */
+    background-color: #007FFF; /* Example: Blue for Next button */
     color: #fff;
     padding: 10px 22px;
     border: none;
@@ -227,7 +228,8 @@ h1 {
 }
 
 .quiz-action-button:hover:not(:disabled) {
-    background-color: #0056b3;
+    background-color: #00FF6A;
+    color: #1a1a1a;
 }
 
 .quiz-action-button:disabled {
@@ -251,13 +253,52 @@ h1 {
 
 /* --- Final Results Screen Styles (No changes from previous version) --- */
 #question-container h2 { text-align: center; margin-bottom: 0.8rem; font-size: 1.3rem; color: #ecffa5; }
-#question-container p { text-align: center; font-size: 1em; margin-bottom: 0.6rem; color: #ecffa5; }
+#question-container p { text-align: center; font-size: 1em; margin-bottom: 0.6rem; color: #eeeeee; }
 #question-container p.quiz-completion-tag { font-size: 1.2em; margin-top: 1rem; margin-bottom: 1rem; font-weight: bold; }
 .results-button { display: flex; justify-content: center; margin-top: 1rem; }
-.results-button button { background-color: #64B5F6; color: #fff; padding: 10px 20px; border: none; border-radius: 8px; cursor: pointer; transition: background-color 0.3s ease, transform 0.2s ease; font-size: 1.1em; text-align: center; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
-.results-button button:hover { background-color: #42A5F5; transform: translateY(-2px); }
+.results-button button { background-color: #007adf; color: #fff; padding: 10px 20px; border: none; border-radius: 8px; cursor: pointer; transition: background-color 0.3s ease, transform 0.2s ease; font-size: 1.1em; text-align: center; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
+.results-button button:hover { background-color: #00FF6A; color: #1a1a1a; transform: translateY(-2px); }
 .pass-message { color: #28a745; }
 .fail-message { color: #dc3545; }
+
+#question-container p.quiz-completion-tag {
+    font-size: 1.2em;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4; /* Añadido para mejor espaciado con <br> */
+    /* El color principal viene de .pass-message o .fail-message */
+}
+
+.pass-message { 
+    color: #28a745; 
+}
+.fail-message { color: #dc3545; }
+
+/* --- AÑADIDO: Estilos específicos para la palabra resaltada --- */
+.result-highlight-word {
+    font-family: 'Luckiest Guy', cursive; /* Ejemplo: Usar una fuente diferente */
+    font-size: 1.5em; /* Ejemplo: Hacerla más grande que el resto del mensaje */
+    color: #00FF6A;
+    /* color: #ff9900; */ /* Ejemplo: Darle un color diferente (sobrescribirá el color de .pass-message/.fail-message) */
+    /* text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); */ /* Ejemplo: Añadir sombra */
+    display: block; /* Hace que ocupe su propia línea si se desea, además del <br> */
+    margin-top: 0rem;
+    margin-bottom: 0rem; /* Espacio después de la palabra resaltada */
+
+    padding-bottom: 0rem;
+    /* ¡Añade cualquier otro estilo que desees! */
+    animation: confettiExplosion 0.7s ease-out infinite forwards;
+    /* animation: happyBounce 1.5s ease-in-out infinite; */
+    
+}
+
+.result-secondary-text{
+    margin-top: 0rem;
+    margin-bottom: 3rem;
+    font-size: 1.5rem;
+    color:#00FF6A;
+}
 
 /* --- Media Queries (No changes needed for this specific request) --- */
 @media only screen and (min-width: 768px) {
@@ -266,3 +307,129 @@ h1 {
 @media only screen and (min-width: 1024px) {
      /* Desktop overrides would go here */
 }
+
+/* --- Keyframes para Animaciones --- */
+@keyframes happyBounce {
+    0%, 20%, 50%, 80%, 100% {
+      transform: translateY(0); /* Posición normal */
+    }
+    40% {
+      transform: translateY(-8px); /* Salto pequeño hacia arriba */
+    }
+    60% {
+      transform: translateY(-4px); /* Mitad del rebote */
+    }
+  }
+
+  @keyframes celebrateGlow {
+    0%, 100% {
+      text-shadow: 0 0 5px rgba(0, 255, 106, 0.4), 0 0 10px rgba(0, 255, 106, 0.2); /* Brillo base */
+    }
+    50% {
+      text-shadow: 0 0 10px rgba(0, 255, 106, 1), 0 0 20px rgba(0, 255, 106, 0.8), 0 0 30px rgba(0, 255, 106, 0.6); /* Brillo más intenso y extendido */
+    }
+  }
+
+  @keyframes pulse {
+    0% {
+      transform: scale(1); /* Tamaño normal */
+      opacity: 0.9;
+    }
+    50% {
+      transform: scale(1.08); /* Ligeramente más grande */
+      opacity: 1;
+    }
+    100% {
+      transform: scale(1); /* Vuelve a tamaño normal */
+      opacity: 0.9;
+    }
+  }
+
+  /* --- Keyframes para Animaciones --- */
+@keyframes confettiExplosion {
+    0% {
+      transform: scale(1);
+      text-shadow:
+        0 0 2px #00FF6A, /* Base glow */
+        0 0 4px #00FF6A;
+    }
+    25% {
+      transform: scale(1.05) rotate(-2deg);
+      text-shadow:
+        0 0 5px #fff, /* White flash */
+        0 0 10px #fff,
+        3px 3px 3px #ffcc00, /* Yellow bits */
+        -3px -3px 3px #00ccff, /* Blue bits */
+        3px -3px 3px #ff66cc; /* Pink bits */
+    }
+    50% {
+       transform: scale(0.98) rotate(1deg);
+        text-shadow:
+        0 0 5px #00FF6A,
+        0 0 10px #00FF6A,
+        -3px 3px 3px #ffcc00,
+        3px -3px 3px #00ccff,
+        -3px -3px 3px #ff66cc;
+    }
+    75% {
+        transform: scale(1.02) rotate(3deg);
+        text-shadow:
+        0 0 8px #fff,
+        0 0 15px #fff,
+        2px -2px 3px #ffcc00,
+        -2px 2px 3px #00ccff,
+        2px 2px 3px #ff66cc;
+    }
+    100% {
+      transform: scale(1) rotate(0deg);
+      text-shadow:
+        0 0 2px #00FF6A,
+        0 0 4px #00FF6A;
+    }
+  }
+
+  /* --- Keyframes para Animaciones --- */
+
+@keyframes confettiExplosion {
+    0% {
+      /* Estado inicial: tamaño normal, sombra base sutil */
+      transform: scale(1);
+      text-shadow: 0 0 2px rgba(0, 255, 106, 0.7), 0 0 4px rgba(0, 255, 106, 0.5);
+      opacity: 1;
+    }
+    25% {
+      /* Inicio explosión: crece, rota un poco, aparecen sombras de confeti */
+      transform: scale(1.2) rotate(-3deg);
+      text-shadow:
+        0 0 5px #fff, /* Flash blanco */
+        0 0 10px #fff,
+        3px 3px 0px #ffeb3b, /* Amarillo */
+        -3px -3px 0px #03a9f4, /* Azul */
+        3px -3px 0px #e91e63, /* Rosa */
+        -3px 3px 0px #ff9800; /* Naranja */
+      opacity: 1;
+    }
+    50% {
+       /* Mitad: mantiene tamaño, rota al otro lado, cambia sombras */
+       transform: scale(1.15) rotate(2deg);
+       text-shadow:
+        0 0 5px #fff,
+        -2px 2px 0px #ffeb3b,
+        2px -2px 0px #03a9f4,
+        -2px -2px 0px #e91e63,
+        2px 2px 0px #ff9800;
+      opacity: 1;
+    }
+    80% {
+      /* Empieza a volver: tamaño casi normal, sin sombras de confeti */
+      transform: scale(1.02) rotate(-1deg);
+      text-shadow: 0 0 2px rgba(0, 255, 106, 0.7), 0 0 4px rgba(0, 255, 106, 0.5);
+      opacity: 1;
+    }
+    100% {
+      /* Estado final: exactamente como el inicial */
+      transform: scale(1);
+      text-shadow: 0 0 2px rgba(0, 255, 106, 0.7), 0 0 4px rgba(0, 255, 106, 0.5);
+      opacity: 1;
+    }
+  }
