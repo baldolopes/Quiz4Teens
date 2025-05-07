@@ -12,7 +12,7 @@ html {
 body {
     display: flex;
     justify-content: center; /* Center page-container horizontally */
-    align-items: flex-start; /* Align page-container to the top */
+    align-items: centert; /* Align page-container to the top */
     height: 100vh;
     background: linear-gradient(135deg, #00FF6A, #007FFF, #FFFF00); /* Body background gradient */
     font-family: 'Roboto', sans-serif; /* Base font */
