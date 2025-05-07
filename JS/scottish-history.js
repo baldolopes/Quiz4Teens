@@ -395,7 +395,7 @@
     // --- 13. Event Listeners ---
     document.addEventListener('DOMContentLoaded', function() {
         updateQuizDateTime(); // Initial date/time display
-        setInterval(updateQuizDateTime, 60000); // Update date/time every minute
+        setInterval(updateQuizDateTime, 1000); // Update date/time every minute
         initializeQuiz(); // Setup the rest of the quiz
     });
 

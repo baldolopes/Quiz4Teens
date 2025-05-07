@@ -29,7 +29,6 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin-bottom: 0.5rem;
     text-align: center;
-    background: rgba(255, 255, 255, 0.5);
 }
 
 .date-time-header {
@@ -147,26 +146,28 @@ h1 {
 
 .option label.disabled-option {
     cursor: default;
-    opacity: 0.6; /* Slightly more faded */
+    /* opacity: 1.0; */
     pointer-events: none; /* Prevent further clicks */
 }
 
 .option label:hover:not(.disabled-option) {
-    background-color: #e9ecef;
+    background-color: #ffffff;
     border-color: #bbb;
 }
 
 .option label.correct {
-    background-color: #28a745;   /* VERDE MÁS VIVO para el fondo */
-    border-color: #1e7e34;     /* Borde verde más oscuro */
-    color: #ffffff;            /* --- AÑADIDO: Texto de la opción en BLANCO --- */
+    background-color: #f2ffc4;   /* VERDE MÁS VIVO para el fondo */
+    border-color: #00b336;     /* Borde verde más oscuro */
+    border-width: 3px;
+    color: #363636;            /* --- AÑADIDO: Texto de la opción en BLANCO --- */
     font-weight: bold;
 }
 
 .option label.incorrect {
-    background-color: #dc3545;   /* ROJO MÁS VIVO para el fondo */
+    background-color: #ffffff;   /* ROJO MÁS VIVO para el fondo */
     border-color: #b02a37;     /* Borde rojo más oscuro */
-    color: #ffffff;            /* --- AÑADIDO: Texto de la opción en BLANCO --- */
+     border-width: 3px;
+    color: #3f3f3f;            /* --- AÑADIDO: Texto de la opción en BLANCO --- */
     font-weight: bold;
 }
 
@@ -194,11 +195,13 @@ h1 {
 }
 
 .option-feedback-message.correct-text {
-    color: #198754; /* Green text */
+    color: #008d07; /* Green text */
+    font-size: 0.9rem;
 }
 
 .option-feedback-message.incorrect-text {
-    color: #dc3545; /* Red text */
+    color: #cc0014; /* Red text */
+    font-size: 1rem;
 }
 /* --- END INLINE FEEDBACK STYLES --- */
 
