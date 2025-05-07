@@ -13,7 +13,8 @@ body {
     display: flex;
     justify-content: center; /* Center page-container horizontally */
     align-items: center; /* Align page-container to the top */
-    height: auto;
+    height: 100vh;
+    overflow: hidden;
     background: linear-gradient(135deg, #00FF6A, #007FFF, #FFFF00); /* Body background gradient */
     font-family: 'Roboto', sans-serif; /* Base font */
     padding: 0rem; /* Space around the main container */
@@ -33,9 +34,11 @@ body {
     padding-top: 0rem;
     padding-bottom: 0.5rem;     /* --- ADDED: Padding at the bottom --- */
     padding-right: 0.5rem;
-    margin-top: 1rem;
+    margin: 0 auto;
+    flex-grow: 0;
+    /* margin-top: 1rem;
     margin-left: 0.5rem;
-    margin-right: 0.5rem;
+    margin-right: 0.5rem; */
     /* max-height: 90vh; */
 }
 
