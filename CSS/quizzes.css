@@ -13,7 +13,7 @@ body {
     display: flex;
     justify-content: center; /* Center page-container horizontally */
     align-items: centert; /* Align page-container to the top */
-    height: 100vh;
+    max-height: 100vh;
     background: linear-gradient(135deg, #00FF6A, #007FFF, #FFFF00); /* Body background gradient */
     font-family: 'Roboto', sans-serif; /* Base font */
     padding: 0rem; /* Space around the main container */
@@ -36,7 +36,7 @@ body {
     margin-top: 1rem;
     margin-left: 0.5rem;
     margin-right: 0.5rem;
-    max-height: 90vh;
+    /* max-height: 90vh; */
 }
 
 /* --- Header --- */
