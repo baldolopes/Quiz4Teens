@@ -160,7 +160,7 @@
                 const input = label.querySelector('input[type="radio"]');
                 if (input && input.value === correctAnswerText) {
                     label.classList.add('correct');
-                    appendFeedback(label, 'This is the correct answer', true);
+                    appendFeedback(label, 'Correct Answer', true);
                 }
             });
         }

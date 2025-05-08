@@ -261,13 +261,13 @@ h2.quiz-name {
 .quiz-basic-literacy { background-color: #B71C1C; }
 .quiz-basic-literacy .quiz-icon-bg { background-color: #D32F2F; }
 
-.quiz-health-wellbeing { background-color: #1B5E20; }
+.quiz-health-wellbeing { background-color: #3CB371; }
 .quiz-health-wellbeing .quiz-icon-bg { background-color: #388E3C; }
 
-.quiz-scottish-history { background-color: #004D40; }
-.quiz-scottish-history .quiz-icon-bg { background-color: #00796B; }
+.quiz-scottish-history { background-color: #005EB8; }
+.quiz-scottish-history .quiz-icon-bg { background-color: #0084ff; }
 
-.quiz-social-awareness { background-color: #E65100; }
+.quiz-social-awareness { background-color: #FF8C00; }
 .quiz-social-awareness .quiz-icon-bg { background-color: #F57C00; }
 
 
@@ -286,48 +286,31 @@ h2.quiz-name {
 }
 
 
-/* --- Tablet Styles --- */
-@media only screen and (min-width: 768px) {
-    .page-container {
-        max-width: 900px; /* Adjust main container width for tablets */
-    }
-
-    /* The grid layout changes to 3 columns here */
-    .quiz-options-grid {
-        gap: 1.5rem; /* Adjust gap if needed */
-        padding: 0 1rem; /* Adjust horizontal padding for grid */
-    }
-
-    .quiz-option {
-        /* Width for 3 columns */
-        width: calc(33.333% - 1rem); /* Adjust '-1rem' based on half the gap */
-        /* width: 31%; */          /* Alternative safe percentage */
-        max-width: 280px;           /* Max width per card on tablets */
-        min-width: 220px;           /* Optional min width */
-    }
-
-    /* Adjust internal sizes for tablet card size */
-    h2.quiz-name { font-size: 1.3rem; }
-    p.quiz-description { font-size: 0.85rem; min-height: auto; /* Remove min-height */}
-    .quiz-button { font-size: 1.2rem; padding: 0.7rem 1.8rem; }
-    .quiz-icon-bg { width: 55px; height: 55px; top: -27px; }
-    .quiz-icon { font-size: 1.6rem; }
-    .quiz-info { margin-top: 30px; }
-
-    /* Other tablet adjustments */
-    .about-quiz { max-width: 550px; font-size: 1em; }
-    .welcome-title { font-size: 2.2rem; }
-    .welcome-highlight { font-size: 3.5rem; }
-    .thinking-face-icon { width: 50px; height: 50px; right: 15%; }
-    #current-time-quiz { padding-left: 1.5rem; }
-    #current-date-quiz { padding-right: 1.5rem; }
-}
 
 /* --- Desktop Styles --- */
 @media only screen and (min-width: 1024px) {
     .page-container {
         max-width: 1100px; /* Adjust main container width for desktops */
-        border-radius: 35px;
+        border-radius: 150px;
+    }
+
+    #current-time-quiz {
+        margin-top: 1.5rem;
+        margin-bottom: 1.5rem;
+        text-align: left;
+        flex-grow: 1;        /* Allows it to take up space */
+        padding-top: 0rem;
+        padding-left: 1rem;  /* Add padding instead */
+        margin-left: 5rem;
+    }
+    
+    #current-date-quiz {
+        margin-top: 1.5rem;
+        margin-bottom: 1rem;
+        text-align: right;
+        padding-top: 0rem;
+        padding-right: 1rem; /* Add padding instead */
+        margin-right: 5rem;
     }
 
     .quiz-options-grid {
@@ -358,4 +341,18 @@ h2.quiz-name {
     #current-time-quiz { padding-left: 2rem; }
     #current-date-quiz { padding-right: 2rem; }
     .date-time-header { font-size: 1rem; }
+
+    .about-quiz {
+        background-color: #d32f2f; /* Footer background color */
+        color: #fff;
+        padding: 0.5rem 0.5rem;
+        border-radius: 20px;
+        text-align: center;
+        font-size: 1rem;
+        margin-top: 0.2rem;
+        width: 95%;             /* Width relative to page-container */
+        max-width: 450px;       /* Max width for the footer itself */
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+    
 }

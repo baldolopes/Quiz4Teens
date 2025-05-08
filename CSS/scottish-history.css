@@ -1,245 +1,337 @@
-/* --- Base Styles (Mobile First for Scottish History Quiz) --- */
+/* --- Base Styles (Mobile First - Reduced Spacing) --- */
 * {
-    font-family: Arial, Helvetica, sans-serif; /* Base font */
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
 html {
-    font-size: 16px;
+    font-size: 14px; /* --- REDUCIDO: Base font smaller --- */
+    height: 100%;
 }
 
 body {
-    font-family: sans-serif; /* Fallback */
-    background: linear-gradient(135deg, #00FF6A, #007FFF, #FFFF00); /* Body background */
+    font-family: sans-serif;
+    background: linear-gradient(135deg, #00FF6A, #007FFF, #FFFF00);
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start; /* Align content top */
+    justify-content: flex-start; /* Align top */
     min-height: 100vh;
     margin: 0;
-    padding: 0.5rem; /* --- REDUCED SPACING: Less padding around container --- */
+    padding: 0.4rem; /* --- REDUCIDO --- */
 }
 
 .quiz-container {
-    width: 95%;
-    max-width: 550px; /* --- REDUCED SPACING: Smaller max-width for mobile --- */
-    background: rgba(255, 255, 255, 0.45); /* --- ADJUSTED: Slightly more opaque --- */
-    padding: 0.8rem; /* --- REDUCED SPACING: Less padding */
-    border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-bottom: 0.8rem; /* --- REDUCED SPACING: Less space below --- */
+    width: 96%; /* Slightly wider */
+    max-width: 500px; /* --- REDUCIDO --- */
+    background: rgba(255, 255, 255, 0.5); /* --- MODIFICADO: More opaque --- */
+    padding: 0.6rem; /* --- REDUCIDO --- */
+    border-radius: 12px; /* --- REDUCIDO --- */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 0.5rem; /* --- REDUCIDO --- */
     text-align: center;
 }
 
-.date-time-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    padding: 0.2rem 0.5rem; /* --- REDUCED SPACING --- */
-    font-size: 0.85rem;    /* --- REDUCED SPACING --- */
+/* --- Header --- */
+.date-time-header { display: flex; justify-content: space-between; align-items: center; width: 100%; padding: 0.1rem 0.4rem; font-size: 0.75rem; font-weight: bold; color: rgba(60, 60, 60, 0.9); margin-bottom: 0.1rem; /* --- REDUCIDO --- */ }
+#current-time-quiz, #current-date-quiz { margin-top: 0; }
+#current-time-quiz { padding-left: 0.4rem; text-align: left; flex-grow: 1; }
+#current-date-quiz { padding-right: 0.4rem; text-align: right;}
+.top-section { background: none; padding: 0.2rem 0; border-radius: 8px; margin-bottom: 0.5rem; }
+h1 { font-size: 1.3em; color: #333; margin-bottom: 0.3rem; font-family: 'Pacifico', cursive; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); line-height: 1.1; margin-top: 0.1rem;}
+.username-display { font-weight: bold; color: #e67e22; }
+
+/* --- Score & Progress --- */
+.score-container { 
+    font-size: 0.9em; 
+    color: #555; 
+    margin-top: 0; 
+    margin-bottom: 0.2rem; 
+    line-height: 1.1; 
+    font-weight: bold; 
+}
+
+.progress-container { 
+    font-size: 0.9em; 
+    color: #444; 
+    margin-top: 0.5rem; 
+    margin-bottom: 0; 
     font-weight: bold;
-    color: rgba(80, 80, 80, 0.9); /* Darker grey */
-    padding-top: 0rem;
-    margin-top: 0rem;
-    margin-bottom: 0.2rem; /* --- REDUCED SPACING --- */
+    display: grid;
+    place-items: center; 
 }
+.progress-bar { width: 100%; height: 14px; background-color: #ddd; border-radius: 6px; overflow: hidden; margin-top: 3px; }
+.progress-value { height: 100%; background-color: #e67e22; color: white; text-align: center; line-height: 14px; font-size: 0.7em; transition: width 0.5s ease-in-out; display: block; width: 0%; }
 
-#current-time-quiz,
-#current-date-quiz {
-    /* margin-bottom removed */
-}
-#current-time-quiz { text-align: left; flex-grow: 1; padding-left: 0.5rem; }
-#current-date-quiz { text-align: right; padding-right: 0.5rem; }
+/* --- Instructions --- */
+#instructions { margin-top: 0.1rem; margin-bottom: 0.4rem; padding: 0.15rem; background-color: rgba(255, 255, 255, 0.2); border-radius: 4px; font-size: 0.75em; }
+#instructions p { margin: 0; line-height: 1.2; }
 
-.top-section {
-    background: none;
-    padding: 0.4rem 0; /* --- REDUCED SPACING --- */
+/* --- Question Area --- */
+#question-container { background-color: #00008B; color: #ecffa5; padding: 0.6rem; border-radius: 8px; margin-bottom: 0.6rem; text-align: left; }
+#question-container ol { padding-left: 0.8rem; margin: 0; list-style-position: inside; }
+#question-container li { margin-bottom: 0.5rem; line-height: 1.2; font-size: 0.85em; }
+
+/* --- Answer Box (Drop Zone) --- */
+.answer-box { width: 140px; height: 24px; border: 1px dashed #bbb; display: inline-flex; align-items: center; justify-content: center; margin-left: 5px; vertical-align: middle; background-color: rgba(255, 255, 255, 0.1); border-radius: 3px; padding: 1px 3px; transition: background-color 0.3s ease; min-height: 24px; }
+.answer-box.drag-over { background-color: rgba(255, 255, 255, 0.3); border-style: solid; }
+.answer-box.correct { border: 1px solid #198754; } /* Thinner border */
+.answer-box.incorrect { border: 1px solid #dc3545; } /* Thinner border */
+.answer-box .draggable { cursor: default; margin: 0; box-shadow: none; width: 100%; text-align: center; font-size: 0.8em; /* Smaller text when dropped */ padding: 2px 4px; }
+
+/* --- Word Bank --- */
+#word-bank-container { margin-bottom: 0.6rem; }
+#word-bank-container p { font-weight: bold; color: #333; margin-bottom: 0.2rem; font-size: 0.75rem; }
+#word-bank { background-color: rgba(255, 255, 255, 0.6); padding: 0.3rem; border-radius: 4px; text-align: center; min-height: 26px; }
+.draggable { display: inline-block; padding: 3px 6px; margin: 2px; background-color: #ff9100; color: white; border-radius: 4px; cursor: grab; font-size: 0.8em; user-select: none; transition: background-color 0.2s ease; }
+.draggable:active { cursor: grabbing; }
+
+/* --- Submission Area --- */
+.submission-area { margin-top: 0.6rem; text-align: center; }
+#submit-button { background-color: #00FF6A; color: black; font-weight: bold; padding: 5px 12px; border: none; border-radius: 4px; cursor: pointer; font-size: 0.9em; transition: background-color 0.2s, opacity 0.2s; }
+#submit-button:disabled { background-color: #aaa; cursor: not-allowed; opacity: 0.7; }
+#submit-button:hover:not(:disabled) { background-color: #00e05c; }
+.validation-error { margin-top: 0.3rem; font-size: 0.8em; color: #dc3545; font-weight: bold; min-height: 1em; text-align: center; }
+
+/* --- Results Container --- */
+#results-container {
+    background-color: #00008B;
+    color: #ecffa5;
+    padding: 1rem; /* --- REDUCIDO --- */
     border-radius: 10px;
-    margin-bottom: 0.8rem; /* --- REDUCED SPACING --- */
-}
-
-h1 { /* Quiz title heading */
-    font-size: 1.5em; /* --- REDUCED SPACING --- */
-    color: #333;
-    margin-bottom: 0.4rem; /* --- REDUCED SPACING --- */
-    font-family: 'Pacifico', cursive;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15);
-    line-height: 1.2;
-}
-
-.username-display { /* Username style */
-    font-weight: bold;
-    color: #e67e22; /* Orange */
-    /* Inherits Pacifico font */
-}
-
-.score-container { /* Score display area */
-    font-size: 1em; /* --- REDUCED SPACING --- */
-    color: #555;
-    margin-top: 0; /* --- REDUCED SPACING --- */
-    margin-bottom: 0.4rem; /* --- REDUCED SPACING --- */
-    line-height: 1.2;
-    font-weight: bold;
-}
-
-.progress-container { /* Progress bar area */
-    font-size: 1em; /* --- REDUCED SPACING --- */
-    color: #444; /* Darker */
-    margin-top: 1rem;
-    margin-bottom: 0rem; /* --- REDUCED SPACING --- */
-    font-weight: bold;
-}
-
-.progress-bar {
-    width: 100%;
-    height: 16px; /* --- REDUCED SPACING --- */
-    background-color: #ddd;
-    border-radius: 8px; /* --- REDUCED SPACING --- */
-    overflow: hidden;
-    margin-top: 4px; /* --- REDUCED SPACING --- */
-}
-
-.progress-value {
-    display: block;
-    width: 0%;
-    height: 100%;
-    background-color: #e67e22; /* Orange */
-    color: white;
-    text-align: center;
-    line-height: 1rem; /* Match height */
-    font-size: 0.8em;
-    transition: width 0.5s ease-in-out;
-}
-
-/* Instructions Area */
-#instructions {
-    margin-top: 0.2rem;
-    margin-bottom: 0.5rem; /* --- REDUCED SPACING --- */
-    padding: 0.2rem; /* --- REDUCED SPACING --- */
-    background-color: rgba(255, 255, 255, 0.25);
-    border-radius: 5px;
-    font-size: 0.8em; /* --- REDUCED SPACING --- */
-}
-#instructions p {
-     margin: 0;
-     line-height: 1.3; /* --- REDUCED SPACING --- */
-}
-
-/* Question Area */
-#question-container {
-    background-color: #00008B; /* Dark Blue */
-    color: #ecffa5; /* Light text */
-    padding: 0.8rem; /* --- REDUCED SPACING --- */
-    border-radius: 10px;
-    margin-bottom: 0.8rem; /* --- REDUCED SPACING --- */
+    margin-top: 0rem; /* --- REDUCIDO --- */
+    border: 1px solid #4e4eff;
     text-align: left;
+    width: 100%;
+    max-width: 550px; /* --- REDUCIDO --- */
+}
+#results-container h2 { /* "Quiz Completed!" */
+    color: #fff;
+    margin-top: 0rem;
+    margin-bottom: 0.6rem; /* --- REDUCIDO --- */
+    text-align: center;
+    font-family: 'Pacifico', cursive;
+    font-size: 1.5rem; /* --- REDUCIDO --- */
+    padding: 0rem;
 }
 
-#question-container ol {
-    padding-left: 1rem; /* --- REDUCED SPACING --- */
+#results-container h3 { /* "Review Your Answers:" */
+    color: #eee;
+    margin-top: 0rem; /* --- REDUCIDO --- */
+    margin-bottom: 0rem; /* --- REDUCIDO --- */
+    text-align: center;
+    border-top: 1px solid #4e4eff;
+    padding-top: 0.8rem; /* --- REDUCIDO --- */
+    font-size: 1em; /* --- REDUCIDO --- */
+}
+#results-container p { /* Score text */
+    font-size: 0.9em; /* --- REDUCIDO --- */
+    margin-bottom: 0rem; /* --- REDUCIDO --- */
+    color: #eee;
+    text-align: center;
+}
+#results-container hr { border: none; border-top: 1px dashed #4e4eff; margin: 0.8rem 0; /* --- REDUCIDO --- */ }
+
+/* --- Styles for Pass/Fail Message SPANS --- */
+p.pass-message, p.fail-message { margin: 0.5rem 0; text-align: center; line-height: 0.8; /* --- REDUCIDO --- */ }
+
+.result-highlight-word { 
+    font-family: 'Luckiest Guy', cursive; 
+    font-size: 1.5em; 
+    display: block; 
+    margin-bottom: 0rem; 
+    padding-bottom: 0; 
+}
+.result-highlight-word.pass-highlight { color: #00FF6A; animation: celebrateGlow 2s ease-in-out infinite; }
+.result-highlight-word.fail-highlight { color: #ff1f1f; animation: happyBounce 1.7s infinite; }
+
+.result-secondary-text { display: block; font-size: 1.1em; margin-top: 0; font-weight: bold; }
+.result-secondary-text.pass-secondary { color: #6effbb; }
+.result-secondary-text.fail-secondary { color: #ff6b6b; }
+
+
+#review-section ul {
+    list-style: none;
+    padding: 0;
     margin: 0;
 }
 
-#question-container li {
-    margin-bottom: 0.6rem; /* --- REDUCED SPACING --- */
-    line-height: 1.3;     /* --- REDUCED SPACING --- */
-    font-size: 0.9em;    /* --- REDUCED SPACING --- */
+.review-item {
+    /* border-bottom: 1px dashed #4e4eff; */ /* Optional: Remove border for tighter look */
+    padding: 0.4rem 0.3rem; /* --- REDUCIDO: Less padding top/bottom --- */
+    margin-bottom: 0.4rem; /* --- REDUCIDO: Less space between items --- */
+    border-radius: 4px; /* Slightly less rounding */
+}
+.review-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0; /* Remove bottom margin on last item */
+}
+.review-item.review-correct { background-color: rgba(40, 167, 69, 0.08); } /* Lighter tint */
+.review-item.review-incorrect { background-color: rgba(220, 53, 69, 0.05); } /* Lighter tint */
+
+.review-question {
+    margin-bottom: 0.2rem !important; /* --- REDUCIDO: Less space below question --- */
+    font-weight: normal !important;
+    color: #dde5ff !important;
+    text-align: left !important;
+    font-size: 0.85em; /* --- REDUCIDO: Slightly smaller question text --- */
+    line-height: 1; /* Adjust line height */
+}
+.review-question strong {
+     font-weight: bold;
+     color: #fff;
+     margin-right: 4px;
 }
 
-#question-container .answer-box { /* Drop zones */
-    width: 160px; /* --- REDUCED SPACING --- */
-    height: 20px; /* --- REDUCED SPACING --- */
-    border: 1px dashed #ccc; /* --- ADJUSTED: Lighter dashed border --- */
+.review-user-answer,
+.review-correct-answer {
+    margin-left: 0.5rem; /* --- REDUCIDO: Less indent --- */
+    margin-bottom: 0.1rem !important; /* --- REDUCIDO: Very tight spacing --- */
+    font-size: 0.8em; /* --- REDUCIDO: Smaller answer labels/values --- */
+    text-align: left !important;
+    line-height: 1.2; /* Reduce line height */
+}
+
+.review-user-answer { color: #c7c7c7; } /* Lighter grey */
+.review-correct-answer { color: #87ffa7; font-weight: bold; } /* Lighter green */
+
+.answer-value { /* The actual answers */
+    font-style: normal;
+    font-weight: bold;
+    padding: 1px 4px; /* --- REDUCIDO: Less padding --- */
+    border-radius: 3px;
+    margin-left: 4px; /* --- REDUCIDO: Less space before value --- */
     display: inline-block;
-    margin-left: 6px; /* --- REDUCED SPACING --- */
-    vertical-align: middle;
-    background-color: rgba(255, 255, 255, 0.1); /* --- ADDED: Slight background for drop zone --- */
-    border-radius: 3px; /* Optional rounding */
+    border: 1px solid transparent;
+}
+.review-item.review-incorrect .review-user-answer .answer-value.user-ans {
+     color: #ffadad; /* Light red text */
+     background-color: rgba(183, 28, 28, 0.4); /* Slightly darker red bg */
+     border-color: #dc3545;
+     text-decoration: line-through;
+}
+.review-correct-answer .answer-value.correct-ans {
+     color: #a9ffbc; /* Light green text */
+     background-color: rgba(25, 135, 84, 0.4); /* Slightly darker green bg */
+     border-color: #28a745;
+}
+.review-item.review-correct .review-user-answer .answer-value.user-ans {
+     color: #a9ffbc; /* Light green text */
+     background-color: rgba(25, 135, 84, 0.4); /* Slightly darker green bg */
+     border-color: #28a745;
 }
 
-/* Word Bank Area */
-#word-bank-container {
-     margin-bottom: 0.8rem; /* --- REDUCED SPACING --- */
+.review-answer-feedback {
+    margin-left: 1rem; /* Match indent */
+    font-size: 0.7em; /* --- REDUCIDO: Even smaller feedback text */
+    font-style: italic;
+    margin-top: 0; /* --- REDUCIDO: Less space above */
+    margin-bottom: 0.1rem !important;
+    text-align: left !important;
+    line-height: 1; /* Very tight */
 }
-#word-bank-container p { /* "Word Bank" label */
-    font-weight: bold;
-    color: #333;
-    margin-bottom: 0.3rem; /* --- REDUCED SPACING --- */
-    font-size: 0.8rem;     /* --- REDUCED SPACING --- */
-}
+.correct-feedback { color: #90ee90; }
+.incorrect-feedback { color: #ff7f7f; }
 
-#word-bank { /* Container for draggable items */
-    background-color: rgba(255, 255, 255, 0.6); /* Lighter background */
-    padding: 0.4rem; /* --- REDUCED SPACING --- */
-    border-radius: 5px;
-    text-align: center;
-    min-height: 28px; /* --- REDUCED SPACING --- */
-}
 
-#word-bank .draggable { /* Draggable items */
-    display: inline-block;
-    padding: 3px 6px; /* --- REDUCED SPACING --- */
-    margin: 2px; /* --- REDUCED SPACING --- */
-    background-color: #ff9100; /* Orange */
-    color: white;
-    border-radius: 4px; /* --- REDUCED SPACING --- */
-    cursor: grab;
-    font-size: 0.85em; /* --- REDUCED SPACING --- */
-}
+/* --- Results Button Styles --- */
+.results-button { display: flex; justify-content: center; margin-top: 1rem; gap: 0.8rem;}
+.results-button button { background-color: #0d6efd; color: #fff; padding: 8px 16px; border: none; border-radius: 5px; cursor: pointer; transition: background-color 0.3s ease, transform 0.2s ease; font-size: 0.9em; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15); }
+.results-button button:hover { background-color: #00FF6A; transform: translateY(-2px); }
 
-/* Submit Area */
-.submission-area {
-     margin-top: 0.8rem; /* --- REDUCED SPACING --- */
-     text-align: center; /* Ensure button is centered */
-}
 
-#submit-button {
-    background-color: #00FF6A; /* Green */
-    color: black;
-    font-weight: bold;
-    padding: 6px 14px; /* --- REDUCED SPACING --- */
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 0.95em; /* --- REDUCED SPACING --- */
-}
+/* --- Keyframes for Animations (SIN CAMBIOS) --- */
+@keyframes celebrateGlow { /* ... */ }
+@keyframes happyBounce { /* ... */ }
 
-/* Validation Message */
-.validation-error {
-    margin-top: 0.4rem; /* --- REDUCED SPACING --- */
-    font-size: 0.85em;  /* --- REDUCED SPACING --- */
-    color: #dc3545;     /* Red */
-    font-weight: bold;
-    min-height: 1em;
-    text-align: center;
-}
 
-/* Results container (if shown) */
-#results-container {
-     margin-top: 0.8rem; /* --- REDUCED SPACING --- */
-     /* Add padding/styles if needed when visible */
-}
-/* Styles for elements inside results container would also need reduction */
-#results-container h2 { font-size: 1.2rem; margin-bottom: 0.5rem; }
-#results-container p { font-size: 0.9rem; margin-bottom: 0.5rem; }
-#results-container p.quiz-completion-tag { font-size: 1.1em; margin: 0.8rem 0; }
-#results-container .results-button { margin-top: 0.8rem; }
-#results-container .results-button button { font-size: 1em; padding: 8px 16px; }
-
-/* --- Media Queries (Keep empty or adjust later if needed) --- */
-@media only screen and (min-width: 768px) {
-    /* Add overrides for tablet if base styles are too small */
-    .quiz-container { max-width: 700px; padding: 1.2rem; }
-    h1 { font-size: 2em; }
-    /* etc... */
-}
-
+/* ========================================================== */
+/* --- Desktop Styles --- */
+/* ========================================================== */
 @media only screen and (min-width: 1024px) {
-     /* Add overrides for desktop if base styles are too small */
-     .quiz-container { max-width: 800px; padding: 1.5rem; }
-     h1 { font-size: 2.2em; }
-     /* etc... */
-}
+    body {
+        padding: 1.5rem; /* More overall padding */
+        justify-content: center; /* Center vertically */
+    }
+    .quiz-container {
+        max-width: 800px; /* Wider container */
+        padding: 1.5rem;
+        border-radius: 20px;
+    }
+
+    /* Increase header sizes */
+    .date-time-header { 
+        font-size: 1rem; 
+        padding: 0.3rem 1rem; 
+        margin-bottom: 0.5rem; 
+    }
+
+    h1 { 
+        font-size: 2em; 
+        margin-bottom: 0.6rem;
+    }
+
+    /* Increase score/progress sizes */
+    .score-container { 
+        font-size: 1.1em; 
+        margin-bottom: 0.6rem;
+    }
+    .progress-container { 
+        font-size: 1.1em; 
+        margin-top: 0.8rem; 
+        margin-bottom: 0rem;
+        padding-bottom: 0rem;
+
+    }
+
+    .progress-bar { 
+        height: 18px; 
+        margin-top: 5px; 
+        width: 50%;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .progress-value { line-height: 18px; font-size: 0.85em; }
+
+    /* Increase Instructions/Question Area */
+    #instructions { font-size: 0.9em; margin-bottom: 0.8rem; padding: 0.3rem; }
+    #question-container { padding: 1.2rem; margin-bottom: 1rem; }
+    #question-container li { font-size: 1em; margin-bottom: 0.8rem;}
+    .answer-box { width: 180px; height: 30px; margin-left: 8px;}
+
+    /* Increase Word Bank */
+    #word-bank-container { margin-bottom: 1rem; }
+    #word-bank-container p { font-size: 0.9em; }
+    #word-bank { padding: 0.5rem; }
+    .draggable { font-size: 0.9em; padding: 5px 10px;}
+
+    /* Increase Submit Area */
+    .submission-area { margin-top: 1rem; }
+    #submit-button { font-size: 1.1em; padding: 8px 18px;}
+    .validation-error { font-size: 0.9em;}
+
+    /* Increase Results Area */
+    #results-container {
+        max-width: 700px; /* Wider results */
+        padding: 2rem;
+        margin-top: 1.5rem;
+    }
+    #results-container h2 { font-size: 1.8em; margin-bottom: 1.2rem;}
+    #results-container h3 { font-size: 1.2em; margin-top: 1.8rem; margin-bottom: 1rem; padding-top: 1.2rem;}
+    #results-container p { font-size: 1.1em; margin-bottom: 1rem;}
+    /* Increase Pass/Fail message sizes */
+    .result-highlight-word { font-size: 2em; }
+    .result-secondary-text { font-size: 1.3em; }
+    /* Increase Review section sizes */
+    .review-item {
+        padding: 0.7rem 0.6rem; /* Adjust padding */
+        margin-bottom: 0.7rem; /* Adjust spacing */
+     }
+     .review-question { font-size: 1em; } /* Slightly smaller than before */
+     .review-user-answer, .review-correct-answer { font-size: 0.95em; }
+     .review-answer-feedback { font-size: 0.8em; }
+     .answer-value { padding: 2px 6px; }
+
+} /* --- End of Desktop Media Query --- */
