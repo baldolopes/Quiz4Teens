@@ -62,7 +62,7 @@ body {
     color: rgba(105, 105, 105, 0.9);
     margin-top: 0rem;
     padding-top: 0rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.2rem;
 }
 
 /* --- ADJUSTED: Removing large fixed margins for date/time --- */
@@ -91,7 +91,7 @@ body {
     margin-bottom: 0.5rem;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
     position: relative;
-    margin-bottom: 2.5rem;
+    margin-bottom: 2.2rem;
 }
 
 .welcome-title #usernameDisplay { font-weight: bold; }
@@ -108,8 +108,8 @@ body {
 
 
 .thinking-face-icon {
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
     position: absolute;
     top: 45%;
     right: 2%;
@@ -190,8 +190,8 @@ body {
 
 /* --- Icon Background Circle --- */
 .quiz-icon-bg {
-    width: 50px;             /* Icon circle size */
-    height: 50px;
+    width: 40px;             /* Icon circle size */
+    height: 40px;
     border-radius: 50%;      /* Makes it a circle */
     display: flex;
     justify-content: center;
@@ -212,7 +212,7 @@ body {
 
 /* --- Info Section (Title & Description) --- */
 .quiz-info {
-    margin-top: 0.5rem;        /* Space for the icon positioned above */
+    margin-top: 0rem;        /* Space for the icon positioned above */
     color: inherit;          /* Inherits text color from .quiz-option */
 }
 
