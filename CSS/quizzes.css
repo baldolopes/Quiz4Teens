@@ -14,7 +14,7 @@ body {
     justify-content: center; /* Center page-container horizontally */
     align-items: center; /* Align page-container to the top */
     height: 100vh;
-    /* overflow: hidden; */
+    overflow: hidden;
     background: linear-gradient(135deg, #00FF6A, #007FFF, #FFFF00); /* Body background gradient */
     font-family: 'Roboto', sans-serif; /* Base font */
     padding: 0rem; /* Space around the main container */
