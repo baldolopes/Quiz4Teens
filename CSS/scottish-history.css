@@ -16,10 +16,8 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start; /* Align top */
-    min-height: 100vh;
-    margin-top: auto;
-    margin-top: auto;
+    justify-content: center; /* Align top */
+    height: 100vh;
     padding: 0.4rem; /* --- REDUCIDO --- */
 }
 
