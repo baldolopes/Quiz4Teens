@@ -29,7 +29,7 @@ body {
     flex-direction: column;   /* Stacks child elements vertically */
     align-items: center;      /* Centers child elements like .about-quiz horizontally */
     background: rgba(255, 255, 255, 0.35); /* Container background */
-    border-radius: 250px;      /* --- ADDED: Rounded corners for the main container --- */
+    border-radius: 40px;      /* --- ADDED: Rounded corners for the main container --- */
     padding-left: 0.5rem;
     padding-top: 0rem;
     padding-bottom: 0.5rem;     /* --- ADDED: Padding at the bottom --- */
