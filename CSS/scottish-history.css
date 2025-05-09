@@ -18,7 +18,8 @@ body {
     align-items: center;
     justify-content: flex-start; /* Align top */
     min-height: 100vh;
-    margin: 0;
+    margin-top: auto;
+    margin-top: auto;
     padding: 0.4rem; /* --- REDUCIDO --- */
 }
 
