@@ -29,7 +29,7 @@ body {
     flex-direction: column;   /* Stacks child elements vertically */
     align-items: center;      /* Centers child elements like .about-quiz horizontally */
     background: rgba(255, 255, 255, 0.35); /* Container background */
-    border-radius: 25px;      /* --- ADDED: Rounded corners for the main container --- */
+    border-radius: 250px;      /* --- ADDED: Rounded corners for the main container --- */
     padding-left: 0.5rem;
     padding-top: 0rem;
     padding-bottom: 0.5rem;     /* --- ADDED: Padding at the bottom --- */
@@ -291,7 +291,7 @@ h2.quiz-name {
 @media only screen and (min-width: 1024px) {
     .page-container {
         max-width: 1100px; /* Adjust main container width for desktops */
-        border-radius: 150px;
+        border-radius: 250px;
     }
 
     #current-time-quiz {
@@ -301,7 +301,7 @@ h2.quiz-name {
         flex-grow: 1;        /* Allows it to take up space */
         padding-top: 0rem;
         padding-left: 1rem;  /* Add padding instead */
-        margin-left: 5rem;
+        margin-left: 9rem;
     }
     
     #current-date-quiz {
@@ -310,7 +310,7 @@ h2.quiz-name {
         text-align: right;
         padding-top: 0rem;
         padding-right: 1rem; /* Add padding instead */
-        margin-right: 5rem;
+        margin-right: 9rem;
     }
 
     .quiz-options-grid {

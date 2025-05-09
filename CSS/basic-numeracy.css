@@ -335,9 +335,9 @@ h1 {
   }
 
   .quiz-container {
-      max-width: 800px; /* Wider container */
+      max-width: 1100px; /* Wider container */
       padding: 1.5rem;  /* More internal padding */
-      border-radius: 100px;
+      border-radius: 250px;
       margin-bottom: 1rem;
   }
 
@@ -346,8 +346,8 @@ h1 {
       font-size: 1rem;    /* Larger font */
       margin-bottom: 0.8rem;
   }
-  #current-time-quiz { padding-left: 1rem; }
-  #current-date-quiz { padding-right: 1rem; }
+  #current-time-quiz { padding-left: 1rem; margin-left: 8rem; }
+  #current-date-quiz { padding-right: 1rem; margin-right: 7rem;}
 
   .top-section {
       padding: 1rem 0;
