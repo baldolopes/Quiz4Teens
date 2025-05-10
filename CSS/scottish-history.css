@@ -55,13 +55,13 @@ body {
     padding-left: 0.4rem; 
     text-align: left; 
     flex-grow: 1; 
-    margin-left: 10rem;
+    
 }
 
 #current-date-quiz { 
     padding-right: 0.4rem; 
     text-align: right;
-    margin-right: 10rem;
+    
 }
 
 .top-section { 
@@ -402,6 +402,19 @@ p.pass-message, p.fail-message { margin: 0.5rem 0; text-align: center; line-heig
         font-size: 1rem; 
         padding: 0.3rem 1rem; 
         margin-bottom: 0.5rem; 
+    }
+
+    #current-time-quiz { 
+    padding-left: 0.4rem; 
+    text-align: left; 
+    flex-grow: 1; 
+    margin-left: 12rem;
+    }
+
+#current-date-quiz { 
+    padding-right: 0.4rem; 
+    text-align: right;
+    margin-right: 12rem;
     }
 
     h1 { 
