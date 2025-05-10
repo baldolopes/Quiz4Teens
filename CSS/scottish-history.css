@@ -167,7 +167,21 @@ h1 { font-size: 1.5em;
 }
 
 /* --- Answer Box (Drop Zone) --- */
-.answer-box { width: 140px; height: 24px; border: 1px dashed #bbb; display: inline-flex; align-items: center; justify-content: center; margin-left: 5px; vertical-align: middle; background-color: rgba(255, 255, 255, 0.1); border-radius: 3px; padding: 1px 3px; transition: background-color 0.3s ease; min-height: 24px; }
+.answer-box { 
+    width: 140px; 
+    height: 24px; 
+    border: 1px dashed #bbb; 
+    display: inline-flex; 
+    align-items: center; 
+    justify-content: center; 
+    margin-left: 5px; 
+    vertical-align: middle; 
+    background-color: rgba(255, 255, 255, 0.1); 
+    border-radius: 3px; padding: 1px 3px; 
+    transition: background-color 0.3s ease; 
+    min-height: 24px; 
+}
+
 .answer-box.drag-over { background-color: rgba(255, 255, 255, 0.3); border-style: solid; }
 .answer-box.correct { border: 1px solid #198754; } /* Thinner border */
 .answer-box.incorrect { border: 1px solid #dc3545; } /* Thinner border */
@@ -182,7 +196,7 @@ h1 { font-size: 1.5em;
     font-weight: bold; 
     color: #333; 
     margin-bottom: 0.2rem; 
-    font-size: 1rem; 
+    font-size: 1.5rem; 
 }
 
 #word-bank { background-color: rgba(255, 255, 255, 0.6); padding: 0.3rem; border-radius: 4px; text-align: center; min-height: 26px; }
