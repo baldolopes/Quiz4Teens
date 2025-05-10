@@ -155,8 +155,17 @@ h1 { font-size: 1.5em;
 .answer-box .draggable { cursor: default; margin: 0; box-shadow: none; width: 100%; text-align: center; font-size: 0.8em; /* Smaller text when dropped */ padding: 2px 4px; }
 
 /* --- Word Bank --- */
-#word-bank-container { margin-bottom: 0.6rem; }
-#word-bank-container p { font-weight: bold; color: #333; margin-bottom: 0.2rem; font-size: 0.75rem; }
+#word-bank-container { 
+    margin-bottom: 0.6rem; 
+}
+
+#word-bank-container p { 
+    font-weight: bold; 
+    color: #333; 
+    margin-bottom: 0.2rem; 
+    font-size: 1rem; 
+}
+
 #word-bank { background-color: rgba(255, 255, 255, 0.6); padding: 0.3rem; border-radius: 4px; text-align: center; min-height: 26px; }
 .draggable { display: inline-block; padding: 3px 6px; margin: 2px; background-color: #ff9100; color: white; border-radius: 4px; cursor: grab; font-size: 0.8em; user-select: none; transition: background-color 0.2s ease; }
 .draggable:active { cursor: grabbing; }
