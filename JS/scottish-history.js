@@ -36,7 +36,7 @@
     // --- 3. Quiz Data ---
     const quizData = [
         { id: 1, text: "Scotland's national poet?", correctAnswer: "BURNS" },
-        { id: 2, text: "Monster legend loch?", correctAnswer: "NESS" },
+        { id: 2, text: "Famous monster legend loch?", correctAnswer: "NESS" },
         { id: 3, text: "Scottish Parliament building name?", correctAnswer: "HOLYROOD PALACE" },
         { id: 4, text: "Highest British Isles mountain?", correctAnswer: "BEN NEVIS" },
         { id: 5, text: "Bannockburn Scots leader?", correctAnswer: "ROBERT THE BRUCE" }
