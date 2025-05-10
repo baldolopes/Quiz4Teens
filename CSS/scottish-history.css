@@ -55,11 +55,13 @@ body {
     padding-left: 0.4rem; 
     text-align: left; 
     flex-grow: 1; 
+    margin-left: 10rem;
 }
 
 #current-date-quiz { 
     padding-right: 0.4rem; 
     text-align: right;
+    margin-right: 10rem;
 }
 
 .top-section { 
@@ -196,11 +198,30 @@ h1 { font-size: 1.5em;
     font-weight: bold; 
     color: #333; 
     margin-bottom: 0.2rem; 
-    font-size: 1.5rem; 
+    font-size: 1rem; 
 }
 
-#word-bank { background-color: rgba(255, 255, 255, 0.6); padding: 0.3rem; border-radius: 4px; text-align: center; min-height: 26px; }
-.draggable { display: inline-block; padding: 3px 6px; margin: 2px; background-color: #ff9100; color: white; border-radius: 4px; cursor: grab; font-size: 0.8em; user-select: none; transition: background-color 0.2s ease; }
+#word-bank { background-color: rgba(255, 255, 255, 0.6); 
+    padding: 0.3rem; 
+    border-radius: 4px; 
+    text-align: center; 
+    min-height: 26px; 
+    font-size: 1.5rem;
+}
+
+.draggable { 
+    display: inline-block; 
+    padding: 3px 6px; 
+    margin: 2px; 
+    background-color: #ff9100; 
+    color: white; 
+    border-radius: 4px; 
+    cursor: grab; 
+    font-size: 1.2rem; 
+    user-select: none; 
+    transition: background-color 0.2s ease; 
+}
+
 .draggable:active { cursor: grabbing; }
 
 /* --- Submission Area --- */
