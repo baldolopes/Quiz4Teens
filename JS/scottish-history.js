@@ -35,11 +35,11 @@
 
     // --- 3. Quiz Data ---
     const quizData = [
-        { id: 1, text: "Who is Scotland's national poet?", correctAnswer: "BURNS" },
-        { id: 2, text: "Which Loch is famous for a monster legend?", correctAnswer: "NESS" },
-        { id: 3, text: "What is the name of the Scottish Parliament building?", correctAnswer: "HOLYROOD PALACE" },
-        { id: 4, text: "What is the highest mountain in the British Isles?", correctAnswer: "BEN NEVIS" },
-        { id: 5, text: "Who led the Scots at the Battle of Bannockburn?", correctAnswer: "ROBERT THE BRUCE" }
+        { id: 1, text: "Scotland's national poet?", correctAnswer: "BURNS" },
+        { id: 2, text: "Monster legend loch?", correctAnswer: "NESS" },
+        { id: 3, text: "Scottish Parliament building name?", correctAnswer: "HOLYROOD PALACE" },
+        { id: 4, text: "Highest British Isles mountain?", correctAnswer: "BEN NEVIS" },
+        { id: 5, text: "Bannockburn Scots leader?", correctAnswer: "ROBERT THE BRUCE" }
     ];
     const wordBankValues = shuffleArray(quizData.map(q => q.correctAnswer));
     const correctAnswersMap = quizData.reduce((map, question) => {
