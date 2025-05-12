@@ -1,4 +1,4 @@
-/* --- Base Styles (Mobile First - Reduced Spacing) --- */
+/* --- Base Styles (Mobile First) --- */
 * {
     margin: 0;
     padding: 0;
@@ -6,7 +6,7 @@
 }
 
 html {
-    font-size: 14px; /* --- REDUCIDO: Base font smaller --- */
+    font-size: 14px; 
     
 }
 
@@ -16,19 +16,19 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center; /* Align top */
+    justify-content: center; 
     height: 100vh;
-    padding: 0.4rem; /* --- REDUCIDO --- */
+    padding: 0.4rem; 
 }
 
 .quiz-container {
-    width: 96%; /* Slightly wider */
-    max-width: 500px; /* --- REDUCIDO --- */
-    background: rgba(255, 255, 255, 0.5); /* --- MODIFICADO: More opaque --- */
-    padding: 0.6rem; /* --- REDUCIDO --- */
-    border-radius: 12px; /* --- REDUCIDO --- */
+    width: 96%; 
+    max-width: 500px; 
+    background: rgba(255, 255, 255, 0.5); 
+    padding: 0.6rem; 
+    border-radius: 12px; 
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    margin-bottom: auto; /* --- REDUCIDO --- */
+    margin-bottom: auto; 
     margin-top: auto;
     text-align: center;
 }
@@ -44,7 +44,7 @@ body {
     font-size: 0.9rem; 
     font-weight: bold; 
     color: rgba(60, 60, 60, 0.9); 
-    margin-bottom: 0.5rem; /* --- REDUCIDO --- */ 
+    margin-bottom: 0.5rem; 
 }
 
 #current-time-quiz, #current-date-quiz { 
@@ -138,7 +138,7 @@ h1 { font-size: 1.5em;
     background-color: rgba(255, 255, 255, 0.5); 
     border-radius: 4px; 
     font-size: 1rem; 
-    width: 80%;
+    width: 95%;
 }
 
 #instructions p { 
@@ -148,8 +148,8 @@ h1 { font-size: 1.5em;
 
 /* --- Question Area --- */
 #question-container { 
-    background-color: #00008B; 
-    color: #ecffa5; 
+    background-color: #3cb372d5; 
+    color: #000000; 
     padding: 0.6rem; 
     border-radius: 8px; 
     margin-bottom: 0.6rem; 
@@ -171,23 +171,42 @@ h1 { font-size: 1.5em;
 /* --- Answer Box (Drop Zone) --- */
 .answer-box { 
     width: 140px; 
-    height: 24px; 
-    border: 1px dashed #bbb; 
+    height: 27px; 
+    border: 1px dashed #ffffff; 
     display: inline-flex; 
     align-items: center; 
     justify-content: center; 
     margin-left: 5px; 
     vertical-align: middle; 
-    background-color: rgba(255, 255, 255, 0.1); 
+    background-color: rgba(251, 255, 0, 0.5); 
     border-radius: 3px; padding: 1px 3px; 
     transition: background-color 0.3s ease; 
     min-height: 24px; 
 }
 
-.answer-box.drag-over { background-color: rgba(255, 255, 255, 0.3); border-style: solid; }
-.answer-box.correct { border: 1px solid #198754; } /* Thinner border */
-.answer-box.incorrect { border: 1px solid #dc3545; } /* Thinner border */
-.answer-box .draggable { cursor: default; margin: 0; box-shadow: none; width: 100%; text-align: center; font-size: 0.8em; /* Smaller text when dropped */ padding: 2px 4px; }
+.answer-box.drag-over { 
+    background-color: rgba(255, 255, 255, 0.3); 
+    border-style: solid; 
+}
+
+.answer-box.correct { 
+    border: 1px solid #198754; 
+} 
+
+.answer-box.incorrect { 
+    border: 1px solid #dc3545; 
+} 
+
+.answer-box .draggable { 
+    cursor: default; 
+    margin: 0;
+    box-shadow: none; 
+    width: 100%; 
+    text-align: center; 
+    font-size: 0.8em; 
+    padding: 2px 4px; 
+}
+
 
 /* --- Word Bank --- */
 #word-bank-container { 
@@ -227,53 +246,88 @@ h1 { font-size: 1.5em;
 .draggable:active { cursor: grabbing; }
 
 /* --- Submission Area --- */
-.submission-area { margin-top: 0.6rem; text-align: center; }
-#submit-button { background-color: #00FF6A; color: black; font-weight: bold; padding: 5px 12px; border: none; border-radius: 4px; cursor: pointer; font-size: 0.9em; transition: background-color 0.2s, opacity 0.2s; }
-#submit-button:disabled { background-color: #aaa; cursor: not-allowed; opacity: 0.7; }
-#submit-button:hover:not(:disabled) { background-color: #00e05c; }
-.validation-error { margin-top: 0.3rem; font-size: 0.8em; color: #dc3545; font-weight: bold; min-height: 1em; text-align: center; }
+.submission-area { 
+    margin-top: 0.6rem; 
+    text-align: center; 
+}
+
+#submit-button { 
+    background-color: #00FF6A; 
+    color: black; 
+    font-weight: bold; 
+    padding: 7px 18px; 
+    border: none; 
+    border-radius: 4px; 
+    cursor: pointer; 
+    font-size: 1.2rem; 
+    transition: background-color 0.2s, opacity 0.2s; 
+}
+
+#submit-button:disabled { 
+    background-color: #aaa; 
+    cursor: not-allowed; 
+    opacity: 0.7; 
+}
+#submit-button:hover:not(:disabled) { 
+    background-color: #00e05c; 
+}
+
+.validation-error { 
+    margin-top: 0.3rem; 
+    font-size: 0.8em; color: #dc3545; 
+    font-weight: bold; 
+    min-height: 1em; 
+    text-align: center; }
 
 /* --- Results Container --- */
 #results-container {
     background-color: #00008B;
     color: #ecffa5;
-    padding: 1rem; /* --- REDUCIDO --- */
+    padding: 1rem; 
     border-radius: 10px;
-    margin-top: 0rem; /* --- REDUCIDO --- */
+    margin-top: 0rem;
     border: 1px solid #4e4eff;
     text-align: left;
     width: 100%;
-    max-width: 550px; /* --- REDUCIDO --- */
+    max-width: 550px; 
 }
 #results-container h2 { /* "Quiz Completed!" */
     color: #fff;
     margin-top: 0rem;
-    margin-bottom: 0.6rem; /* --- REDUCIDO --- */
+    margin-bottom: 0.6rem;
     text-align: center;
     font-family: 'Pacifico', cursive;
-    font-size: 1.5rem; /* --- REDUCIDO --- */
+    font-size: 1.5rem; 
     padding: 0rem;
 }
 
 #results-container h3 { /* "Review Your Answers:" */
     color: #eee;
-    margin-top: 0rem; /* --- REDUCIDO --- */
-    margin-bottom: 0rem; /* --- REDUCIDO --- */
+    margin-top: 0rem; 
+    margin-bottom: 0rem;
     text-align: center;
     border-top: 1px solid #4e4eff;
-    padding-top: 0.8rem; /* --- REDUCIDO --- */
-    font-size: 1em; /* --- REDUCIDO --- */
+    padding-top: 0.8rem; 
+    font-size: 1em; 
 }
 #results-container p { /* Score text */
-    font-size: 0.9em; /* --- REDUCIDO --- */
-    margin-bottom: 0rem; /* --- REDUCIDO --- */
+    font-size: 0.9em; 
+    margin-bottom: 0rem; 
     color: #eee;
     text-align: center;
 }
-#results-container hr { border: none; border-top: 1px dashed #4e4eff; margin: 0.8rem 0; /* --- REDUCIDO --- */ }
+#results-container hr { 
+    border: none; 
+    border-top: 1px dashed #4e4eff; 
+    margin: 0.8rem 0; 
+}
 
 /* --- Styles for Pass/Fail Message SPANS --- */
-p.pass-message, p.fail-message { margin: 0.5rem 0; text-align: center; line-height: 0.8; /* --- REDUCIDO --- */ }
+p.pass-message, p.fail-message { 
+    margin: 0.5rem 0; 
+    text-align: center; 
+    line-height: 0.8; 
+}
 
 .result-highlight-word { 
     font-family: 'Luckiest Guy', cursive; 
@@ -282,12 +336,29 @@ p.pass-message, p.fail-message { margin: 0.5rem 0; text-align: center; line-heig
     margin-bottom: 0rem; 
     padding-bottom: 0; 
 }
-.result-highlight-word.pass-highlight { color: #00FF6A; animation: celebrateGlow 2s ease-in-out infinite; }
-.result-highlight-word.fail-highlight { color: #ff1f1f; animation: happyBounce 1.7s infinite; }
+.result-highlight-word.pass-highlight { 
+    color: #00FF6A; 
+    animation: celebrateGlow 2s ease-in-out infinite; 
+}
 
-.result-secondary-text { display: block; font-size: 1.1em; margin-top: 0; font-weight: bold; }
-.result-secondary-text.pass-secondary { color: #6effbb; }
-.result-secondary-text.fail-secondary { color: #ff6b6b; }
+.result-highlight-word.fail-highlight { 
+    color: #ff1f1f; 
+    animation: happyBounce 1.7s infinite; 
+}
+
+.result-secondary-text { 
+    display: block; 
+    font-size: 1.1em; 
+    margin-top: 0; 
+    font-weight: bold; }
+
+.result-secondary-text.pass-secondary { 
+    color: #6effbb; 
+}
+
+.result-secondary-text.fail-secondary { 
+    color: #ff6b6b; 
+}
 
 
 #review-section ul {
@@ -297,25 +368,30 @@ p.pass-message, p.fail-message { margin: 0.5rem 0; text-align: center; line-heig
 }
 
 .review-item {
-    /* border-bottom: 1px dashed #4e4eff; */ /* Optional: Remove border for tighter look */
-    padding: 0.4rem 0.3rem; /* --- REDUCIDO: Less padding top/bottom --- */
-    margin-bottom: 0.4rem; /* --- REDUCIDO: Less space between items --- */
-    border-radius: 4px; /* Slightly less rounding */
+    padding: 0.4rem 0.3rem; 
+    margin-bottom: 0.4rem; 
+    border-radius: 4px; 
 }
 .review-item:last-child {
     border-bottom: none;
-    margin-bottom: 0; /* Remove bottom margin on last item */
+    margin-bottom: 0;
 }
-.review-item.review-correct { background-color: rgba(40, 167, 69, 0.08); } /* Lighter tint */
-.review-item.review-incorrect { background-color: rgba(220, 53, 69, 0.05); } /* Lighter tint */
+
+.review-item.review-correct { 
+    background-color: rgba(40, 167, 69, 0.08); 
+} 
+
+.review-item.review-incorrect { 
+    background-color: rgba(220, 53, 69, 0.05); 
+} 
 
 .review-question {
-    margin-bottom: 0.2rem !important; /* --- REDUCIDO: Less space below question --- */
+    margin-bottom: 0.2rem !important; 
     font-weight: normal !important;
     color: #dde5ff !important;
     text-align: left !important;
-    font-size: 0.85em; /* --- REDUCIDO: Slightly smaller question text --- */
-    line-height: 1; /* Adjust line height */
+    font-size: 0.85em; 
+    line-height: 1; 
 }
 .review-question strong {
      font-weight: bold;
@@ -325,89 +401,137 @@ p.pass-message, p.fail-message { margin: 0.5rem 0; text-align: center; line-heig
 
 .review-user-answer,
 .review-correct-answer {
-    margin-left: 0.5rem; /* --- REDUCIDO: Less indent --- */
-    margin-bottom: 0.1rem !important; /* --- REDUCIDO: Very tight spacing --- */
-    font-size: 0.8em; /* --- REDUCIDO: Smaller answer labels/values --- */
+    margin-left: 0.5rem; 
+    margin-bottom: 0.1rem !important; 
+    font-size: 0.8em; 
     text-align: left !important;
-    line-height: 1.2; /* Reduce line height */
+    line-height: 1.2; 
 }
 
-.review-user-answer { color: #c7c7c7; } /* Lighter grey */
-.review-correct-answer { color: #87ffa7; font-weight: bold; } /* Lighter green */
+.review-user-answer { color: #c7c7c7; } 
+.review-correct-answer { color: #87ffa7; font-weight: bold; } 
 
 .answer-value { /* The actual answers */
     font-style: normal;
     font-weight: bold;
-    padding: 1px 4px; /* --- REDUCIDO: Less padding --- */
+    padding: 1px 4px; 
     border-radius: 3px;
-    margin-left: 4px; /* --- REDUCIDO: Less space before value --- */
+    margin-left: 4px; 
     display: inline-block;
     border: 1px solid transparent;
 }
 .review-item.review-incorrect .review-user-answer .answer-value.user-ans {
-     color: #ffadad; /* Light red text */
-     background-color: rgba(183, 28, 28, 0.4); /* Slightly darker red bg */
+     color: #ffadad; 
+     background-color: rgba(183, 28, 28, 0.4); 
      border-color: #dc3545;
      text-decoration: line-through;
 }
 .review-correct-answer .answer-value.correct-ans {
-     color: #a9ffbc; /* Light green text */
-     background-color: rgba(25, 135, 84, 0.4); /* Slightly darker green bg */
+     color: #a9ffbc; 
+     background-color: rgba(25, 135, 84, 0.4); 
      border-color: #28a745;
 }
 .review-item.review-correct .review-user-answer .answer-value.user-ans {
-     color: #a9ffbc; /* Light green text */
-     background-color: rgba(25, 135, 84, 0.4); /* Slightly darker green bg */
+     color: #a9ffbc; 
+     background-color: rgba(25, 135, 84, 0.4); 
      border-color: #28a745;
 }
 
 .review-answer-feedback {
-    margin-left: 1rem; /* Match indent */
-    font-size: 0.7em; /* --- REDUCIDO: Even smaller feedback text */
+    margin-left: 1rem; 
+    font-size: 0.7em; 
     font-style: italic;
-    margin-top: 0; /* --- REDUCIDO: Less space above */
+    margin-top: 0; 
     margin-bottom: 0.1rem !important;
     text-align: left !important;
-    line-height: 1; /* Very tight */
+    line-height: 1;
 }
-.correct-feedback { color: #90ee90; }
-.incorrect-feedback { color: #ff7f7f; }
+.correct-feedback { 
+    color: #90ee90; 
+}
+
+.incorrect-feedback { 
+    color: #ff7f7f; 
+}
 
 
 /* --- Results Button Styles --- */
-.results-button { display: flex; justify-content: center; margin-top: 1rem; gap: 0.8rem;}
-.results-button button { background-color: #0d6efd; color: #fff; padding: 8px 16px; border: none; border-radius: 5px; cursor: pointer; transition: background-color 0.3s ease, transform 0.2s ease; font-size: 0.9em; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15); }
-.results-button button:hover { background-color: #00FF6A; transform: translateY(-2px); }
+.results-button { 
+    display: flex; 
+    justify-content: center; 
+    margin-top: 1rem; 
+    gap: 0.8rem;
+}
+
+.results-button button { 
+    background-color: #0d6efd; 
+    color: #fff; 
+    padding: 8px 16px; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    transition: background-color 0.3s ease, transform 0.2s ease; 
+    font-size: 0.9em; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15); 
+}
+
+.results-button button:hover { 
+    background-color: #00FF6A; 
+    transform: translateY(-2px); 
+}
 
 
-/* --- Keyframes for Animations (SIN CAMBIOS) --- */
-@keyframes celebrateGlow { /* ... */ }
-@keyframes happyBounce { /* ... */ }
+/* --- Keyframes for Animations */
+@keyframes celebrateGlow {
+  0%, 100% {
+    /* Starting and ending state - normal or slightly dimmed */
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.3),
+                 0 0 10px rgba(0, 255, 106, 0.2); /* Use your pass color (e.g., #00FF6A) */
+    opacity: 0.8;
+  }
+  50% {
+    /* Mid-animation state - brighter glow */
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.7),
+                 0 0 20px rgba(0, 255, 106, 0.5), /* Brighter pass color */
+                 0 0 30px rgba(0, 255, 106, 0.3);
+    opacity: 1;
+  }
+}
+
+@keyframes happyBounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0); /* Start, end, and bounce points */
+  }
+  40% {
+    transform: translateY(-15px); /* Highest point of the bounce */
+  }
+  60% {
+    transform: translateY(-8px); /* Mid-bounce down */
+  }
+}
 
 
 /* ========================================================== */
-/* --- Desktop Styles (min-width: 1024px) - COMPACT RESULTS --- */
+/* --- Desktop Styles (min-width: 1024px) --- */
 /* ========================================================== */
 @media only screen and (min-width: 1024px) {
     body {
-        padding: 1.5rem; /* Keep overall padding reasonable */
-        /* display: flex; align-items: center; justify-content: center; height: 100vh; */
-        /* Base body styles should handle centering */
+        padding: 1.5rem; 
     }
 
     .quiz-container {
-        max-width: 1000px; /* Slightly narrower if needed */
-        padding: 1.5rem 2rem; /* Reduced top/bottom padding */
-        border-radius: 250px; /* Slightly reduced radius */
-        margin-top: 1.5rem;    /* Reduced top margin */
-        margin-bottom: 1.5rem; /* Reduced bottom margin */
+        max-width: 1000px; 
+        padding: 1.5rem 2rem;
+        border-radius: 250px;
+        margin-top: 1.5rem;  
+        margin-bottom: 1.5rem;
     }
 
-    /* --- General Header Adjustments (Minor changes from previous) --- */
+    /* --- General Header--- */
     .date-time-header {
         font-size: 1.2rem;
-        padding: 0.2rem 1rem; /* Reduced padding */
-        margin-bottom: 1.5rem; /* Reduced margin */
+        padding: 0.2rem 1rem; 
+        margin-bottom: 1.5rem;
     }
     #current-time-quiz { 
         padding-left: 0.4rem; 
@@ -421,15 +545,33 @@ p.pass-message, p.fail-message { margin: 0.5rem 0; text-align: center; line-heig
         text-align: right; 
         margin-right: 10rem; }
 
-    h1 { font-size: 3rem; margin-bottom: 0.8rem; line-height: 1.3; } /* Reduced margin */
+    h1 { font-size: 3rem; margin-bottom: 0.8rem; line-height: 1.3; } 
 
     /* --- Score & Progress (Minor changes) --- */
-    .score-container { font-size: 1.05em; margin-bottom: 0.6rem; } /* Slightly smaller font, reduced margin */
-    .progress-container { font-size: 1.5em; margin-top: 2rem; margin-bottom: 0.8rem; } /* Reduced margins */
-    .progress-bar { height: 25px; margin-top: 4px; width: 60%; margin-left: auto; margin-right: auto; } /* Slightly smaller bar */
-    .progress-value { line-height: 16px; font-size: 0.8em; }
+    .score-container { 
+        font-size: 1.05em; 
+        margin-bottom: 0.6rem; 
+    } 
 
-    /* --- Question/Word Bank Areas (If visible, maintain decent spacing) --- */
+    .progress-container { 
+        font-size: 1.3rem; 
+        margin-top: 2rem; 
+        margin-bottom: 0.8rem; }
+
+    .progress-bar { 
+        height: 25px; 
+        margin-top: 4px; 
+        width: 60%; 
+        margin-left: auto; 
+        margin-right: auto; 
+        padding: auto;
+    } 
+
+    .progress-value { line-height: 16px; 
+        font-size: 0.8em; 
+    }
+
+    /* --- Question/Word Bank Areas  --- */
     #instructions{
         font-size: 1.5rem;
     }
@@ -440,67 +582,98 @@ p.pass-message, p.fail-message { margin: 0.5rem 0; text-align: center; line-heig
         max-width: 600px;
         margin-left: auto;
         margin-right: auto;
-        margin-bottom: 1rem; /* Reduced margin */
+        margin-bottom: 1rem; 
     }
-     #question-container { padding: 1rem; } /* Reduced padding */
-    #question-container li { font-size: 1.3rem; margin-bottom: 0.6rem;} /* Reduced margin */
-    .answer-box { width: 180px; height: 30px; margin-left: 8px;}
+
+     #question-container { 
+        padding: 1rem; 
+    } 
+
+    #question-container li { 
+        font-size: 1.3rem; 
+        margin-bottom: 0.6rem;
+    }
+
+    .answer-box { 
+        width: 180px; 
+        height: 30px;
+        margin-left: 8px;
+    }
 
     /* --- Word Bank --- */
-     #word-bank-container p { font-size: 1.3em; margin-bottom: 0.3rem; } /* Reduced margin */
-    #word-bank { padding: 0.5rem; }
-    .draggable { font-size: 1.2em; padding: 5px 10px;}
+     #word-bank-container p { 
+        font-size: 1.3em;
+        margin-bottom: 0.3rem; 
+    } 
+
+    #word-bank { 
+        padding: 0.5rem; 
+    }
+
+    .draggable { 
+        font-size: 1.2em; 
+        padding: 5px 10px;
+    }
 
     /* --- Submission Area --- */
-    .submission-area { margin-top: 1rem; }
-    #submit-button { font-size: 1.7rem; padding: 10px 28px;}
-    .validation-error { font-size: 0.85em;}
+    .submission-area { 
+        margin-top: 1rem; 
+    }
+
+    #submit-button { 
+        font-size: 1.7rem; 
+        padding: 10px 28px;
+    }
+
+    .validation-error { 
+        font-size: 0.85em;
+    }
 
     /* ========================================== */
-    /* --- RESULTS AREA - VERTICAL COMPRESSION --- */
+    /* --- RESULTS AREA --- */
     /* ========================================== */
     #results-container {
-        max-width: 700px;       /* Keep results readable width */
-        padding: 1.5rem 2rem;   /* *** REDUCED vertical padding *** */
-        margin-top: 1.5rem;     /* Reduced space above */
+        max-width: 700px;      
+        padding: 1.5rem 2rem;  
+        margin-top: 1.5rem;    
         margin-left: auto;
         margin-right: auto;
         text-align: center;
-        border-radius: 15px;    /* Reduced radius */
+        border-radius: 15px;   
     }
 
     #results-container h2 { /* "Quiz Completed!" */
         font-size: 1.8em;
-        margin-bottom: 0.4rem;  /* *** REDUCED space after title *** */
+        margin-bottom: 0.4rem; 
     }
 
     #results-container p { /* Score text & Pass/Fail container */
         font-size: 1.1em;
-        margin-bottom: 1rem;   /* *** REDUCED space after score/pass-fail msg *** */
-        line-height: 1.3;       /* Slightly tighter line height */
+        margin-bottom: 1rem;   
+        line-height: 1.3;      
     }
 
      /* Pass/Fail message specific styles */
      .result-highlight-word {
          font-size: 2em;
          display: block;
-         margin-bottom: 0.1rem;  /* *** REDUCED space under highlight word *** */
+         margin-bottom: 0.1rem;  
      }
      .result-secondary-text {
-         font-size: 1.1em; /* Slightly smaller secondary text */
+         font-size: 1.1em; 
      }
 
 
     #results-container h3 { /* "Review Your Answers:" */
         font-size: 1.3em;
-        margin-top: 1.2rem;     /* *** REDUCED space BEFORE "Review..." *** */
-        margin-bottom: 0.8rem;  /* *** REDUCED space AFTER "Review..." *** */
-        padding-top: 0.8rem;    /* *** REDUCED space above the border-top line *** */
+        margin-top: 1.2rem;
+        margin-bottom: 0.8rem; 
+        padding-top: 0.8rem;   
         border-top: 1px solid #4e4eff;
         text-align: center;
     }
 
-     /* --- Review Section Items (Main focus for compression) --- */
+     /* --- Review Section Items ( --- */
      #review-section ul {
          text-align: left;
          padding: 0;
@@ -508,49 +681,49 @@ p.pass-message, p.fail-message { margin: 0.5rem 0; text-align: center; line-heig
      }
 
     .review-item {
-        padding: 0.4rem 0.6rem;   /* *** REDUCED internal padding top/bottom *** */
-        margin-bottom: 0.4rem;  /* *** SIGNIFICANTLY REDUCED space between review items *** */
+        padding: 0.4rem 0.6rem;   
+        margin-bottom: 0.4rem;  
         border-radius: 6px;
-        /* Background tints remain */
+        
     }
      .review-item:last-child {
-         margin-bottom: 0; /* Remove margin on last item if needed */
+         margin-bottom: 0; 
      }
 
     .review-question {
-        font-size: 0.95em; /* Slightly smaller question text */
-        margin-bottom: 0.15rem !important; /* *** REDUCED space below question text *** */
-        line-height: 1.25; /* Tighter line height */
+        font-size: 0.95em; 
+        margin-bottom: 0.15rem !important; 
+        line-height: 1.25; 
     }
     .review-question strong {
-        font-size: 1em; /* Keep Q#: noticeable */
+        font-size: 1em; 
     }
 
     .review-user-answer,
     .review-correct-answer {
-        font-size: 0.9em; /* Slightly smaller answer text */
-        margin-left: 0.8rem; /* Slightly reduced indent */
-        margin-bottom: 0.05rem !important; /* *** VERY TIGHT space between answer lines *** */
-        line-height: 1.2; /* Tighter line height */
+        font-size: 0.9em; 
+        margin-left: 0.8rem; 
+        margin-bottom: 0.05rem !important;
+        line-height: 1.2; 
     }
 
     .answer-value {
-        padding: 2px 6px;   /* Keep padding reasonable */
-        font-size: 1em;     /* Match surrounding text */
+        padding: 2px 6px; 
+        font-size: 1em;   
         margin-left: 5px;
     }
-    /* Color/background styles for answers remain */
+    
 
     /* --- Results Buttons --- */
     .results-button {
         display: flex;
         justify-content: center;
-        gap: 1rem;             /* Slightly reduced gap */
-        margin-top: 1.2rem;    /* *** REDUCED space above buttons *** */
+        gap: 1rem;             
+        margin-top: 1.2rem;    
     }
     .results-button button {
-        font-size: 0.95em;     /* Slightly smaller button text */
-        padding: 8px 18px;     /* Slightly smaller padding */
+        font-size: 0.95em;     
+        padding: 8px 18px;     
     }
 
 } /* --- End of Desktop Media Query --- */

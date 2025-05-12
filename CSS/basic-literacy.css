@@ -114,7 +114,7 @@ h1 {
 
 .progress-bar { 
     width: 80%; 
-    height: 18px; 
+    height: 20px; 
     background-color: #e9ecef; 
     border-radius: 8px; 
     overflow: hidden; 
@@ -144,7 +144,7 @@ h1 {
     text-align: left;
     display: flex;
     flex-direction: column;
-    background-color: #00008B; /* Dark blue background */
+    background-color: #B71C1C; /* Dark blue background */
 }
 
 .question-text {

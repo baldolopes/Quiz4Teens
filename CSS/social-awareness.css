@@ -144,7 +144,7 @@ h1 {
     text-align: left;
     display: flex;
     flex-direction: column;
-    background-color: #00008B; /* Dark blue background */
+    background-color: #F57C00; /* Dark blue background */
 }
 
 .question-text {
