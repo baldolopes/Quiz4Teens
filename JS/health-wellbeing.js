@@ -35,7 +35,7 @@
 
     // --- 3. Quiz Data ---
     const quizData = [
-        { id: 1, text: "What number do you call in an emergency?", correctAnswer: "999" },
+        { id: 1, text: "Number for emergencies?", correctAnswer: "999" },
         { id: 2, text: "Scotland's national health service?", correctAnswer: "NHS Scotland" },
         { id: 3, text: "What does NHS stand for?", correctAnswer: "National Health Service" },
         { id: 4, text: "What is a healthy snack?", correctAnswer: "Apple" },

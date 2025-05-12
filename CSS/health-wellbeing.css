@@ -386,9 +386,6 @@ p.pass-message, p.fail-message { margin: 0.5rem 0; text-align: center; line-heig
 
 
 /* ========================================================== */
-/* --- Desktop Styles --- */
-/* ========================================================== */
-/* ========================================================== */
 /* --- Desktop Styles (min-width: 1024px) - COMPACT RESULTS --- */
 /* ========================================================== */
 @media only screen and (min-width: 1024px) {
@@ -399,30 +396,44 @@ p.pass-message, p.fail-message { margin: 0.5rem 0; text-align: center; line-heig
     }
 
     .quiz-container {
-        max-width: 800px; /* Slightly narrower if needed */
+        max-width: 1000px; /* Slightly narrower if needed */
         padding: 1.5rem 2rem; /* Reduced top/bottom padding */
-        border-radius: 30px; /* Slightly reduced radius */
+        border-radius: 250px; /* Slightly reduced radius */
         margin-top: 1.5rem;    /* Reduced top margin */
         margin-bottom: 1.5rem; /* Reduced bottom margin */
     }
 
     /* --- General Header Adjustments (Minor changes from previous) --- */
     .date-time-header {
-        font-size: 0.9rem;
+        font-size: 1.2rem;
         padding: 0.2rem 1rem; /* Reduced padding */
-        margin-bottom: 0.8rem; /* Reduced margin */
+        margin-bottom: 1.5rem; /* Reduced margin */
     }
-    #current-time-quiz { padding-left: 0.4rem; text-align: left; flex-grow: 1; margin-left: 0; }
-    #current-date-quiz { padding-right: 0.4rem; text-align: right; margin-right: 0; }
-    h1 { font-size: 2em; margin-bottom: 0.8rem; line-height: 1.3; } /* Reduced margin */
+    #current-time-quiz { 
+        padding-left: 0.4rem; 
+        text-align: left; 
+        flex-grow: 1; 
+        margin-left: 10rem; 
+    }
+
+    #current-date-quiz { 
+        padding-right: 0.4rem; 
+        text-align: right; 
+        margin-right: 10rem; }
+
+    h1 { font-size: 3rem; margin-bottom: 0.8rem; line-height: 1.3; } /* Reduced margin */
 
     /* --- Score & Progress (Minor changes) --- */
     .score-container { font-size: 1.05em; margin-bottom: 0.6rem; } /* Slightly smaller font, reduced margin */
-    .progress-container { font-size: 1.05em; margin-top: 0.8rem; margin-bottom: 0.8rem; } /* Reduced margins */
-    .progress-bar { height: 16px; margin-top: 4px; width: 60%; margin-left: auto; margin-right: auto; } /* Slightly smaller bar */
+    .progress-container { font-size: 1.5em; margin-top: 2rem; margin-bottom: 0.8rem; } /* Reduced margins */
+    .progress-bar { height: 25px; margin-top: 4px; width: 60%; margin-left: auto; margin-right: auto; } /* Slightly smaller bar */
     .progress-value { line-height: 16px; font-size: 0.8em; }
 
     /* --- Question/Word Bank Areas (If visible, maintain decent spacing) --- */
+    #instructions{
+        font-size: 1.5rem;
+    }
+
     #instructions,
     #question-container,
     #word-bank-container {
@@ -432,17 +443,17 @@ p.pass-message, p.fail-message { margin: 0.5rem 0; text-align: center; line-heig
         margin-bottom: 1rem; /* Reduced margin */
     }
      #question-container { padding: 1rem; } /* Reduced padding */
-    #question-container li { font-size: 1em; margin-bottom: 0.6rem;} /* Reduced margin */
+    #question-container li { font-size: 1.3rem; margin-bottom: 0.6rem;} /* Reduced margin */
     .answer-box { width: 180px; height: 30px; margin-left: 8px;}
 
     /* --- Word Bank --- */
-     #word-bank-container p { font-size: 0.9em; margin-bottom: 0.3rem; } /* Reduced margin */
+     #word-bank-container p { font-size: 1.3em; margin-bottom: 0.3rem; } /* Reduced margin */
     #word-bank { padding: 0.5rem; }
-    .draggable { font-size: 0.9em; padding: 5px 10px;}
+    .draggable { font-size: 1.2em; padding: 5px 10px;}
 
     /* --- Submission Area --- */
     .submission-area { margin-top: 1rem; }
-    #submit-button { font-size: 1em; padding: 8px 18px;}
+    #submit-button { font-size: 1.7rem; padding: 10px 28px;}
     .validation-error { font-size: 0.85em;}
 
     /* ========================================== */
