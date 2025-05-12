@@ -201,7 +201,7 @@ button:active {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        margin-bottom: 1.5rem;
+        margin-bottom: 2.5rem;
         color: #333;
         padding: 0 0.2rem;
     }
@@ -209,7 +209,7 @@ button:active {
     #current-time {
         text-align: left;
         margin-left: 8rem;
-        font-size: 1.5rem;
+        font-size: 1.2rem;
         color: #0056b3;
         margin-bottom: 0;
         flex-grow: 1;
