@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Numeracy Quiz</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee+Inline&family=Bungee+Shade&family=Luckiest+Guy&family=Pacifico&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="CSS/basic-literacy.css">
+</head>
+<body>
+    <div class="quiz-container">
+        <div class="top-section">
+            <div class="date-time-header">
+                <span id="current-time-quiz"></span>
+                <span id="current-date-quiz"></span>
+            </div>
+            <h1><span id="usernameDisplay"></span>, <br> Basic Literacy Quiz</h1>
+            <div class="score-container">
+                <div class="score-label">Your Score:</div>
+                <div class="score-results">
+                    <span id="correctAnswers">0</span> Correct,
+                    <span id="incorrectAnswers">0</span> Incorrect out of 5.
+                </div>
+            </div>
+            <div class="progress-container">
+                Your Progress: <div class="progress-bar"><span class="progress-value">0% completed</span></div>
+            </div>
+        </div>
+
+        <div class="questions-container" id="question-container">
+            <!-- Questions and the "Next Question" button will be inserted here by JS -->
+        </div>
+
+        <!-- Feedback container was already removed, which is correct for this approach -->
+
+    </div>
+
+    <script src="JS/basic-literacy.js"></script>
+</body>
+</html>
