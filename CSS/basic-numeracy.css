@@ -61,28 +61,27 @@ body {
 }
 
 h1 {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
     color: #333;
     margin-top: 0.2rem;
     margin-bottom: 1.5rem;
     font-family: 'Pacifico', cursive;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15);
     line-height: 1.2;
-    position: relative; /* MUY IMPORTANTE: para posicionar los iconos hijos */
-    padding-left: 2.5rem; /* Espacio para el icono izquierdo */
-    padding-right: 2.5rem; /* Espacio para el icono derecho */
-    text-align: center; /* Asegurar centrado del texto */
+    position: relative; 
+    padding-left: 2.5rem; 
+    padding-right: 2.5rem; 
+    text-align: center; 
 }
 
-/* Estilos base comunes para ambos iconos */
 .numeracy-icon-left,
 .numeracy-icon-right {
     position: absolute;
-    top: 50%; /* Centrado vertical */
+    top: 50%; 
     transform: translateY(-50%);
-    font-size: 1.5rem; /* Tamaño del icono */
-    color: #1A237E; /* Un color azul oscuro, puedes cambiarlo */
-    opacity: 0.8; /* Ligeramente transparente */
+    font-size: 1.5rem; 
+    color: #1A237E; 
+    opacity: 0.8; 
 
     /* Efecto automático: animación flotante suave */
     animation: gentleFloatIcon 5s ease-in-out infinite;
@@ -428,8 +427,6 @@ h1 {
     font-size: 1.5rem; /* Tamaño del icono */
     color: #1A237E; /* Un color azul oscuro, puedes cambiarlo */
     opacity: 0.8; /* Ligeramente transparente */
-
-    /* Efecto automático: animación flotante suave */
     animation: gentleFloatIcon 5s ease-in-out infinite;
 }
 
@@ -441,6 +438,20 @@ h1 {
 /* Posición específica icono derecho */
 .numeracy-icon-right {
     margin-right: 10.5rem; /* Distancia desde el borde derecho del h1 */
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-top: 0.2rem;
+    margin-bottom: 1.5rem;
+    font-family: 'Pacifico', cursive;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15);
+    line-height: 1.2;
+    position: relative; 
+    padding-left: 2.5rem; 
+    padding-right: 2.5rem; 
+    text-align: center; 
 }
 
   .score-container {
@@ -455,7 +466,7 @@ h1 {
       margin-bottom: 1.2rem;
   }
   .progress-bar {
-      width: 60%;
+      width: 40%;
       height: 20px;
       border-radius: 10px;
       margin-top: 6px;
