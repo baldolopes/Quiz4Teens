@@ -311,7 +311,7 @@ h2.quiz-name {
 /* --- Desktop Styles --- */
 @media only screen and (min-width: 1024px) {
     .page-container {
-        max-width: 1100px;
+        max-width: 1200px;
         border-radius: 250px;
     }
 
