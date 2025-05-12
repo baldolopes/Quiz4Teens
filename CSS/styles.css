@@ -23,11 +23,11 @@ body {
 .container {
     background: rgba(255, 255, 255, 0.35);
     padding: 1rem;
-    border-radius: 40px; /* Adjusted border-radius based on previous example */
+    border-radius: 40px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     text-align: center;
     width: 98%;
-    max-width: 500px; /* Container width */
+    max-width: 500px;
     line-height: 1;
     margin-top: 5rem;
     margin-bottom: 5rem;
@@ -69,6 +69,14 @@ h1 {
     margin-bottom: 1rem;
     color: #FF6F00;
     line-height: 0.5;
+    transition: transform 0.2s ease-out, text-shadow 0.2s ease-out;
+    animation: subtleWobble 1.5s ease-in-out infinite;
+}
+
+@keyframes subtleWobble {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-1deg); } /* Gira un poquito a la izquierda */
+  75% { transform: rotate(1deg); }  /* Gira un poquito a la derecha */
 }
 
 h2 {
@@ -85,11 +93,8 @@ h2 {
     text-align: center;
     padding: 1.5rem 1rem;
     border-radius: 25px;
-    /* width: 100%; */      /* --- REMOVED --- */
-
-    /* --- ADDED / MODIFIED --- */
-    max-width: 420px;      /* Set desired max width (e.g., 450px, adjust as needed) */
-    margin: 2rem auto;     /* Center horizontally (auto) & keep 2rem top/bottom margin */
+    max-width: 420px;
+    margin: 2rem auto;
 }
 
 .form-login h3 {
@@ -112,8 +117,7 @@ form {
     margin-bottom: 1.2rem;
     text-align: left;
     width: 100%;
-    /* max-width below ensures the input groups don't get wider than the form */
-    max-width: 380px; /* Adjust if needed, should be <= .form-login max-width */
+    max-width: 380px;
 }
 
 .input-group label {
@@ -146,10 +150,10 @@ form {
 }
 
 input::placeholder {
-    color: #b9b9b9;        /* <-- CAMBIADO A ROJO VIVO para probar si se aplica */
+    color: #b9b9b9;
     font-style: italic;
-    font-size: 0.9rem;       /* <-- Aumentado tamaño para visibilidad */
-    opacity: 1;            /* Asegura que no sea transparente */
+    font-size: 0.9rem;
+    opacity: 1;
 }
 
 .error-message {
@@ -188,7 +192,7 @@ button:active {
 @media only screen and (min-width: 767px) {
     .container {
         padding: 2rem;
-        max-width: 800px; /* Example: Adjusted container width */
+        max-width: 800px;
     }
 
     h1 {
@@ -199,16 +203,14 @@ button:active {
         font-size: 2rem;
     }
 
-    /* Adjust form-login max-width on tablets if needed */
     .form-login {
         padding: 2rem 1.5rem;
-        max-width: 500px; /* Example: Allow slightly wider form on tablets */
-        margin: 2rem auto; /* Keep centered */
+        max-width: 500px;
+        margin: 2rem auto;
     }
 
-    /* Adjust input-group max-width accordingly */
     .input-group {
-        max-width: 450px; /* Example */
+        max-width: 450px;
     }
 
     .input-group input {
@@ -255,7 +257,7 @@ button:active {
         color: #333;
         padding: 0 0.2rem;
     }
-    
+
     #current-time {
         text-align: left;
         margin-left: 8rem;
@@ -264,7 +266,7 @@ button:active {
         margin-bottom: 0;
         flex-grow: 1;
     }
-    
+
     #current-date {
         text-align: right;
         margin-right:8rem;
@@ -283,16 +285,14 @@ button:active {
         font-size: 2.2rem;
     }
 
-     /* Adjust form-login max-width on desktops */
     .form-login {
         padding: 2.5rem 2rem;
-        max-width: 550px;  /* Example: Allow slightly wider form on desktops */
-        margin: 2.5rem auto; /* Keep centered, adjust vertical margin */
+        max-width: 550px;
+        margin: 2.5rem auto;
     }
 
-     /* Adjust input-group max-width accordingly */
      .input-group {
-        max-width: 480px; /* Example */
+        max-width: 480px;
     }
 
      .input-group input {

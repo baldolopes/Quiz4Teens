@@ -71,14 +71,22 @@ body {
     margin-bottom: 0.5rem; 
 }
 
-h1 { font-size: 1.5em; 
-    color: #333; 
-    margin-bottom: 0.3rem; 
-    font-family: 'Pacifico', 
-    cursive; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); 
-    line-height: 1.5; 
-    margin-top: 0.5rem;
-    margin-bottom: 1rem;
+h1 {
+    font-size: 1.6rem;
+    color: #333;
+    margin-top: 0.2rem;
+    margin-bottom: 1.5rem;
+    font-family: 'Pacifico', cursive;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15);
+    line-height: 1.2;
+    transition: transform 0.2s ease-out, text-shadow 0.2s ease-out;
+    animation: subtleWobble 1.5s ease-in-out infinite;
+}
+
+@keyframes subtleWobble {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-1deg); } /* Gira un poquito a la izquierda */
+  75% { transform: rotate(1deg); }  /* Gira un poquito a la derecha */
 }
 
 .username-display { 

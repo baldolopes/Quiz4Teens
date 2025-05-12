@@ -139,7 +139,7 @@
         function appendFeedback(label, text, isCorrectType) {
             const feedbackSpan = label.querySelector('.option-feedback-message');
             if (feedbackSpan) {
-                 feedbackSpan.classList.remove('correct-text', 'incorrect-text'); // Clear previous color classes
+                 feedbackSpan.classList.remove('correct-text', 'incorrect-text'); 
                  feedbackSpan.textContent = `(${text})`;
                  feedbackSpan.classList.add(isCorrectType ? 'correct-text' : 'incorrect-text');
             }

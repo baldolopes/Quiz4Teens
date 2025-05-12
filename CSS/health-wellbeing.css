@@ -71,16 +71,23 @@ body {
     margin-bottom: 0.5rem; 
 }
 
-h1 { font-size: 1.5em; 
-    color: #333; 
-    margin-bottom: 0.3rem; 
-    font-family: 'Pacifico', 
-    cursive; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); 
-    line-height: 1.5; 
-    margin-top: 0.5rem;
-    margin-bottom: 1rem;
+h1 {
+    font-size: 1.6rem;
+    color: #333;
+    margin-top: 0.2rem;
+    margin-bottom: 1.5rem;
+    font-family: 'Pacifico', cursive;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15);
+    line-height: 1.2;
+    transition: transform 0.2s ease-out, text-shadow 0.2s ease-out;
+    animation: subtleWobble 1.5s ease-in-out infinite;
 }
 
+@keyframes subtleWobble {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-1deg); } /* Gira un poquito a la izquierda */
+  75% { transform: rotate(1deg); }  /* Gira un poquito a la derecha */
+}
 .username-display { 
     font-weight: bold; 
     color: #e67e22; 
@@ -484,15 +491,14 @@ p.pass-message, p.fail-message {
 /* --- Keyframes for Animations */
 @keyframes celebrateGlow {
   0%, 100% {
-    /* Starting and ending state - normal or slightly dimmed */
     text-shadow: 0 0 5px rgba(255, 255, 255, 0.3),
-                 0 0 10px rgba(0, 255, 106, 0.2); /* Use your pass color (e.g., #00FF6A) */
+                 0 0 10px rgba(0, 255, 106, 0.2); 
     opacity: 0.8;
   }
   50% {
     /* Mid-animation state - brighter glow */
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.7),
-                 0 0 20px rgba(0, 255, 106, 0.5), /* Brighter pass color */
+                 0 0 20px rgba(0, 255, 106, 0.5), 
                  0 0 30px rgba(0, 255, 106, 0.3);
     opacity: 1;
   }
@@ -500,13 +506,13 @@ p.pass-message, p.fail-message {
 
 @keyframes happyBounce {
   0%, 20%, 50%, 80%, 100% {
-    transform: translateY(0); /* Start, end, and bounce points */
+    transform: translateY(0); 
   }
   40% {
-    transform: translateY(-15px); /* Highest point of the bounce */
+    transform: translateY(-15px); 
   }
   60% {
-    transform: translateY(-8px); /* Mid-bounce down */
+    transform: translateY(-8px); 
   }
 }
 

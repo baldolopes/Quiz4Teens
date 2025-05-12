@@ -11,28 +11,27 @@ html {
 
 body {
     display: flex;
-    justify-content: center; /* Center page-container horizontally */
-    align-items: center; /* Align page-container to the top */
+    justify-content: center;
+    align-items: center;
     min-height: 100vh;
-    /* overflow: hidden; */
-    background: linear-gradient(135deg, #00FF6A, #007FFF, #FFFF00); /* Body background gradient */
-    font-family: 'Roboto', sans-serif; /* Base font */
-    padding: 0rem; /* Space around the main container */
-    color: #333; /* Default text color */
+    background: linear-gradient(135deg, #00FF6A, #007FFF, #FFFF00);
+    font-family: 'Roboto', sans-serif;
+    padding: 0rem;
+    color: #333;
 }
 
 /* --- STYLES FOR THE MAIN PAGE CONTAINER --- */
 .page-container {
-    width: 100%;              /* Occupies available width */
-    max-width: 500px;         /* Max width on mobile (adjust as needed) */
+    width: 100%;
+    max-width: 500px;
     display: flex;
-    flex-direction: column;   /* Stacks child elements vertically */
-    align-items: center;      /* Centers child elements like .about-quiz horizontally */
-    background: rgba(255, 255, 255, 0.35); /* Container background */
-    border-radius: 40px;      /* --- ADDED: Rounded corners for the main container --- */
+    flex-direction: column;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.35);
+    border-radius: 40px;
     padding-left: 0.5rem;
     padding-top: 0rem;
-    padding-bottom: 0.5rem;     /* --- ADDED: Padding at the bottom --- */
+    padding-bottom: 0.5rem;
     padding-right: 0.5rem;
     margin-top: auto;
     margin-bottom: auto;
@@ -40,11 +39,10 @@ body {
 
 /* --- Header --- */
 .top-section {
-    width: 100%;             /* Takes the width of page-container */
+    width: 100%;
     text-align: center;
     margin-bottom: 1rem;
-    color: #fff;             /* Text color for header */
-    
+    color: #fff;
 }
 
 .date-time-header {
@@ -52,7 +50,7 @@ body {
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    padding: 0rem; /* Adjusted padding */
+    padding: 0rem;
     font-size: 0.9rem;
     font-weight: bold;
     color: rgba(105, 105, 105, 0.9);
@@ -65,17 +63,16 @@ body {
 #current-time-quiz {
     margin-top: 0.5rem;
     text-align: left;
-    flex-grow: 1;        /* Allows it to take up space */
+    flex-grow: 1;
     padding-top: 0rem;
-    padding-left: 1rem;  /* Add padding instead */
-
+    padding-left: 1rem;
 }
 
 #current-date-quiz {
     margin-top: 1rem;
     text-align: right;
     padding-top: 0rem;
-    padding-right: 1rem; /* Add padding instead */
+    padding-right: 1rem;
 }
 /* --- END ADJUSTMENT --- */
 
@@ -88,6 +85,13 @@ body {
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
     position: relative;
     margin-bottom: 2.2rem;
+    animation: subtleWobble 1.5s ease-in-out infinite;
+}
+
+@keyframes subtleWobble {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-1deg); } /* Gira un poquito a la izquierda */
+  75% { transform: rotate(1deg); }  /* Gira un poquito a la derecha */
 }
 
 .welcome-title #usernameDisplay { font-weight: bold; }
@@ -95,13 +99,11 @@ body {
 .welcome-highlight {
     font-family: 'Luckiest Guy', cursive;
     font-size: 2rem;
-    color: #ffc400; /* Yellowish color for WELCOME */
+    color: #ffc400;
     display: block;
     margin: 0.3rem 0;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
-
-
 
 .thinking-face-icon {
     width: 50px;
@@ -112,18 +114,32 @@ body {
     transform: translateY(-50%);
 }
 
+.quiz-icon-left {
+    position: absolute;
+    left: 2%;
+    top: 45%;
+    transform: translateY(-50%);
+    font-size: 2.5rem;
+    color: #ffc400;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    animation: glow 4s linear infinite;
+    transition: transform 0.4s ease-in-out;
+}
+
+.quiz-icon-left:hover {
+    transform: translateY(-50%) rotate(20deg) scale(1.1);
+}
 
 .thinking-face-icon {
-    animation: 
+    animation:
         crazyBounce 4s ease infinite,
         glow 4s linear infinite;
 }
 
-
 .thinking-face-icon:hover {
-    animation: 
+    animation:
         glitch 1s linear infinite,
-        glow 4s linear infinite; 
+        glow 4s linear infinite;
 }
 
 /* Keyframes */
@@ -151,72 +167,70 @@ body {
 
 /* --- Grid Container --- */
 .quiz-options-grid {
-    /* --- MOBILE LAYOUT 2x2+1 --- */
-    display: flex;           /* Enable Flexbox */
-    flex-direction: row;     /* Items try to fit in a row */
-    flex-wrap: wrap;         /* Allow items to wrap to the next line */
-    justify-content: center; /* Center items horizontally (important for the last row) */
-    
-    /* --- END MOBILE LAYOUT 2x2+1 --- */
-    width: 100%;             /* Takes width of page-container */
-    padding: 0 0rem;       /* --- ADDED: Slight horizontal padding for grid items --- */
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    padding: 0 0rem;
     margin-left: 0.2rem;
     margin-right: 0.2rem;
-    gap: 0.5rem;             /* Space between cards */
+    gap: 0.5rem;
 }
 
 /* --- Individual Quiz Option Card --- */
 .quiz-option {
-    /* --- MOBILE LAYOUT 2x2+1 --- */
-    width: calc(50% - 0.50rem); /* Width for 2 columns (50% - half the gap) */
-    /* --- END MOBILE LAYOUT 2x2+1 --- */
-
-    max-width: 240px;        /* Max width per card on mobile */
-    border-radius: 30px;     /* Card corner rounding */
-    padding: 0.5rem 0.5rem 0.5rem 0.5rem; /* Adjusted padding */
+    width: calc(50% - 0.50rem);
+    max-width: 240px;
+    border-radius: 30px;
+    padding: 0.5rem 0.5rem 0.5rem 0.5rem;
     text-align: center;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     display: flex;
     flex-direction: column;
     align-items: center;
     position: relative;
-    color: #fff;             /* Default text color (white) */
+    color: #fff;
     margin-bottom: 2rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.quiz-option:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.4);
 }
 
 /* --- Icon Background Circle --- */
 .quiz-icon-bg {
-    width: 40px;             /* Icon circle size */
+    width: 40px;
     height: 40px;
-    border-radius: 50%;      /* Makes it a circle */
+    border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
     margin-bottom: 0.5rem;
     position: absolute;
-    top: -30px;              /* Pulls icon halfway above the card */
+    top: -30px;
     left: 50%;
-    transform: translateX(-50%); /* Centers the icon horizontally */
+    transform: translateX(-50%);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    /* Background-color is set by specific rules below */
 }
 
 .quiz-icon {
-    color: #fff;             /* Icon color */
-    font-size: 1.5rem;       /* Icon size */
+    color: #fff;
+    font-size: 1.5rem;
 }
 
 /* --- Info Section (Title & Description) --- */
 .quiz-info {
-    margin-top: 0rem;        /* Space for the icon positioned above */
-    color: inherit;          /* Inherits text color from .quiz-option */
+    margin-top: 0rem;
+    color: inherit;
 }
 
 h2.quiz-name {
     font-family: 'Bungee Inline', cursive;
     font-size: 1.1rem;
     margin-bottom: 0.5rem;
-    /* text-transform: uppercase; */
     color: inherit;
 }
 
@@ -224,11 +238,11 @@ h2.quiz-name {
 .quiz-button {
     display: inline-block;
     font-family: 'Bungee Inline', cursive;
-    background: linear-gradient(180deg, #fdd835, #f57f17); /* Button background gradient */
-    color: #423d03;                                      /* Button text color */
+    background: linear-gradient(180deg, #fdd835, #f57f17);
+    color: #423d03;
     font-size: 0.8rem;
     padding: 0.5rem 1.5rem;
-    border-radius: 25px;   /* Button corner rounding */
+    border-radius: 25px;
     text-decoration: none;
     border: none;
     cursor: pointer;
@@ -238,19 +252,18 @@ h2.quiz-name {
 }
 
 .quiz-button:hover {
-    transform: translateY(-2px); /* Hover lift effect */
+    transform: translateY(-2px);
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
     filter: brightness(1.1);
 }
 
 .quiz-button:active {
-     transform: translateY(0px); /* Active press effect */
+     transform: translateY(0px);
      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 
 /* --- Specific Quiz Colors (Applied to .quiz-option and .quiz-icon-bg) --- */
-/* --- THESE COLORS ARE UNCHANGED --- */
 .quiz-basic-numeracy { background-color: #1A237E; }
 .quiz-basic-numeracy .quiz-icon-bg { background-color: #303F9F; }
 
@@ -269,24 +282,36 @@ h2.quiz-name {
 
 /* --- Footer Note --- */
 .about-quiz {
-    background-color: #d32f2f; /* Footer background color */
+    background-color: #d32f2f;
     color: #fff;
     padding: 0.5rem 0.5rem;
     border-radius: 20px;
     text-align: center;
     font-size: 0.7em;
     margin-top: 0.2rem;
-    width: 95%;             /* Width relative to page-container */
-    max-width: 450px;       /* Max width for the footer itself */
+    width: 95%;
+    max-width: 450px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+     animation: pulseBackground 3s ease-in-out infinite,
+               pulseScale 3s ease-in-out infinite;
 }
 
+@keyframes pulseBackground {
+  0% { background-color: #2f3ad3; }
+  50% { background-color: #e57373; }
+  100% { background-color: #12a81e; }
+}
 
+@keyframes pulseScale {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+  100% { transform: scale(1); }
+}
 
 /* --- Desktop Styles --- */
 @media only screen and (min-width: 1024px) {
     .page-container {
-        max-width: 1100px; /* Adjust main container width for desktops */
+        max-width: 1100px;
         border-radius: 250px;
     }
 
@@ -294,34 +319,40 @@ h2.quiz-name {
         margin-top: 1.5rem;
         margin-bottom: 1.5rem;
         text-align: left;
-        flex-grow: 1;        /* Allows it to take up space */
+        flex-grow: 1;
         padding-top: 0rem;
-        padding-left: 1rem;  /* Add padding instead */
+        padding-left: 1rem;
         margin-left: 9rem;
     }
-    
+
     #current-date-quiz {
         margin-top: 1.5rem;
         margin-bottom: 1rem;
         text-align: right;
         padding-top: 0rem;
-        padding-right: 1rem; /* Add padding instead */
+        padding-right: 1rem;
         margin-right: 9rem;
     }
 
+    .quiz-icon-left {
+        font-size: 3.5rem;
+        left: 18%;
+    }
+
+    .thinking-face-icon {
+        right: 18%;
+    }
+
     .quiz-options-grid {
-        gap: 2rem; /* Increase gap for desktops */
-        padding: 0 1.5rem; /* Adjust horizontal padding */
+        gap: 2rem;
+        padding: 0 1.5rem;
     }
 
     .quiz-option {
-        /* Keep 3 columns, adjust width based on new gap */
-        width: calc(33.333% - 1.33rem); /* Adjusted for 2rem gap */
-        /* width: 31%; */
-        max-width: 320px; /* Allow cards to be slightly wider */
+        width: calc(33.333% - 1.33rem);
+        max-width: 320px;
     }
 
-    /* Adjust internal sizes for desktop card size */
     h2.quiz-name { font-size: 1.4rem; }
     p.quiz-description { font-size: 0.9rem; }
     .quiz-button { font-size: 1.3rem; padding: 0.8rem 2rem; }
@@ -329,26 +360,25 @@ h2.quiz-name {
     .quiz-icon { font-size: 1.8rem; }
     .quiz-info { margin-top: 35px; }
 
-    /* Other desktop adjustments */
-     .about-quiz { max-width: 600px; padding: 1rem 2rem; }
+    .about-quiz { max-width: 600px; padding: 1rem 2rem; }
     .welcome-title { font-size: 2.5rem; }
     .welcome-highlight { font-size: 4rem; }
-    .thinking-face-icon { width: 60px; height: 60px; right: 20%; }
+    .thinking-face-icon { width: 60px; height: 60px; }
     #current-time-quiz { padding-left: 2rem; }
     #current-date-quiz { padding-right: 2rem; }
     .date-time-header { font-size: 1rem; }
 
     .about-quiz {
-        background-color: #d32f2f; /* Footer background color */
+        background-color: #d32f2f;
         color: #fff;
         padding: 0.5rem 0.5rem;
         border-radius: 20px;
         text-align: center;
         font-size: 1rem;
         margin-top: 0.2rem;
-        width: 95%;             /* Width relative to page-container */
-        max-width: 450px;       /* Max width for the footer itself */
+        width: 95%;
+        max-width: 450px;
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     }
-    
+
 }

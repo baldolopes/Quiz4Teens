@@ -7,7 +7,6 @@
 
 html {
     font-size: 16px;
-    
 }
 
 body {
@@ -43,14 +42,14 @@ body {
     margin-bottom: 1rem;
 }
 
-#current-time-quiz { 
-    text-align: left; 
-    padding-left: 0.5rem; 
+#current-time-quiz {
+    text-align: left;
+    padding-left: 0.5rem;
 }
 
-#current-date-quiz { 
-    text-align: right; 
-    padding-right: 0.5rem; 
+#current-date-quiz {
+    text-align: right;
+    padding-right: 0.5rem;
 }
 
 .top-section {
@@ -69,6 +68,51 @@ h1 {
     font-family: 'Pacifico', cursive;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15);
     line-height: 1.2;
+    position: relative; /* MUY IMPORTANTE: para posicionar los iconos hijos */
+    padding-left: 2.5rem; /* Espacio para el icono izquierdo */
+    padding-right: 2.5rem; /* Espacio para el icono derecho */
+    text-align: center; /* Asegurar centrado del texto */
+}
+
+/* Estilos base comunes para ambos iconos */
+.numeracy-icon-left,
+.numeracy-icon-right {
+    position: absolute;
+    top: 50%; /* Centrado vertical */
+    transform: translateY(-50%);
+    font-size: 1.5rem; /* Tamaño del icono */
+    color: #1A237E; /* Un color azul oscuro, puedes cambiarlo */
+    opacity: 0.8; /* Ligeramente transparente */
+
+    /* Efecto automático: animación flotante suave */
+    animation: gentleFloatIcon 5s ease-in-out infinite;
+}
+
+/* Posición específica icono izquierdo */
+.numeracy-icon-left {
+    left: 0.5rem; /* Distancia desde el borde izquierdo del h1 */
+}
+
+/* Posición específica icono derecho */
+.numeracy-icon-right {
+    right: 0.5rem; /* Distancia desde el borde derecho del h1 */
+}
+
+/* --- Keyframes para la animación flotante de los iconos --- */
+@keyframes gentleFloatIcon {
+  0%, 100% {
+    /* Combinamos la traslación del centrado con la del flote */
+    transform: translateY(-50%) translateY(0);
+  }
+  50% {
+    transform: translateY(-50%) translateY(-3px); /* Sube 3px */
+  }
+}
+
+@keyframes subtleWobble {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-1deg); } /* Gira un poquito a la izquierda */
+  75% { transform: rotate(1deg); }  /* Gira un poquito a la derecha */
 }
 
 #usernameDisplay {
@@ -85,21 +129,21 @@ h1 {
     line-height: 1.2;
     font-weight: bold;
 }
-.score-label { 
-    font-weight: normal; 
-    font-size: 1.1rem; 
-    color: #555; 
-    margin-bottom: 3px; 
+.score-label {
+    font-weight: normal;
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 3px;
     font-weight: bold;
 }
 
-.score-results { 
-    color: #1a1a1a; 
+.score-results {
+    color: #1a1a1a;
     background-color: rgba(220, 220, 220, 0.7);
-    padding: 0.3rem 0.6rem; 
-    border-radius: 5px; 
-    display: inline-block; 
-    margin: 0 3px; 
+    padding: 0.3rem 0.6rem;
+    border-radius: 5px;
+    display: inline-block;
+    margin: 0 3px;
 }
 
 .progress-container {
@@ -112,27 +156,27 @@ h1 {
     place-items: center;
 }
 
-.progress-bar { 
-    width: 80%; 
-    height: 18px; 
-    background-color: #e9ecef; 
-    border-radius: 8px; 
-    overflow: hidden; 
-    margin-top: 4px; 
-    align-items: center; 
-    justify-content: center; 
+.progress-bar {
+    width: 80%;
+    height: 18px;
+    background-color: #e9ecef;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-top: 4px;
+    align-items: center;
+    justify-content: center;
 }
 
-.progress-value { 
-    display: block; 
-    width: 0%; 
-    height: 100%; 
-    background-color: #e67e22; 
-    color: white; 
-    text-align: center; 
-    line-height: 16px; 
+.progress-value {
+    display: block;
+    width: 0%;
+    height: 100%;
+    background-color: #e67e22;
+    color: white;
+    text-align: center;
+    line-height: 16px;
     font-size: 0.8em;
-    transition: width 0.5s ease-in-out; 
+    transition: width 0.5s ease-in-out;
 }
 
 /* --- Question Area --- */
@@ -144,7 +188,7 @@ h1 {
     text-align: left;
     display: flex;
     flex-direction: column;
-    background-color: #00008B; /* Dark blue background */
+    background-color: #00008B;
 }
 
 .question-text {
@@ -162,21 +206,20 @@ h1 {
     display: flex;
     flex-direction: column;
     align-items: stretch;
-    gap: 8px; /* Space between options */
+    gap: 8px;
 }
 
-.option { /* Wrapper for each label */
+.option {
     font-size: 1rem;
     color: #494949;
 }
 
 .option label {
     cursor: pointer;
-    display: flex;            /* Use flex to align radio, text, and feedback message */
-    align-items: center;      /* Vertically align items within the label */
-    /* justify-content: space-between; <-- Only if feedback should be far right */
-    padding: 8px 10px;        /* Reduced padding */
-    border: 2px solid #ddd;   /* Border for the label */
+    display: flex;
+    align-items: center;
+    padding: 8px 10px;
+    border: 2px solid #ddd;
     border-radius: 8px;
     transition: background-color 0.2s ease, border-color 0.2s ease;
     background-color: #f8f9fa;
@@ -186,8 +229,7 @@ h1 {
 
 .option label.disabled-option {
     cursor: default;
-    /* opacity: 1.0; */
-    pointer-events: none; /* Prevent further clicks */
+    pointer-events: none;
 }
 
 .option label:hover:not(.disabled-option) {
@@ -196,51 +238,51 @@ h1 {
 }
 
 .option label.correct {
-    background-color: #f2ffc4;   /* VERDE MÁS VIVO para el fondo */
-    border-color: #00b336;     /* Borde verde más oscuro */
+    background-color: #f2ffc4;
+    border-color: #00b336;
     border-width: 3px;
-    color: #363636;            /* --- AÑADIDO: Texto de la opción en BLANCO --- */
+    color: #363636;
     font-weight: bold;
 }
 
 .option label.incorrect {
-    background-color: #ffffff;   /* ROJO MÁS VIVO para el fondo */
-    border-color: #b02a37;     /* Borde rojo más oscuro */
+    background-color: #ffffff;
+    border-color: #b02a37;
      border-width: 3px;
-    color: #3f3f3f;            /* --- AÑADIDO: Texto de la opción en BLANCO --- */
+    color: #3f3f3f;
     font-weight: bold;
 }
 
 .option input[type="radio"] {
     margin-right: 8px;
     vertical-align: middle;
-    transform: scale(0.95); /* Slightly larger radio */
-    flex-shrink: 0; /* Prevent radio from shrinking */
+    transform: scale(0.95);
+    flex-shrink: 0;
 }
 
 /* --- STYLES FOR INLINE FEEDBACK MESSAGE (INSIDE LABEL) --- */
-.option-text-content { /* This span is created by JS to wrap the option's text */
-    flex-grow: 1; /* Allows it to take up available space before feedback */
-    text-align: left; /* Ensure option text is left-aligned */
+.option-text-content {
+    flex-grow: 1;
+    text-align: left;
 }
 
 .option-feedback-message {
     font-size: 0.8em;
     font-weight: bold;
-    margin-left: auto; /* Pushes it to the right if label is flex */
+    margin-left: auto;
     padding: 2px 5px;
     border-radius: 3px;
-    white-space: nowrap; /* Prevent wrapping */
-    flex-shrink: 0; /* Prevent feedback message from shrinking */
+    white-space: nowrap;
+    flex-shrink: 0;
 }
 
 .option-feedback-message.correct-text {
-    color: #008d07; /* Green text */
+    color: #008d07;
     font-size: 0.9rem;
 }
 
 .option-feedback-message.incorrect-text {
-    color: #cc0014; /* Red text */
+    color: #cc0014;
     font-size: 1rem;
 }
 /* --- END INLINE FEEDBACK STYLES --- */
@@ -248,7 +290,7 @@ h1 {
 
 /* --- STYLES FOR "NEXT QUESTION" BUTTON --- */
 .quiz-action-button {
-    background-color: #007FFF; /* Example: Blue for Next button */
+    background-color: #007FFF;
     color: #fff;
     padding: 10px 22px;
     border: none;
@@ -259,11 +301,11 @@ h1 {
     margin-top: 1rem;
     align-self: center;
     font-weight: bold;
-    display: none; /* Initially hidden by JS or this class */
+    display: none;
 }
 
 .quiz-action-button.visible {
-    display: inline-block; /* Class added by JS to show it */
+    display: inline-block;
 }
 
 .quiz-action-button:hover:not(:disabled) {
@@ -279,7 +321,7 @@ h1 {
 /* --- END NEXT QUESTION BUTTON STYLES --- */
 
 
-/* --- Validation Message (No changes from previous version) --- */
+/* --- Validation Message --- */
 .validation-error {
     color: #d9534f;
     font-weight: bold;
@@ -290,7 +332,7 @@ h1 {
     font-size: 0.9em;
 }
 
-/* --- Final Results Screen Styles (No changes from previous version) --- */
+/* --- Final Results Screen Styles --- */
 #question-container h2 { text-align: center; margin-bottom: 0.8rem; font-size: 1.3rem; color: #ecffa5; }
 #question-container p { text-align: center; font-size: 1em; margin-bottom: 0.6rem; color: #eeeeee; }
 #question-container p.quiz-completion-tag { font-size: 1.2em; margin-top: 1rem; margin-bottom: 1rem; font-weight: bold; }
@@ -305,31 +347,24 @@ h1 {
     margin-top: 1rem;
     margin-bottom: 1rem;
     font-weight: bold;
-    line-height: 1.4; /* Añadido para mejor espaciado con <br> */
-    /* El color principal viene de .pass-message o .fail-message */
+    line-height: 1.4;
 }
 
-.pass-message { 
-    color: #28a745; 
+.pass-message {
+    color: #28a745;
 }
 .fail-message { color: #dc3545; }
 
 /* --- AÑADIDO: Estilos específicos para la palabra resaltada --- */
 .result-highlight-word {
-    font-family: 'Luckiest Guy', cursive; /* Ejemplo: Usar una fuente diferente */
-    font-size: 1.5em; /* Ejemplo: Hacerla más grande que el resto del mensaje */
+    font-family: 'Luckiest Guy', cursive;
+    font-size: 1.5em;
     color: #00FF6A;
-    /* color: #ff9900; */ /* Ejemplo: Darle un color diferente (sobrescribirá el color de .pass-message/.fail-message) */
-    /* text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); */ /* Ejemplo: Añadir sombra */
-    display: block; /* Hace que ocupe su propia línea si se desea, además del <br> */
+    display: block;
     margin-top: 0rem;
-    margin-bottom: 0rem; /* Espacio después de la palabra resaltada */
-
+    margin-bottom: 0rem;
     padding-bottom: 0rem;
-    /* ¡Añade cualquier otro estilo que desees! */
     animation: confettiExplosion 0.7s ease-out infinite forwards;
-    /* animation: happyBounce 1.5s ease-in-out infinite; */
-    
 }
 
 .result-secondary-text{
@@ -340,20 +375,14 @@ h1 {
 }
 
 .result-highlight-word-sorry {
-  font-family: 'Luckiest Guy', cursive; /* Ejemplo: Usar una fuente diferente */
-  font-size: 1.5em; /* Ejemplo: Hacerla más grande que el resto del mensaje */
+  font-family: 'Luckiest Guy', cursive;
+  font-size: 1.5em;
   color: #ff0000;
-  /* color: #ff9900; */ /* Ejemplo: Darle un color diferente (sobrescribirá el color de .pass-message/.fail-message) */
-  /* text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); */ /* Ejemplo: Añadir sombra */
-  display: block; /* Hace que ocupe su propia línea si se desea, además del <br> */
+  display: block;
   margin-top: 0rem;
-  margin-bottom: 0rem; /* Espacio después de la palabra resaltada */
-
+  margin-bottom: 0rem;
   padding-bottom: 0rem;
-  /* ¡Añade cualquier otro estilo que desees! */
   animation: happyBounce 1.7s infinite;
-  /* animation: happyBounce 1.5s ease-in-out infinite; */
-  
 }
 
 .result-secondary-text-sorry{
@@ -367,20 +396,20 @@ h1 {
 @media only screen and (min-width: 1024px) {
 
   body {
-      padding: 1.5rem; /* More padding around container */
-      justify-content: center; /* Can vertically center on large screens if desired */
+      padding: 1.5rem;
+      justify-content: center;
   }
 
   .quiz-container {
-      max-width: 1100px; /* Wider container */
-      padding: 1.5rem;  /* More internal padding */
+      max-width: 1100px;
+      padding: 1.5rem;
       border-radius: 250px;
       margin-bottom: 1rem;
   }
 
   .date-time-header {
-      padding: 0.3rem 1rem; /* Adjust padding */
-      font-size: 1rem;    /* Larger font */
+      padding: 0.3rem 1rem;
+      font-size: 1rem;
       margin-bottom: 0.8rem;
   }
   #current-time-quiz { padding-left: 1rem; margin-left: 8rem; }
@@ -391,25 +420,43 @@ h1 {
       margin-bottom: 1.2rem;
   }
 
-  h1 { /* Desktop Quiz Title */
-      font-size: 1.8rem; /* Larger title */
-      margin-bottom: 0.8rem;
-  }
+  .numeracy-icon-left,
+.numeracy-icon-right {
+    position: absolute;
+    top: 50%; /* Centrado vertical */
+    transform: translateY(-50%);
+    font-size: 1.5rem; /* Tamaño del icono */
+    color: #1A237E; /* Un color azul oscuro, puedes cambiarlo */
+    opacity: 0.8; /* Ligeramente transparente */
 
-  .score-container { /* Desktop Score */
-      font-size: 1.1rem; /* Larger text */
+    /* Efecto automático: animación flotante suave */
+    animation: gentleFloatIcon 5s ease-in-out infinite;
+}
+
+/* Posición específica icono izquierdo */
+.numeracy-icon-left {
+    margin-left: 10.5rem; /* Distancia desde el borde izquierdo del h1 */
+}
+
+/* Posición específica icono derecho */
+.numeracy-icon-right {
+    margin-right: 10.5rem; /* Distancia desde el borde derecho del h1 */
+}
+
+  .score-container {
+      font-size: 1.1rem;
       margin-bottom: 0.5rem;
   }
   .score-results { padding: 0.4rem 0.8rem; }
 
-  .progress-container { /* Desktop Progress */
+  .progress-container {
       margin-top: 0.8rem;
-      font-size: 1.1rem; /* Larger text */
+      font-size: 1.1rem;
       margin-bottom: 1.2rem;
   }
   .progress-bar {
-      width: 60%; /* Keep centered or make 100% */
-      height: 20px; /* Slightly taller */
+      width: 60%;
+      height: 20px;
       border-radius: 10px;
       margin-top: 6px;
   }
@@ -417,20 +464,17 @@ h1 {
 
   /* --- Desktop Question Area --- */
   #question-container {
-    width: 70%;         /* Opcional: Usa % o mantenlo fijo */
-    max-width: 650px;   /* ESTABLECE UN ANCHO MÁXIMO PARA DESKTOP */
-                       /* (Menor que el max-width de .quiz-container) */
-    margin-left: auto;   /* Mantiene centrado */
-    margin-right: auto;  /* Mantiene centrado */
-    margin-bottom: 1.2rem;/* Ajusta margen inferior para desktop */
-    /* --- FIN MODIFICADO/AÑADIDO --- */
-
-    padding: 1.2rem 1.5rem; /* Mantiene padding aumentado */
-    border-radius: 20px;   /* Mantiene border-radius aumentado */
+    width: 70%;
+    max-width: 650px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1.2rem;
+    padding: 1.2rem 1.5rem;
+    border-radius: 20px;
   }
 
-  .question-text { /* Desktop Question Text */
-      font-size: 1.3rem; /* Larger question text */
+  .question-text {
+      font-size: 1.3rem;
       line-height: 1.4;
       margin-bottom: 1.2rem;
   }
@@ -438,40 +482,40 @@ h1 {
   /* --- Desktop Options --- */
   .options-container {
       margin-bottom: 1.2rem;
-      gap: 10px; /* Slightly more gap */
+      gap: 10px;
   }
 
-  .option { /* Desktop Option Wrapper */
-      font-size: 1.1em; /* Larger base font for options */
+  .option {
+      font-size: 1.1em;
   }
 
-  .option label { /* Desktop Option Label */
-      padding: 12px 18px; /* More padding */
-      border-width: 2px; /* Keep border thickness */
+  .option label {
+      padding: 12px 18px;
+      border-width: 2px;
       border-radius: 10px;
   }
 
   .option input[type="radio"] {
       margin-right: 10px;
-      transform: scale(1); /* Normal size radio */
+      transform: scale(1);
   }
 
-  .option-feedback-message { /* Desktop Feedback Message */
-      font-size: 0.9em; /* Larger feedback text */
+  .option-feedback-message {
+      font-size: 0.9em;
       margin-left: 12px;
   }
 
   /* --- Desktop Action Button --- */
   .quiz-action-button {
-      padding: 12px 30px; /* More padding */
-      font-size: 1.2em; /* Larger text */
+      padding: 12px 30px;
+      font-size: 1.2em;
       margin-top: 1.5rem;
       border-radius: 10px;
   }
 
   /* --- Desktop Validation Message --- */
   .validation-error {
-      font-size: 1em; /* Larger text */
+      font-size: 1em;
       margin-top: 0.8rem;
       margin-bottom: 0.8rem;
   }
@@ -482,116 +526,68 @@ h1 {
   #question-container p.quiz-completion-tag { font-size: 1.4em; margin: 1.5rem 0; }
   .results-button { margin-top: 1.5rem; }
   .results-button button { font-size: 1.2em; padding: 12px 24px; }
-  .result-highlight-word { font-size: 1.8em; /* Increase size */ }
-  .result-secondary-text{ font-size: 1.3em; /* Increase size */ }
-  .result-highlight-word-sorry { font-size: 1.8em; /* Increase size */ }
-  .result-secondary-text-sorry{ font-size: 1.3em; /* Increase size */ }
+  .result-highlight-word { font-size: 1.8em; }
+  .result-secondary-text{ font-size: 1.3em; }
+  .result-highlight-word-sorry { font-size: 1.8em; }
+  .result-secondary-text-sorry{ font-size: 1.3em; }
 
-} 
+}
 
 /* --- Keyframes para Animaciones --- */
 @keyframes happyBounce {
     0%, 20%, 50%, 80%, 100% {
-      transform: translateY(0); /* Posición normal */
+      transform: translateY(0);
     }
     40% {
-      transform: translateY(-8px); /* Salto pequeño hacia arriba */
+      transform: translateY(-8px);
     }
     60% {
-      transform: translateY(-4px); /* Mitad del rebote */
+      transform: translateY(-4px);
     }
   }
 
   @keyframes celebrateGlow {
     0%, 100% {
-      text-shadow: 0 0 5px rgba(0, 255, 106, 0.4), 0 0 10px rgba(0, 255, 106, 0.2); /* Brillo base */
+      text-shadow: 0 0 5px rgba(0, 255, 106, 0.4), 0 0 10px rgba(0, 255, 106, 0.2);
     }
     50% {
-      text-shadow: 0 0 10px rgba(0, 255, 106, 1), 0 0 20px rgba(0, 255, 106, 0.8), 0 0 30px rgba(0, 255, 106, 0.6); /* Brillo más intenso y extendido */
+      text-shadow: 0 0 10px rgba(0, 255, 106, 1), 0 0 20px rgba(0, 255, 106, 0.8), 0 0 30px rgba(0, 255, 106, 0.6);
     }
   }
 
   @keyframes pulse {
     0% {
-      transform: scale(1); /* Tamaño normal */
+      transform: scale(1);
       opacity: 0.9;
     }
     50% {
-      transform: scale(1.08); /* Ligeramente más grande */
+      transform: scale(1.08);
       opacity: 1;
     }
     100% {
-      transform: scale(1); /* Vuelve a tamaño normal */
+      transform: scale(1);
       opacity: 0.9;
     }
   }
 
-  /* --- Keyframes para Animaciones --- */
 @keyframes confettiExplosion {
     0% {
-      transform: scale(1);
-      text-shadow:
-        0 0 2px #00FF6A, /* Base glow */
-        0 0 4px #00FF6A;
-    }
-    25% {
-      transform: scale(1.05) rotate(-2deg);
-      text-shadow:
-        0 0 5px #fff, /* White flash */
-        0 0 10px #fff,
-        3px 3px 3px #ffcc00, /* Yellow bits */
-        -3px -3px 3px #00ccff, /* Blue bits */
-        3px -3px 3px #ff66cc; /* Pink bits */
-    }
-    50% {
-       transform: scale(0.98) rotate(1deg);
-        text-shadow:
-        0 0 5px #00FF6A,
-        0 0 10px #00FF6A,
-        -3px 3px 3px #ffcc00,
-        3px -3px 3px #00ccff,
-        -3px -3px 3px #ff66cc;
-    }
-    75% {
-        transform: scale(1.02) rotate(3deg);
-        text-shadow:
-        0 0 8px #fff,
-        0 0 15px #fff,
-        2px -2px 3px #ffcc00,
-        -2px 2px 3px #00ccff,
-        2px 2px 3px #ff66cc;
-    }
-    100% {
-      transform: scale(1) rotate(0deg);
-      text-shadow:
-        0 0 2px #00FF6A,
-        0 0 4px #00FF6A;
-    }
-  }
-
-  /* --- Keyframes para Animaciones --- */
-
-@keyframes confettiExplosion {
-    0% {
-      /* Estado inicial: tamaño normal, sombra base sutil */
       transform: scale(1);
       text-shadow: 0 0 2px rgba(0, 255, 106, 0.7), 0 0 4px rgba(0, 255, 106, 0.5);
       opacity: 1;
     }
     25% {
-      /* Inicio explosión: crece, rota un poco, aparecen sombras de confeti */
       transform: scale(1.2) rotate(-3deg);
       text-shadow:
-        0 0 5px #fff, /* Flash blanco */
+        0 0 5px #fff,
         0 0 10px #fff,
-        3px 3px 0px #ffeb3b, /* Amarillo */
-        -3px -3px 0px #03a9f4, /* Azul */
-        3px -3px 0px #e91e63, /* Rosa */
-        -3px 3px 0px #ff9800; /* Naranja */
+        3px 3px 0px #ffeb3b,
+        -3px -3px 0px #03a9f4,
+        3px -3px 0px #e91e63,
+        -3px 3px 0px #ff9800;
       opacity: 1;
     }
     50% {
-       /* Mitad: mantiene tamaño, rota al otro lado, cambia sombras */
        transform: scale(1.15) rotate(2deg);
        text-shadow:
         0 0 5px #fff,
@@ -602,13 +598,11 @@ h1 {
       opacity: 1;
     }
     80% {
-      /* Empieza a volver: tamaño casi normal, sin sombras de confeti */
       transform: scale(1.02) rotate(-1deg);
       text-shadow: 0 0 2px rgba(0, 255, 106, 0.7), 0 0 4px rgba(0, 255, 106, 0.5);
       opacity: 1;
     }
     100% {
-      /* Estado final: exactamente como el inicial */
       transform: scale(1);
       text-shadow: 0 0 2px rgba(0, 255, 106, 0.7), 0 0 4px rgba(0, 255, 106, 0.5);
       opacity: 1;
