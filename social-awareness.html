@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Basic Numeracy Quiz</title>
+    <title>Social Awareness Quiz</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bungee+Inline&family=Bungee+Shade&family=Luckiest+Guy&family=Pacifico&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="CSS/social-awareness.css">
 </head>
 <body>
@@ -14,9 +15,14 @@
         <div class="top-section">
             <div class="date-time-header">
                 <span id="current-time-quiz"></span>
+                <span class="awareness-header-icon-container">
+                    <i class="fas fa-handshake-angle awareness-header-icon"></i>
+                </span>
                 <span id="current-date-quiz"></span>
             </div>
-            <h1><span id="usernameDisplay"></span>, <br> Basic Literacy Quiz</h1>
+            <h1>
+                <span id="usernameDisplay"></span>, <br> Social Awareness Quiz
+            </h1>
             <div class="score-container">
                 <div class="score-label">Your Score:</div>
                 <div class="score-results">
@@ -30,10 +36,8 @@
         </div>
 
         <div class="questions-container" id="question-container">
-            <!-- Questions and the "Next Question" button will be inserted here by JS -->
+            <!-- Questions and the "Next Question" button will be inserted here by JavaScript -->
         </div>
-
-        <!-- Feedback container was already removed, which is correct for this approach -->
 
     </div>
 

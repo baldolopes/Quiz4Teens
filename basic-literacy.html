@@ -3,19 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Basic Numeracy Quiz</title>
+    <title>Basic Literacy Quiz</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bungee+Inline&family=Bungee+Shade&family=Luckiest+Guy&family=Pacifico&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Ensure Font Awesome is linked -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="CSS/basic-literacy.css">
 </head>
 <body>
     <div class="quiz-container">
         <div class="top-section">
+            <!-- === MODIFIED date-time-header === -->
             <div class="date-time-header">
                 <span id="current-time-quiz"></span>
+                <span class="literacy-header-icon-container">
+                    <i class="fas fa-book-reader literacy-header-icon"></i>
+                </span>
                 <span id="current-date-quiz"></span>
             </div>
+            <!-- === END MODIFIED date-time-header === -->
             <h1><span id="usernameDisplay"></span>, <br> Basic Literacy Quiz</h1>
             <div class="score-container">
                 <div class="score-label">Your Score:</div>
@@ -32,8 +39,6 @@
         <div class="questions-container" id="question-container">
             <!-- Questions and the "Next Question" button will be inserted here by JS -->
         </div>
-
-        <!-- Feedback container was already removed, which is correct for this approach -->
 
     </div>
 

@@ -1,4 +1,4 @@
-/* --- Base Styles (Mobile First for Basic Numeracy Quiz) --- */
+/* --- Base Styles (Mobile First) --- */
 * {
     margin: 0;
     padding: 0;
@@ -30,6 +30,7 @@ body {
     text-align: center;
 }
 
+/* --- Date and Time Header Styles --- */
 .date-time-header {
     display: flex;
     justify-content: space-between;
@@ -45,11 +46,43 @@ body {
 #current-time-quiz {
     text-align: left;
     padding-left: 0.5rem;
+    flex-basis: 33%;
 }
 
 #current-date-quiz {
     text-align: right;
     padding-right: 0.5rem;
+    flex-basis: 33%;
+}
+
+/* --- Styles for the new icon in the header --- */
+.awareness-header-icon-container {
+    flex-basis: 33%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.awareness-header-icon {
+    font-size: 1.8rem;
+    color: #FF8C00;
+    animation: radiateConnect 4s ease-in-out infinite;
+    cursor: default;
+}
+
+/* --- Keyframes for header icon animation --- */
+@keyframes radiateConnect {
+  0%, 100% {
+    transform: scale(1);
+    text-shadow: 0 0 0px rgba(255, 140, 0, 0);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.1);
+    text-shadow: 0 0 10px rgba(255, 140, 0, 0.7),
+                 0 0 20px rgba(255, 140, 0, 0.4);
+    opacity: 1;
+  }
 }
 
 .top-section {
@@ -74,8 +107,8 @@ h1 {
 
 @keyframes subtleWobble {
   0%, 100% { transform: rotate(0deg); }
-  25% { transform: rotate(-1deg); } /* Gira un poquito a la izquierda */
-  75% { transform: rotate(1deg); }  /* Gira un poquito a la derecha */
+  25% { transform: rotate(-1deg); }
+  75% { transform: rotate(1deg); }
 }
 
 #usernameDisplay {
@@ -318,7 +351,7 @@ h1 {
 }
 .fail-message { color: #dc3545; }
 
-/* --- AÑADIDO: Estilos específicos para la palabra resaltada --- */
+/* --- ADDED: Specific styles for highlighted word --- */
 .result-highlight-word {
     font-family: 'Luckiest Guy', cursive;
     font-size: 1.5em;
@@ -377,6 +410,17 @@ h1 {
   }
   #current-time-quiz { padding-left: 1rem; margin-left: 8rem; }
   #current-date-quiz { padding-right: 1rem; margin-right: 7rem;}
+
+  .awareness-header-icon-container {
+    flex-basis: 33%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.awareness-header-icon {
+    font-size: 3rem;
+}
 
   .top-section {
       padding: 1rem 0;
@@ -478,7 +522,7 @@ h1 {
 
 }
 
-/* --- Keyframes para Animaciones --- */
+/* --- Keyframes for Animations --- */
 @keyframes happyBounce {
     0%, 20%, 50%, 80%, 100% {
       transform: translateY(0);

@@ -33,7 +33,6 @@ body {
     margin-bottom: 5rem;
 }
 
-/* .date-time styles remain the same */
 .date-time {
     display: flex;
     justify-content: space-between;
@@ -47,20 +46,61 @@ body {
     text-align: left;
     font-size: 0.9rem;
     color: #0056b3;
-    margin-top: 0.5rem;
-    margin-bottom: 1rem;
-    flex-grow: 1;
+    flex-basis: 33%;
+    flex-grow: 0;
+    flex-shrink: 0;
 }
 
 #current-date {
     text-align: right;
     font-size: 0.9rem;
     color: #003a79;
-    margin-top: 0.5rem;
-    margin-bottom: 1rem;
     white-space: nowrap;
-    margin-left: 0.5rem;
+    flex-basis: 33%;
+    flex-grow: 0;
+    flex-shrink: 0;
 }
+
+.header-quiz-icon-container {
+    flex-basis: 33%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header-quiz-icon {
+    font-size: 2rem;
+    color: #FF6F00;
+    animation: thinkingQuizIcon 3s ease-in-out infinite;
+    cursor: default;
+}
+
+@keyframes thinkingQuizIcon {
+  0%, 100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 0.8;
+    text-shadow: 0 0 2px rgba(0,0,0,0.1);
+  }
+  20% {
+    transform: scale(1.1) rotate(-5deg);
+    opacity: 1;
+    text-shadow: 0 0 5px #FFC107, 0 0 10px rgba(255,193,7,0.5);
+  }
+  40% {
+    transform: scale(1) rotate(5deg);
+    opacity: 0.9;
+  }
+  60% {
+    transform: scale(1.1) rotate(0deg);
+    opacity: 1;
+    text-shadow: 0 0 5px #FFC107, 0 0 10px rgba(255,193,7,0.5);
+  }
+  80% {
+    transform: scale(0.95) rotate(0deg);
+    opacity: 0.85;
+  }
+}
+
 
 h1 {
     font-size: 2.5rem;
@@ -75,8 +115,8 @@ h1 {
 
 @keyframes subtleWobble {
   0%, 100% { transform: rotate(0deg); }
-  25% { transform: rotate(-1deg); } /* Gira un poquito a la izquierda */
-  75% { transform: rotate(1deg); }  /* Gira un poquito a la derecha */
+  25% { transform: rotate(-1deg); }
+  75% { transform: rotate(1deg); }
 }
 
 h2 {
@@ -111,7 +151,6 @@ form {
     padding-bottom: 1rem;
 }
 
-/* Input group styles remain the same */
 .input-group {
     position: relative;
     margin-bottom: 1.2rem;
@@ -224,6 +263,13 @@ button:active {
         white-space: nowrap;
         margin-left: 0.5rem;
     }
+
+    .header-quiz-icon {
+    font-size: 4rem;
+    color: #FF6F00;
+    animation: thinkingQuizIcon 3s ease-in-out infinite;
+    cursor: default;
+}
 
      h1 {
         font-size: 3.5rem;

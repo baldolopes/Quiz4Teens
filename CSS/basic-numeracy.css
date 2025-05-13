@@ -30,6 +30,7 @@ body {
     text-align: center;
 }
 
+/* --- Date and Time Header Styles --- */
 .date-time-header {
     display: flex;
     justify-content: space-between;
@@ -45,11 +46,52 @@ body {
 #current-time-quiz {
     text-align: left;
     padding-left: 0.5rem;
+    flex-basis: 33%;
 }
 
 #current-date-quiz {
     text-align: right;
     padding-right: 0.5rem;
+    flex-basis: 33%;
+}
+
+/* --- Styles for the new icon in the header --- */
+.numeracy-header-icon-container {
+    flex-basis: 33%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.numeracy-header-icon {
+    font-size: 1.8rem;
+    color: #00008B;
+    animation: numberCrunch 3s ease-in-out infinite;
+    cursor: default;
+}
+
+/* --- Keyframes for header icon animation --- */
+@keyframes numberCrunch {
+  0%, 100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 0.8;
+  }
+  20% {
+    transform: scale(1.15) rotate(-10deg);
+    opacity: 1;
+  }
+  40% {
+    transform: scale(0.9) rotate(10deg);
+    opacity: 0.9;
+  }
+  60% {
+    transform: scale(1.1) rotate(-5deg);
+    opacity: 1;
+  }
+  80% {
+    transform: scale(0.95) rotate(5deg);
+    opacity: 0.9;
+  }
 }
 
 .top-section {
@@ -61,57 +103,33 @@ body {
 }
 
 h1 {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     color: #333;
     margin-top: 0.2rem;
     margin-bottom: 1.5rem;
     font-family: 'Pacifico', cursive;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15);
     line-height: 1.2;
-    position: relative; 
-    padding-left: 2.5rem; 
-    padding-right: 2.5rem; 
-    text-align: center; 
+    text-align: center;
+    animation: digitalGlow 2.5s ease-in-out infinite;
 }
 
-.numeracy-icon-left,
-.numeracy-icon-right {
-    position: absolute;
-    top: 50%; 
-    transform: translateY(-50%);
-    font-size: 1.5rem; 
-    color: #1A237E; 
-    opacity: 0.8; 
-
-    /* Efecto automático: animación flotante suave */
-    animation: gentleFloatIcon 5s ease-in-out infinite;
-}
-
-/* Posición específica icono izquierdo */
-.numeracy-icon-left {
-    left: 0.5rem; /* Distancia desde el borde izquierdo del h1 */
-}
-
-/* Posición específica icono derecho */
-.numeracy-icon-right {
-    right: 0.5rem; /* Distancia desde el borde derecho del h1 */
-}
-
-/* --- Keyframes para la animación flotante de los iconos --- */
-@keyframes gentleFloatIcon {
+/* --- Keyframes for Numeracy title animation --- */
+@keyframes digitalGlow {
   0%, 100% {
-    /* Combinamos la traslación del centrado con la del flote */
-    transform: translateY(-50%) translateY(0);
+    text-shadow:
+      1px 1px 2px rgba(0, 0, 0, 0.2),
+      0 0 3px rgba(0, 0, 139, 0.3);
+    opacity: 0.9;
   }
   50% {
-    transform: translateY(-50%) translateY(-3px); /* Sube 3px */
+    text-shadow:
+      1px 1px 2px rgba(0, 0, 0, 0.3),
+      0 0 5px rgba(70, 130, 180, 0.7),
+      0 0 10px rgba(70, 130, 180, 0.5),
+      0 0 15px rgba(0, 0, 139, 0.4);
+    opacity: 1;
   }
-}
-
-@keyframes subtleWobble {
-  0%, 100% { transform: rotate(0deg); }
-  25% { transform: rotate(-1deg); } /* Gira un poquito a la izquierda */
-  75% { transform: rotate(1deg); }  /* Gira un poquito a la derecha */
 }
 
 #usernameDisplay {
@@ -354,7 +372,7 @@ h1 {
 }
 .fail-message { color: #dc3545; }
 
-/* --- AÑADIDO: Estilos específicos para la palabra resaltada --- */
+/* --- ADDED: Specific styles for highlighted word --- */
 .result-highlight-word {
     font-family: 'Luckiest Guy', cursive;
     font-size: 1.5em;
@@ -414,45 +432,25 @@ h1 {
   #current-time-quiz { padding-left: 1rem; margin-left: 8rem; }
   #current-date-quiz { padding-right: 1rem; margin-right: 7rem;}
 
+   .numeracy-header-icon-container {
+    /* Desktop styles for the container, if needed. flex-basis might be enough */
+  }
+
+  .numeracy-header-icon {
+    font-size: 3rem; /* Increased size for desktop */
+  }
+
   .top-section {
       padding: 1rem 0;
       margin-bottom: 1.2rem;
   }
 
-  .numeracy-icon-left,
-.numeracy-icon-right {
-    position: absolute;
-    top: 50%; /* Centrado vertical */
-    transform: translateY(-50%);
-    font-size: 1.5rem; /* Tamaño del icono */
-    color: #1A237E; /* Un color azul oscuro, puedes cambiarlo */
-    opacity: 0.8; /* Ligeramente transparente */
-    animation: gentleFloatIcon 5s ease-in-out infinite;
-}
-
-/* Posición específica icono izquierdo */
-.numeracy-icon-left {
-    margin-left: 10.5rem; /* Distancia desde el borde izquierdo del h1 */
-}
-
-/* Posición específica icono derecho */
-.numeracy-icon-right {
-    margin-right: 10.5rem; /* Distancia desde el borde derecho del h1 */
-}
-
-h1 {
-    font-size: 2.5rem;
-    color: #333;
-    margin-top: 0.2rem;
-    margin-bottom: 1.5rem;
-    font-family: 'Pacifico', cursive;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15);
-    line-height: 1.2;
-    position: relative; 
-    padding-left: 2.5rem; 
-    padding-right: 2.5rem; 
-    text-align: center; 
-}
+  h1 {
+      font-size: 2.5rem; /* Increased from mobile, but removed padding related to side icons */
+      /* padding-left: 0;
+      padding-right: 0; */
+      /* position: static; */ /* Reverted if it was relative only for side icons */
+  }
 
   .score-container {
       font-size: 1.1rem;
@@ -544,7 +542,7 @@ h1 {
 
 }
 
-/* --- Keyframes para Animaciones --- */
+/* --- Keyframes for Animations --- */
 @keyframes happyBounce {
     0%, 20%, 50%, 80%, 100% {
       transform: translateY(0);

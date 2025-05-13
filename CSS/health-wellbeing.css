@@ -6,8 +6,7 @@
 }
 
 html {
-    font-size: 14px; 
-    
+    font-size: 14px;
 }
 
 body {
@@ -16,58 +15,79 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center; 
+    justify-content: center;
     height: 100vh;
-    padding: 0.4rem; 
+    padding: 0.4rem;
 }
 
 .quiz-container {
-    width: 96%; 
-    max-width: 500px; 
-    background: rgba(255, 255, 255, 0.5); 
-    padding: 0.6rem; 
-    border-radius: 12px; 
+    width: 96%;
+    max-width: 500px;
+    background: rgba(255, 255, 255, 0.5);
+    padding: 0.6rem;
+    border-radius: 12px;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    margin-bottom: auto; 
+    margin-bottom: auto;
     margin-top: auto;
     text-align: center;
 }
 
-/* --- Header --- */
-.date-time-header { 
-    display: flex; 
-    justify-content: space-between; 
-    align-items: center; 
-    width: 100%; 
-    padding: 0.1rem 0.4rem; 
-    font-size: 0.9rem; 
-    font-weight: bold; 
+/* --- Date and Time Header Styles --- */
+.date-time-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0.2rem 0.5rem;
+    font-size: 0.8rem;
+    font-weight: bold;
     color: rgba(121, 121, 121, 0.9);
-    margin-bottom: 0.5rem; 
+    margin-bottom: 1rem;
 }
 
-#current-time-quiz, #current-date-quiz { 
-    margin-top: 0; 
+#current-time-quiz {
+    text-align: left;
+    padding-left: 0.5rem;
+    flex-basis: 33%;
 }
 
-#current-time-quiz { 
-    padding-left: 0.4rem; 
-    text-align: left; 
-    flex-grow: 1; 
-    
-}
-
-#current-date-quiz { 
-    padding-right: 0.4rem; 
+#current-date-quiz {
     text-align: right;
-    
+    padding-right: 0.5rem;
+    flex-basis: 33%;
 }
 
-.top-section { 
-    background: none; 
-    padding: 0.2rem 0; 
-    border-radius: 8px; 
-    margin-bottom: 0.5rem; 
+/* --- Styles for the new icon in the header --- */
+.health-header-icon-container {
+    flex-basis: 33%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.health-header-icon {
+    font-size: 1.8rem;
+    color: #3CB371;
+    animation: heartbeatEffect 1.5s ease-in-out infinite;
+    cursor: default;
+}
+
+/* --- Keyframes for header icon animation --- */
+@keyframes heartbeatEffect {
+  0% { transform: scale(1); }
+  10% { transform: scale(0.9); }
+  30% { transform: scale(1.2); }
+  50% { transform: scale(0.95); }
+  70% { transform: scale(1.1); }
+  90% { transform: scale(0.98); }
+  100% { transform: scale(1); }
+}
+
+.top-section {
+    background: none;
+    padding: 0.2rem 0;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
 }
 
 h1 {
@@ -84,288 +104,284 @@ h1 {
 
 @keyframes subtleWobble {
   0%, 100% { transform: rotate(0deg); }
-  25% { transform: rotate(-1deg); } /* Gira un poquito a la izquierda */
-  75% { transform: rotate(1deg); }  /* Gira un poquito a la derecha */
+  25% { transform: rotate(-1deg); }
+  75% { transform: rotate(1deg); }
 }
-.username-display { 
-    font-weight: bold; 
-    color: #e67e22; 
+.username-display {
+    font-weight: bold;
+    color: #e67e22;
 }
 
 /* --- Score & Progress --- */
-.score-container { 
-    font-size: 0.9em; 
-    color: #555; 
-    margin-top: 0; 
-    margin-bottom: 0.2rem; 
-    line-height: 1.1; 
-    font-weight: bold; 
+.score-container {
+    font-size: 0.9em;
+    color: #555;
+    margin-top: 0;
+    margin-bottom: 0.2rem;
+    line-height: 1.1;
+    font-weight: bold;
 }
 
-.progress-container { 
-    font-size: 1.2em; 
-    color: #444; 
-    margin-top: 0.5rem; 
-    margin-bottom: 0; 
+.progress-container {
+    font-size: 1.2em;
+    color: #444;
+    margin-top: 0.5rem;
+    margin-bottom: 0;
     font-weight: bold;
     display: grid;
-    place-items: center; 
+    place-items: center;
 }
 
-.progress-bar { 
-    width: 80%; 
-    height: 14px; 
-    background-color: #ddd; 
-    border-radius: 6px; 
-    overflow: hidden; 
-    margin-top: 3px; 
-    
+.progress-bar {
+    width: 80%;
+    height: 14px;
+    background-color: #ddd;
+    border-radius: 6px;
+    overflow: hidden;
+    margin-top: 3px;
 }
 
-.progress-value { 
-    height: 100%; 
-    background-color: #e67e22; 
-    color: white; 
-    text-align: center; 
-    line-height: 14px; font-size: 0.7em; 
-    transition: width 0.5s ease-in-out; 
-    display: block; 
-    width: 0%; 
+.progress-value {
+    height: 100%;
+    background-color: #e67e22;
+    color: white;
+    text-align: center;
+    line-height: 14px; font-size: 0.7em;
+    transition: width 0.5s ease-in-out;
+    display: block;
+    width: 0%;
 }
 
 /* --- Instructions --- */
-#instructions { 
-    
+#instructions {
     margin-left: auto;
     margin-right: auto;
-    margin-top: 1rem; 
-    margin-bottom: 1rem; 
-    padding: 0.15rem; 
-    background-color: rgba(255, 255, 255, 0.5); 
-    border-radius: 4px; 
-    font-size: 1rem; 
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    padding: 0.15rem;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 4px;
+    font-size: 1rem;
     width: 95%;
 }
 
-#instructions p { 
-    margin: 0; 
-    line-height: 1.2; 
+#instructions p {
+    margin: 0;
+    line-height: 1.2;
 }
 
 /* --- Question Area --- */
-#question-container { 
-    background-color: #3cb372d5; 
-    color: #000000; 
-    padding: 0.6rem; 
-    border-radius: 8px; 
-    margin-bottom: 0.6rem; 
-    text-align: left; 
+#question-container {
+    background-color: #3cb372d5;
+    color: #000000;
+    padding: 0.6rem;
+    border-radius: 8px;
+    margin-bottom: 0.6rem;
+    text-align: left;
 }
 
-#question-container ol { 
-    padding-left: 0.8rem; 
-    margin: 0; 
-    list-style-position: inside; 
+#question-container ol {
+    padding-left: 0.8rem;
+    margin: 0;
+    list-style-position: inside;
 }
 
-#question-container li { 
-    margin-bottom: 0.5rem; 
-    line-height: 1.2; 
-    font-size: 1rem; 
+#question-container li {
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+    font-size: 1rem;
 }
 
 /* --- Answer Box (Drop Zone) --- */
-.answer-box { 
-    width: 140px; 
-    height: 27px; 
-    border: 1px dashed #ffffff; 
-    display: inline-flex; 
-    align-items: center; 
-    justify-content: center; 
-    margin-left: 5px; 
-    vertical-align: middle; 
-    background-color: rgba(251, 255, 0, 0.5); 
-    border-radius: 3px; padding: 1px 3px; 
-    transition: background-color 0.3s ease; 
-    min-height: 24px; 
+.answer-box {
+    width: 140px;
+    height: 27px;
+    border: 1px dashed #ffffff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 5px;
+    vertical-align: middle;
+    background-color: rgba(251, 255, 0, 0.5);
+    border-radius: 3px; padding: 1px 3px;
+    transition: background-color 0.3s ease;
+    min-height: 24px;
 }
 
-.answer-box.drag-over { 
-    background-color: rgba(255, 255, 255, 0.3); 
-    border-style: solid; 
+.answer-box.drag-over {
+    background-color: rgba(255, 255, 255, 0.3);
+    border-style: solid;
 }
 
-.answer-box.correct { 
-    border: 1px solid #198754; 
-} 
+.answer-box.correct {
+    border: 1px solid #198754;
+}
 
-.answer-box.incorrect { 
-    border: 1px solid #dc3545; 
-} 
+.answer-box.incorrect {
+    border: 1px solid #dc3545;
+}
 
-.answer-box .draggable { 
-    cursor: default; 
+.answer-box .draggable {
+    cursor: default;
     margin: 0;
-    box-shadow: none; 
-    width: 100%; 
-    text-align: center; 
-    font-size: 0.8em; 
-    padding: 2px 4px; 
+    box-shadow: none;
+    width: 100%;
+    text-align: center;
+    font-size: 0.8em;
+    padding: 2px 4px;
 }
 
 
 /* --- Word Bank --- */
-#word-bank-container { 
-    margin-bottom: 0.6rem; 
+#word-bank-container {
+    margin-bottom: 0.6rem;
 }
 
-#word-bank-container p { 
-    font-weight: bold; 
-    color: #333; 
+#word-bank-container p {
+    font-weight: bold;
+    color: #333;
     margin-top: 1.5rem;
-    margin-bottom: 0.2rem; 
-    font-size: 0.9rem; 
-
+    margin-bottom: 0.2rem;
+    font-size: 0.9rem;
 }
 
-#word-bank { background-color: rgba(255, 255, 255, 0.6); 
-    padding: 0.3rem; 
-    border-radius: 4px; 
-    text-align: center; 
-    min-height: 26px; 
+#word-bank { background-color: rgba(255, 255, 255, 0.6);
+    padding: 0.3rem;
+    border-radius: 4px;
+    text-align: center;
+    min-height: 26px;
     font-size: 1.5rem;
 }
 
-.draggable { 
-    display: inline-block; 
-    padding: 3px 6px; 
-    margin: 2px; 
-    background-color: #ff9100; 
-    color: white; 
-    border-radius: 4px; 
-    cursor: grab; 
-    font-size: 1.2rem; 
-    user-select: none; 
-    transition: background-color 0.2s ease; 
+.draggable {
+    display: inline-block;
+    padding: 3px 6px;
+    margin: 2px;
+    background-color: #ff9100;
+    color: white;
+    border-radius: 4px;
+    cursor: grab;
+    font-size: 1.2rem;
+    user-select: none;
+    transition: background-color 0.2s ease;
 }
 
 .draggable:active { cursor: grabbing; }
 
 /* --- Submission Area --- */
-.submission-area { 
-    margin-top: 0.6rem; 
-    text-align: center; 
+.submission-area {
+    margin-top: 0.6rem;
+    text-align: center;
 }
 
-#submit-button { 
-    background-color: #00FF6A; 
-    color: black; 
-    font-weight: bold; 
-    padding: 7px 18px; 
-    border: none; 
-    border-radius: 4px; 
-    cursor: pointer; 
-    font-size: 1.2rem; 
-    transition: background-color 0.2s, opacity 0.2s; 
+#submit-button {
+    background-color: #00FF6A;
+    color: black;
+    font-weight: bold;
+    padding: 7px 18px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: background-color 0.2s, opacity 0.2s;
 }
 
-#submit-button:disabled { 
-    background-color: #aaa; 
-    cursor: not-allowed; 
-    opacity: 0.7; 
+#submit-button:disabled {
+    background-color: #aaa;
+    cursor: not-allowed;
+    opacity: 0.7;
 }
-#submit-button:hover:not(:disabled) { 
-    background-color: #00e05c; 
+#submit-button:hover:not(:disabled) {
+    background-color: #00e05c;
 }
 
-.validation-error { 
-    margin-top: 0.3rem; 
-    font-size: 0.8em; color: #dc3545; 
-    font-weight: bold; 
-    min-height: 1em; 
+.validation-error {
+    margin-top: 0.3rem;
+    font-size: 0.8em; color: #dc3545;
+    font-weight: bold;
+    min-height: 1em;
     text-align: center; }
 
 /* --- Results Container --- */
 #results-container {
     background-color: #00008B;
     color: #ecffa5;
-    padding: 1rem; 
+    padding: 1rem;
     border-radius: 10px;
     margin-top: 0rem;
     border: 1px solid #4e4eff;
     text-align: left;
     width: 100%;
-    max-width: 550px; 
+    max-width: 550px;
 }
-#results-container h2 { /* "Quiz Completed!" */
+#results-container h2 {
     color: #fff;
     margin-top: 0rem;
     margin-bottom: 0.6rem;
     text-align: center;
     font-family: 'Pacifico', cursive;
-    font-size: 1.5rem; 
+    font-size: 1.5rem;
     padding: 0rem;
 }
 
-#results-container h3 { /* "Review Your Answers:" */
+#results-container h3 {
     color: #eee;
-    margin-top: 0rem; 
+    margin-top: 0rem;
     margin-bottom: 0rem;
     text-align: center;
     border-top: 1px solid #4e4eff;
-    padding-top: 0.8rem; 
-    font-size: 1em; 
+    padding-top: 0.8rem;
+    font-size: 1em;
 }
-#results-container p { /* Score text */
-    font-size: 0.9em; 
-    margin-bottom: 0rem; 
+#results-container p {
+    font-size: 0.9em;
+    margin-bottom: 0rem;
     color: #eee;
     text-align: center;
 }
-#results-container hr { 
-    border: none; 
-    border-top: 1px dashed #4e4eff; 
-    margin: 0.8rem 0; 
+#results-container hr {
+    border: none;
+    border-top: 1px dashed #4e4eff;
+    margin: 0.8rem 0;
 }
 
 /* --- Styles for Pass/Fail Message SPANS --- */
-p.pass-message, p.fail-message { 
-    margin: 0.5rem 0; 
-    text-align: center; 
-    line-height: 0.8; 
+p.pass-message, p.fail-message {
+    margin: 0.5rem 0;
+    text-align: center;
+    line-height: 0.8;
 }
 
-.result-highlight-word { 
-    font-family: 'Luckiest Guy', cursive; 
-    font-size: 1.5em; 
-    display: block; 
-    margin-bottom: 0rem; 
-    padding-bottom: 0; 
+.result-highlight-word {
+    font-family: 'Luckiest Guy', cursive;
+    font-size: 1.5em;
+    display: block;
+    margin-bottom: 0rem;
+    padding-bottom: 0;
 }
-.result-highlight-word.pass-highlight { 
-    color: #00FF6A; 
-    animation: celebrateGlow 2s ease-in-out infinite; 
-}
-
-.result-highlight-word.fail-highlight { 
-    color: #ff1f1f; 
-    animation: happyBounce 1.7s infinite; 
+.result-highlight-word.pass-highlight {
+    color: #00FF6A;
+    animation: celebrateGlow 2s ease-in-out infinite;
 }
 
-.result-secondary-text { 
-    display: block; 
-    font-size: 1.1em; 
-    margin-top: 0; 
+.result-highlight-word.fail-highlight {
+    color: #ff1f1f;
+    animation: happyBounce 1.7s infinite;
+}
+
+.result-secondary-text {
+    display: block;
+    font-size: 1.1em;
+    margin-top: 0;
     font-weight: bold; }
 
-.result-secondary-text.pass-secondary { 
-    color: #6effbb; 
+.result-secondary-text.pass-secondary {
+    color: #6effbb;
 }
 
-.result-secondary-text.fail-secondary { 
-    color: #ff6b6b; 
+.result-secondary-text.fail-secondary {
+    color: #ff6b6b;
 }
-
 
 #review-section ul {
     list-style: none;
@@ -374,30 +390,30 @@ p.pass-message, p.fail-message {
 }
 
 .review-item {
-    padding: 0.4rem 0.3rem; 
-    margin-bottom: 0.4rem; 
-    border-radius: 4px; 
+    padding: 0.4rem 0.3rem;
+    margin-bottom: 0.4rem;
+    border-radius: 4px;
 }
 .review-item:last-child {
     border-bottom: none;
     margin-bottom: 0;
 }
 
-.review-item.review-correct { 
-    background-color: rgba(40, 167, 69, 0.08); 
-} 
+.review-item.review-correct {
+    background-color: rgba(40, 167, 69, 0.08);
+}
 
-.review-item.review-incorrect { 
-    background-color: rgba(220, 53, 69, 0.05); 
-} 
+.review-item.review-incorrect {
+    background-color: rgba(220, 53, 69, 0.05);
+}
 
 .review-question {
-    margin-bottom: 0.2rem !important; 
+    margin-bottom: 0.2rem !important;
     font-weight: normal !important;
     color: #dde5ff !important;
     text-align: left !important;
-    font-size: 0.85em; 
-    line-height: 1; 
+    font-size: 0.85em;
+    line-height: 1;
 }
 .review-question strong {
      font-weight: bold;
@@ -407,97 +423,95 @@ p.pass-message, p.fail-message {
 
 .review-user-answer,
 .review-correct-answer {
-    margin-left: 0.5rem; 
-    margin-bottom: 0.1rem !important; 
-    font-size: 0.8em; 
+    margin-left: 0.5rem;
+    margin-bottom: 0.1rem !important;
+    font-size: 0.8em;
     text-align: left !important;
-    line-height: 1.2; 
+    line-height: 1.2;
 }
 
-.review-user-answer { color: #c7c7c7; } 
-.review-correct-answer { color: #87ffa7; font-weight: bold; } 
+.review-user-answer { color: #c7c7c7; }
+.review-correct-answer { color: #87ffa7; font-weight: bold; }
 
-.answer-value { /* The actual answers */
+.answer-value {
     font-style: normal;
     font-weight: bold;
-    padding: 1px 4px; 
+    padding: 1px 4px;
     border-radius: 3px;
-    margin-left: 4px; 
+    margin-left: 4px;
     display: inline-block;
     border: 1px solid transparent;
 }
 .review-item.review-incorrect .review-user-answer .answer-value.user-ans {
-     color: #ffadad; 
-     background-color: rgba(183, 28, 28, 0.4); 
+     color: #ffadad;
+     background-color: rgba(183, 28, 28, 0.4);
      border-color: #dc3545;
      text-decoration: line-through;
 }
 .review-correct-answer .answer-value.correct-ans {
-     color: #a9ffbc; 
-     background-color: rgba(25, 135, 84, 0.4); 
+     color: #a9ffbc;
+     background-color: rgba(25, 135, 84, 0.4);
      border-color: #28a745;
 }
 .review-item.review-correct .review-user-answer .answer-value.user-ans {
-     color: #a9ffbc; 
-     background-color: rgba(25, 135, 84, 0.4); 
+     color: #a9ffbc;
+     background-color: rgba(25, 135, 84, 0.4);
      border-color: #28a745;
 }
 
 .review-answer-feedback {
-    margin-left: 1rem; 
-    font-size: 0.7em; 
+    margin-left: 1rem;
+    font-size: 0.7em;
     font-style: italic;
-    margin-top: 0; 
+    margin-top: 0;
     margin-bottom: 0.1rem !important;
     text-align: left !important;
     line-height: 1;
 }
-.correct-feedback { 
-    color: #90ee90; 
+.correct-feedback {
+    color: #90ee90;
 }
 
-.incorrect-feedback { 
-    color: #ff7f7f; 
+.incorrect-feedback {
+    color: #ff7f7f;
 }
-
 
 /* --- Results Button Styles --- */
-.results-button { 
-    display: flex; 
-    justify-content: center; 
-    margin-top: 1rem; 
+.results-button {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
     gap: 0.8rem;
 }
 
-.results-button button { 
-    background-color: #0d6efd; 
-    color: #fff; 
-    padding: 8px 16px; 
-    border: none; 
-    border-radius: 5px; 
-    cursor: pointer; 
-    transition: background-color 0.3s ease, transform 0.2s ease; 
-    font-size: 0.9em; 
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15); 
+.results-button button {
+    background-color: #0d6efd;
+    color: #fff;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-size: 0.9em;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
 }
 
-.results-button button:hover { 
-    background-color: #00FF6A; 
-    transform: translateY(-2px); 
+.results-button button:hover {
+    background-color: #00FF6A;
+    transform: translateY(-2px);
 }
 
 
-/* --- Keyframes for Animations */
+/* --- Keyframes for Animations --- */
 @keyframes celebrateGlow {
   0%, 100% {
     text-shadow: 0 0 5px rgba(255, 255, 255, 0.3),
-                 0 0 10px rgba(0, 255, 106, 0.2); 
+                 0 0 10px rgba(0, 255, 106, 0.2);
     opacity: 0.8;
   }
   50% {
-    /* Mid-animation state - brighter glow */
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.7),
-                 0 0 20px rgba(0, 255, 106, 0.5), 
+                 0 0 20px rgba(0, 255, 106, 0.5),
                  0 0 30px rgba(0, 255, 106, 0.3);
     opacity: 1;
   }
@@ -505,13 +519,13 @@ p.pass-message, p.fail-message {
 
 @keyframes happyBounce {
   0%, 20%, 50%, 80%, 100% {
-    transform: translateY(0); 
+    transform: translateY(0);
   }
   40% {
-    transform: translateY(-15px); 
+    transform: translateY(-15px);
   }
   60% {
-    transform: translateY(-8px); 
+    transform: translateY(-8px);
   }
 }
 
@@ -521,62 +535,63 @@ p.pass-message, p.fail-message {
 /* ========================================================== */
 @media only screen and (min-width: 1024px) {
     body {
-        padding: 1.5rem; 
+        padding: 1.5rem;
     }
 
     .quiz-container {
-        max-width: 1200px; 
+        max-width: 1200px;
         padding: 1.5rem 2rem;
         border-radius: 250px;
-        margin-top: 1.5rem;  
+        margin-top: 1.5rem;
         margin-bottom: 1.5rem;
     }
 
-    /* --- General Header--- */
     .date-time-header {
         font-size: 1.2rem;
-        padding: 0.2rem 1rem; 
+        padding: 0.2rem 1rem;
         margin-bottom: 1.5rem;
     }
-    #current-time-quiz { 
-        padding-left: 0.4rem; 
-        text-align: left; 
-        flex-grow: 1; 
-        margin-left: 10rem; 
+    #current-time-quiz {
+        padding-left: 0.4rem;
+        text-align: left;
+        flex-grow: 1;
+        margin-left: 10rem;
     }
 
-    #current-date-quiz { 
-        padding-right: 0.4rem; 
-        text-align: right; 
+    #current-date-quiz {
+        padding-right: 0.4rem;
+        text-align: right;
         margin-right: 10rem; }
 
-    h1 { font-size: 2.5rem; margin-bottom: 0.8rem; line-height: 1.3; } 
-
-    /* --- Score & Progress (Minor changes) --- */
-    .score-container { 
-        font-size: 1.05em; 
-        margin-bottom: 0.6rem; 
-    } 
-
-    .progress-container { 
-        font-size: 1.3rem; 
-        margin-top: 2rem; 
-        margin-bottom: 0.8rem; }
-
-    .progress-bar { 
-        height: 24px; 
-        margin-top: 4px; 
-        width: 40%; 
-        margin-left: auto; 
-        margin-right: auto; 
-        padding: auto;
-    } 
-
-    .progress-value { line-height: 16px; 
-        font-size: 0.8em; 
+    .health-header-icon {
+        font-size: 3rem;
     }
 
-    /* --- Question/Word Bank Areas  --- */
+    h1 { font-size: 2.5rem; margin-bottom: 0.8rem; line-height: 1.3; }
+
+    .score-container {
+        font-size: 1.05em;
+        margin-bottom: 0.6rem;
+    }
+
+    .progress-container {
+        font-size: 1.3rem;
+        margin-top: 2rem;
+        margin-bottom: 0.8rem; }
+
+    .progress-bar {
+        height: 24px;
+        margin-top: 4px;
+        width: 40%;
+        margin-left: auto;
+        margin-right: auto;
+        padding: auto;
+    }
+
+    .progress-value { line-height: 16px;
+        font-size: 0.8em;
+    }
+
     #instructions{
         font-size: 1.5rem;
     }
@@ -587,98 +602,90 @@ p.pass-message, p.fail-message {
         max-width: 600px;
         margin-left: auto;
         margin-right: auto;
-        margin-bottom: 1rem; 
+        margin-bottom: 1rem;
     }
 
-     #question-container { 
-        padding: 1rem; 
-    } 
+     #question-container {
+        padding: 1rem;
+    }
 
-    #question-container li { 
-        font-size: 1.3rem; 
+    #question-container li {
+        font-size: 1.3rem;
         margin-bottom: 0.6rem;
     }
 
-    .answer-box { 
-        width: 180px; 
+    .answer-box {
+        width: 180px;
         height: 30px;
         margin-left: 8px;
     }
 
-    /* --- Word Bank --- */
-     #word-bank-container p { 
+     #word-bank-container p {
         font-size: 1.3em;
-        margin-bottom: 0.3rem; 
-    } 
-
-    #word-bank { 
-        padding: 0.5rem; 
+        margin-bottom: 0.3rem;
     }
 
-    .draggable { 
-        font-size: 1.2em; 
+    #word-bank {
+        padding: 0.5rem;
+    }
+
+    .draggable {
+        font-size: 1.2em;
         padding: 5px 10px;
     }
 
-    /* --- Submission Area --- */
-    .submission-area { 
-        margin-top: 1rem; 
+    .submission-area {
+        margin-top: 1rem;
     }
 
-    #submit-button { 
-        font-size: 1.7rem; 
+    #submit-button {
+        font-size: 1.7rem;
         padding: 10px 28px;
     }
 
-    .validation-error { 
+    .validation-error {
         font-size: 0.85em;
     }
 
-    /* ========================================== */
-    /* --- RESULTS AREA --- */
-    /* ========================================== */
     #results-container {
-        max-width: 700px;      
-        padding: 1.5rem 2rem;  
-        margin-top: 1.5rem;    
+        max-width: 700px;
+        padding: 1.5rem 2rem;
+        margin-top: 1.5rem;
         margin-left: auto;
         margin-right: auto;
         text-align: center;
-        border-radius: 15px;   
+        border-radius: 15px;
     }
 
-    #results-container h2 { /* "Quiz Completed!" */
+    #results-container h2 {
         font-size: 1.8em;
-        margin-bottom: 0.4rem; 
+        margin-bottom: 0.4rem;
     }
 
-    #results-container p { /* Score text & Pass/Fail container */
+    #results-container p {
         font-size: 1.1em;
-        margin-bottom: 1rem;   
-        line-height: 1.3;      
+        margin-bottom: 1rem;
+        line-height: 1.3;
     }
 
-     /* Pass/Fail message specific styles */
      .result-highlight-word {
          font-size: 2em;
          display: block;
-         margin-bottom: 0.1rem;  
+         margin-bottom: 0.1rem;
      }
      .result-secondary-text {
-         font-size: 1.1em; 
+         font-size: 1.1em;
      }
 
-
-    #results-container h3 { /* "Review Your Answers:" */
+    #results-container h3 {
         font-size: 1.3em;
         margin-top: 1.2rem;
-        margin-bottom: 0.8rem; 
-        padding-top: 0.8rem;   
+        margin-bottom: 0.8rem;
+        padding-top: 0.8rem;
         border-top: 1px solid #4e4eff;
         text-align: center;
     }
 
-     /* --- Review Section Items ( --- */
      #review-section ul {
          text-align: left;
          padding: 0;
@@ -686,49 +693,46 @@ p.pass-message, p.fail-message {
      }
 
     .review-item {
-        padding: 0.4rem 0.6rem;   
-        margin-bottom: 0.4rem;  
+        padding: 0.4rem 0.6rem;
+        margin-bottom: 0.4rem;
         border-radius: 6px;
-        
     }
      .review-item:last-child {
-         margin-bottom: 0; 
+         margin-bottom: 0;
      }
 
     .review-question {
-        font-size: 0.95em; 
-        margin-bottom: 0.15rem !important; 
-        line-height: 1.25; 
+        font-size: 0.95em;
+        margin-bottom: 0.15rem !important;
+        line-height: 1.25;
     }
     .review-question strong {
-        font-size: 1em; 
+        font-size: 1em;
     }
 
     .review-user-answer,
     .review-correct-answer {
-        font-size: 0.9em; 
-        margin-left: 0.8rem; 
+        font-size: 0.9em;
+        margin-left: 0.8rem;
         margin-bottom: 0.05rem !important;
-        line-height: 1.2; 
+        line-height: 1.2;
     }
 
     .answer-value {
-        padding: 2px 6px; 
-        font-size: 1em;   
+        padding: 2px 6px;
+        font-size: 1em;
         margin-left: 5px;
     }
-    
 
-    /* --- Results Buttons --- */
     .results-button {
         display: flex;
         justify-content: center;
-        gap: 1rem;             
-        margin-top: 1.2rem;    
+        gap: 1rem;
+        margin-top: 1.2rem;
     }
     .results-button button {
-        font-size: 0.95em;     
-        padding: 8px 18px;     
+        font-size: 0.95em;
+        padding: 8px 18px;
     }
 
 } /* --- End of Desktop Media Query --- */

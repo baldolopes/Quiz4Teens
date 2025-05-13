@@ -59,7 +59,6 @@ body {
     margin-bottom: 1.2rem;
 }
 
-/* --- ADJUSTED: Removing large fixed margins for date/time --- */
 #current-time-quiz {
     margin-top: 0.5rem;
     text-align: left;
@@ -74,7 +73,6 @@ body {
     padding-top: 0rem;
     padding-right: 1rem;
 }
-/* --- END ADJUSTMENT --- */
 
 .welcome-title {
     font-family: 'Pacifico', cursive;
@@ -90,8 +88,8 @@ body {
 
 @keyframes subtleWobble {
   0%, 100% { transform: rotate(0deg); }
-  25% { transform: rotate(-1deg); } /* Gira un poquito a la izquierda */
-  75% { transform: rotate(1deg); }  /* Gira un poquito a la derecha */
+  25% { transform: rotate(-1deg); }
+  75% { transform: rotate(1deg); }
 }
 
 .welcome-title #usernameDisplay { font-weight: bold; }
@@ -112,6 +110,15 @@ body {
     top: 45%;
     right: 2%;
     transform: translateY(-50%);
+    animation:
+        crazyBounce 4s ease infinite,
+        glow 4s linear infinite;
+}
+
+.thinking-face-icon:hover {
+    animation:
+        glitch 1s linear infinite, 
+        glow 4s linear infinite; 
 }
 
 .quiz-icon-left {
@@ -128,18 +135,6 @@ body {
 
 .quiz-icon-left:hover {
     transform: translateY(-50%) rotate(20deg) scale(1.1);
-}
-
-.thinking-face-icon {
-    animation:
-        crazyBounce 4s ease infinite,
-        glow 4s linear infinite;
-}
-
-.thinking-face-icon:hover {
-    animation:
-        glitch 1s linear infinite,
-        glow 4s linear infinite;
 }
 
 /* Keyframes */
@@ -263,7 +258,7 @@ h2.quiz-name {
 }
 
 
-/* --- Specific Quiz Colors (Applied to .quiz-option and .quiz-icon-bg) --- */
+/* --- Specific Quiz Colors --- */
 .quiz-basic-numeracy { background-color: #1A237E; }
 .quiz-basic-numeracy .quiz-icon-bg { background-color: #303F9F; }
 
@@ -297,9 +292,9 @@ h2.quiz-name {
 }
 
 @keyframes pulseBackground {
-  0% { background-color: #2f3ad3; }
+  0% { background-color: #2f3ad3; } 
   50% { background-color: #e57373; }
-  100% { background-color: #12a81e; }
+  100% { background-color: #12a81e; } 
 }
 
 @keyframes pulseScale {
@@ -341,6 +336,8 @@ h2.quiz-name {
 
     .thinking-face-icon {
         right: 18%;
+        width: 60px; 
+        height: 60px;
     }
 
     .quiz-options-grid {
@@ -354,31 +351,22 @@ h2.quiz-name {
     }
 
     h2.quiz-name { font-size: 1.4rem; }
-    p.quiz-description { font-size: 0.9rem; }
     .quiz-button { font-size: 1.3rem; padding: 0.8rem 2rem; }
     .quiz-icon-bg { width: 60px; height: 60px; top: -30px; }
     .quiz-icon { font-size: 1.8rem; }
     .quiz-info { margin-top: 35px; }
 
-    .about-quiz { max-width: 600px; padding: 1rem 2rem; }
     .welcome-title { font-size: 2.5rem; }
     .welcome-highlight { font-size: 4rem; }
-    .thinking-face-icon { width: 60px; height: 60px; }
-    #current-time-quiz { padding-left: 2rem; }
+    /* .thinking-face-icon width/height moved up */
+    #current-time-quiz { padding-left: 2rem; } 
     #current-date-quiz { padding-right: 2rem; }
     .date-time-header { font-size: 1rem; }
 
     .about-quiz {
-        background-color: #d32f2f;
-        color: #fff;
-        padding: 0.5rem 0.5rem;
-        border-radius: 20px;
-        text-align: center;
+        max-width: 600px;
+        padding: 1rem 2rem; 
         font-size: 1rem;
-        margin-top: 0.2rem;
-        width: 95%;
-        max-width: 450px;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      
     }
-
 }

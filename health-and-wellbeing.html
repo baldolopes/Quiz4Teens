@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scottish History Quiz (Dynamic)</title> <!-- Changed title slightly -->
+    <title>Health & Wellbeing Quiz</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bungee+Inline&family=Bungee+Shade&family=Luckiest+Guy&family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bungee+Inline&family=Bungee+Shade&family=Luckiest+Guy&family=Pacifico&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="CSS/health-wellbeing.css">
 </head>
 <body>
@@ -15,11 +16,14 @@
         <div class="top-section">
             <div class="date-time-header">
                 <span id="current-time-quiz"></span>
+                <span class="health-header-icon-container">
+                    <i class="fas fa-heart-pulse health-header-icon"></i>
+                </span>
                 <span id="current-date-quiz"></span>
             </div>
             <h1><span class="username-display">Guest</span>, <br> Health & Wellbeing Quiz</h1>
             <div class="score-container">
-                <!-- Score will be shown in results -->
+                <!-- Score will be shown in results by JavaScript -->
             </div>
             <div class="progress-container">
                 Your Progress: <div class="progress-bar"><span class="progress-value">0% completed</span></div>
@@ -33,14 +37,14 @@
              </div>
 
              <div id="question-container">
-                 <!-- Questions will be generated here by JS -->
-                 <ol id="question-list"></ol> <!-- EMPTIED LIST WITH ID -->
+                 <!-- Questions will be generated here by JavaScript -->
+                 <ol id="question-list"></ol>
              </div>
 
              <div id="word-bank-container">
                  <p>Word Bank (Drag these to the boxes above):</p>
-                 <!-- Draggable items will be generated here by JS -->
-                 <div id="word-bank"></div> <!-- EMPTIED DIV -->
+                 <!-- Draggable items will be generated here by JavaScript -->
+                 <div id="word-bank"></div>
              </div>
 
              <div class="submission-area">
@@ -51,7 +55,7 @@
 
          <!-- Container for results -->
          <div id="results-container" style="display: none;">
-              <!-- Results will be populated here by JS -->
+              <!-- Results will be populated here by JavaScript -->
          </div>
 
     </div> <!-- End of quiz-container -->
